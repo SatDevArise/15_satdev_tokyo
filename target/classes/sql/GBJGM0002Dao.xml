@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.arise.gbj.dao.GBJGM002Dao">
+    <resultMap id="resultGBJGM002Dto" type="jp.arise.gbj.dto.GBJGM002Dto">
+        <result column="username" property="user"/>
+        <result column="userid" property="userId"/>
+    </resultMap>
+
+    <select id="getUser" resultMap="resultGBJGM002Dto">
+        SELECT username
+        FROM test
+        WHERE userid = #{userId}
+    </select>
+</mapper>
