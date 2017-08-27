@@ -100,6 +100,19 @@ public class GBJGM002Controller {
 	}
 
 	/**
+	 * 削除処理
+	 * @param GBJGM002Form
+	 * @return GBJGM002.jsp
+	 * @throws
+	 * @author AtsushiNishizawa
+	 * @since 2017/07/177
+	 */
+	@RequestMapping(value = "/initGbjGm002",params = "deleteGbjGm002", method = RequestMethod.POST)
+	public String deleteGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+		return "GBJGM002";
+	}
+
+	/**
 	 * 戻る処理（遷移先：メニュー画面）
 	 * @param GBJGM002Form
 	 * @return COMGM002Controller.java

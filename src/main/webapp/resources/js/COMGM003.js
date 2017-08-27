@@ -1,8 +1,9 @@
 /**
- * SIJGM001 社員情報一覧表示画面用JavaScript
+ * COMGM003 検索共通画面用JavaScript
  * @author AtsushiNishizawa
  * @since 2017/07/17
  */
+
 
 
 
@@ -30,14 +31,4 @@ return false;
 // OK場合はtrueを返す
 return true;
 }
-}
-
-/**
- * 検索共通画面呼び出し処理
- */
-function openCOMGM003()
-{
-	window.open( 'initComGm003',
-			     '_blank',
-			     'width=800,height=600,menubar=no,toolbar=no,location=no,resizable=no,alwaysRaised=yes,dependent=yes' );
 }

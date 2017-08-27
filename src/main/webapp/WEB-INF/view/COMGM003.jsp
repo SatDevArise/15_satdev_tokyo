@@ -10,16 +10,14 @@
 		<meta charset="utf-8">
 		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 		<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
-		<script src="<c:url value="/resources/js/SIJGM001.js" />"></script>
-		<title>SIJGM001 社員情報一覧表示画面</title>
+		<script src="<c:url value="/resources/js/COMGM003.js" />"></script>
+		<title>COMGM003 検索共通画面</title>
 	</head>
 	<body>
-		<spring:url value="/initSijGm001" var="actionUrl"/>
-    	<form:form modelAttribute="SIJGM001Form">
+	   <spring:url value="/initComGm003" var="actionUrl"/>
+    	<form:form modelAttribute="COMGM003Form">
     		<form:input path="user" />
-    		<input type="submit" class="btn btn-primary" value="編集" name="goToSijGm002" formaction="${actionUrl}">
-    	    <input type="button" class="btn btn-default" value="検索" onclick="openCOMGM003();">
-    		<input type="submit" class="btn btn-warning" value="戻る" name="backComGm002" formaction="${actionUrl}">
+		 	<input type="submit" class="btn btn-default" value="検索" name="searchComGm003">
     	</form:form>
 	</body>
 </html>

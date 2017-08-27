@@ -18,6 +18,7 @@
     	<form:form modelAttribute="GBJGM001Form">
     		<form:input path="user" />
     		<input type="submit" class="btn btn-primary" value="編集" name="goToGbjGm002" formaction="${actionUrl}">
+    		<input type="button" class="btn btn-default" value="検索" onclick="openCOMGM003();">
     		<input type="submit" class="btn btn-warning" value="戻る" name="backComGm002" formaction="${actionUrl}">
     	</form:form>
 	</body>

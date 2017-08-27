@@ -1,6 +1,5 @@
 /**
- * COMGM001 ログイン画面
- *
+ * GBJGM001 現場情報一覧表示画面用JavaScript
  * @author AtsushiNishizawa
  * @since 2017/07/17
  */
@@ -8,7 +7,10 @@
 
 
 
-function chkA()
+/**
+ * 必須チェック処理
+ */
+function requiredCheck()
 {
 var a = document.fa.NamA.value;
 var b = a.length;
@@ -29,4 +31,14 @@ return false;
 // OK場合はtrueを返す
 return true;
 }
+}
+
+/**
+ * 検索共通画面呼び出し処理
+ */
+function openCOMGM003()
+{
+	window.open( 'initComGm003',
+		     '_blank',
+		     'width=800,height=600,menubar=no,toolbar=no,location=no,resizable=no,alwaysRaised=yes,dependent=yes' );
 }

@@ -1,6 +1,5 @@
 /**
- * COMGM002 メニュー画面
- *
+ * GBJGM002 現場情報新規登録・編集画面用JavaScript
  * @author AtsushiNishizawa
  * @since 2017/07/17
  */
@@ -8,7 +7,10 @@
 
 
 
-function chkA()
+/**
+ * 必須チェック処理
+ */
+function requiredCheck()
 {
 var a = document.fa.NamA.value;
 var b = a.length;

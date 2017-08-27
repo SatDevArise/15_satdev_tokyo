@@ -1,14 +1,15 @@
 /**
- * COMGM002 メニュー画面
- *
+ * COMGM002 メニュー画面用JavaScript
  * @author AtsushiNishizawa
  * @since 2017/07/17
  */
 
 
 
-
-function chkA()
+/**
+ * 必須チェック処理
+ */
+function requiredCheck()
 {
 var a = document.fa.NamA.value;
 var b = a.length;

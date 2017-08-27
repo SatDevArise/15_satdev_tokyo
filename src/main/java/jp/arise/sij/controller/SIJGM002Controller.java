@@ -100,6 +100,19 @@ public class SIJGM002Controller {
 	}
 
 	/**
+	 * 削除処理
+	 * @param SIJGM002Form
+	 * @return SIJGM002.jsp
+	 * @throws
+	 * @author AtsushiNishizawa
+	 * @since 2017/07/177
+	 */
+	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
+	public String deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
+		return "SIJGM002";
+	}
+
+	/**
 	 * 戻る処理（遷移先：メニュー画面）
 	 * @param SIJGM002Form
 	 * @return COMGM002Controller.java
