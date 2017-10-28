@@ -1,5 +1,7 @@
 package jp.arise.com.form;
 
+import java.util.Date;
+
 /**
  * COMGM001 ログイン画面用Formクラス
  * JSPとController間の値受け渡し用
@@ -9,24 +11,27 @@ package jp.arise.com.form;
 public class COMGM001Form {
 
 	/**
-	 * ユーザー
+	 * ユーザーID
 	 */
-	private String user;
-
+	private String userId;
 	/**
-	 * ユーザーを取得
-	 * @return user
+	 * パスワード
 	 */
-	public String getUser() {
-		return user;
+	private String password;
+
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	/**
-	 * ユーザーを設定
-	 * @param user
-	 */
-	public void setUser(String user) {
-		this.user = user;
-	}
+
 
 }

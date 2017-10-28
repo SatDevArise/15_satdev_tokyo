@@ -11,36 +11,40 @@ import java.io.Serializable;
 public class COMGM001Dto implements Serializable{
 
 	/**
-	 * ユーザー
+	 * ユーザー名
 	 */
-	private String user;
+	private String userName;
 
 	/**
 	 * ユーザーID
 	 */
-	private int userId;
+	private String userId;
+	/**
+	 * パスワード
+	 */
+	private String password;
 
 	/**
 	 * ユーザーを取得
 	 * @return user
 	 */
-	public String getUser() {
-		return user;
+	public String getUserName() {
+		return userName;
 	}
 
 	/**
 	 * ユーザーを設定
 	 * @param user
 	 */
-	public void setUser(String user) {
-		this.user = user;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**
 	 * ユーザーIDを取得
 	 * @return userId
 	 */
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
@@ -48,8 +52,18 @@ public class COMGM001Dto implements Serializable{
 	 * ユーザーIDを設定
 	 * @param userId
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 
 }

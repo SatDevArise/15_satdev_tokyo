@@ -22,15 +22,35 @@ public class COMGM001Servise {
 
 
 	public COMGM001Dto inputCheck(COMGM001Dto dto) {
-        String user = dto.getUser();
+		//dtoの値を変数にセット
+        String userId = dto.getUserId();
+        String pass = dto.getPassword();
 
-        dto.setUserId(2);
+        System.out.println("UserId" + userId +"Password" + pass);
 
-        List<COMGM001Dto> resultList = comGm001Dao.getUser(dto);
+        //DAOを呼び出して、DBから情報を取得
+        List<COMGM001Dto> resultList = comGm001Dao.select(userId);
 
-        System.out.println(resultList.get(0).getUser());
 
-        System.out.println(COMMessage.COME001.getMessage());
+        //取得した結果がNullもしくは空であれば、チェック処理終了
+        if(resultList==null || resultList.isEmpty()) {
+        		System.out.println("DB情報:UserId" + userId +"Password" + pass);
+        		return dto;
+        }
+
+        System.out.println("UserId" + resultList.get(0).getUserId()
+        		+"Password" + resultList.get(0).getPassword()
+        		+"UserName" + resultList.get(0).getUserName());
+
+        //取得した内容のNullチェック
+        if(resultList.get(0).getUserId() != null
+        		&& resultList.get(0).getPassword() != null
+        			&& resultList.get(0).getUserName() != null) {
+        		//入力したIDとPassが一致してたら、dtoにユーザー名を設定
+        		if(resultList.get(0).getUserId().equals(resultList.get(0).getUserId())) {
+        			dto.setUserName(resultList.get(0).getUserName());
+        		}
+        }
 
 		return dto;
 	}

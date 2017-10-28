@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.arise.com.modelandview.COMGM002MAV;
 import jp.arise.sij.dto.SIJGM002Dto;
 import jp.arise.sij.form.SIJGM002Form;
 import jp.arise.sij.modelandview.SIJGM001MAV;
@@ -45,7 +46,7 @@ public class SIJGM002Controller {
 	 * @since 2017/07/17
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "goSijGm002", method = RequestMethod.POST)
-	public String initSijGm002(Model model) {
+	public String initSijGm002(COMGM002MAV comGm002MAV,Model model) {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
@@ -122,12 +123,12 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "backComGm002", method = RequestMethod.POST)
 	public ModelAndView backComGm002(SIJGM002Form sijGm002Form,Model model) {
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setUser(sijGm002Form.getUser());
-		sijGm002Service.inputCheck(sijGm002Dto);
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		sijGm002Dto.setUser(sijGm002Form.getUser());
+//		sijGm002Service.inputCheck(sijGm002Dto);
 
 		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
-		sijGm002MAV.setUser(sijGm002Form.getUser());
+//		sijGm002MAV.setUser(sijGm002Form.getUser());
 		return new ModelAndView("forward:/initComGm002","SIJGM002MAV",sijGm002MAV);
 	}
 

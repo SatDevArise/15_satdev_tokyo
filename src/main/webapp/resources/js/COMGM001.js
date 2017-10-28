@@ -9,25 +9,29 @@
 /**
  * 必須チェック処理
  */
-function requiredCheck()
-{
-var a = document.fa.NamA.value;
-var b = a.length;
-var txt = document.fa.NamA.value;
-var result = txt.match(/[^0-9]/g);
+function formCheck(){
+var form = document.forms.loginForm;
+var userIdLength = form.userId.value.length;
+var result_user = form.userId.value.match(/[^A-Za-z0-9]+/);
+var result_pass = form.password.value.match(/[^A-Za-z0-9]+/);
 
-if(document.fa.NamA.value == ""){
-alert("検索キーが入力されていません。");
-return false;
-} else if(b > 16) {
-alert(b +"桁入力されています。入力できる文字数は16桁です。");
-return false;
-} else if(b < 16) {
-alert(b +"桁入力されています。検索には16桁入力して下さい。");
-return false;
-} else {
-// ＊＊＊
-// OK場合はtrueを返す
-return true;
+if(result_user){
+	document.getElementById("error_hyoji").innerHTML= "半角英数字で入力してください。";
+	document.getElementById("error_hyoji").style.color= "red";
+	return false;
+} else if(userIdLength < 8) {
+	document.getElementById("error_hyoji").innerHTML= "8文字未満です。";
+	document.getElementById("error_hyoji").style.color= "red";
+	return false;
+} else if(result_pass) {
+	document.getElementById("error_hyoji").innerHTML= "半角英数字で入力してください。";
+	document.getElementById("error_hyoji").style.color= "red";
+	return false;
+}else {
+	// ＊＊＊
+	// OK場合はtrueを返す
+	return true;
 }
+
+
 }

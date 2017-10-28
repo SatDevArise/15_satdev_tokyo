@@ -17,5 +17,5 @@ public interface COMGM001Dao extends Serializable{
 	 * userを取得
 	 * @return user
 	 */
-	public List<COMGM001Dto> getUser(COMGM001Dto COMGM001Dto);
+	public List<COMGM001Dto> select(String userId);
 }
