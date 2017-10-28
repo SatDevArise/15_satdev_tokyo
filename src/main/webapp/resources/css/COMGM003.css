@@ -1,0 +1,8 @@
+.item_line
+{
+	/*
+	display:inline;
+	vertical-align: middle;
+	*/
+	float:left;
+}
