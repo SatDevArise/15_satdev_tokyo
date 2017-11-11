@@ -1,8 +1,9 @@
-.item_line
-{
-	/*
-	display:inline;
-	vertical-align: middle;
-	*/
+@charset "utf-8";
+
+#Address {
+ width:500px;
+}
+
+.hidarizoroe{
 	float:left;
 }

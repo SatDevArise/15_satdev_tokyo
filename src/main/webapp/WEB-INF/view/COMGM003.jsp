@@ -18,54 +18,39 @@
 	   <spring:url value="/initComGm003" var="actionUrl"/>
 		<form:form modelAttribute="COMGM003Form">
 		<div>
-			<Syain >
-				<label>社員ID：</label>
-				<input type="text" name="Syain_txt" />
-			</Syain>
-			<Birth>
-				<label>生年月日：</label>
-				<input type="text" name="Birth_From_txt"/>
-				<label >～</label>
-			 	<input type="text" name="Birth_To_txt /">
-			</Birth>
-			<Maejob>
-				<label >前職：</label>
-			 	<input type="text" name="Maejob_txt">
-			</Maejob>
-			<Position>
-				<label>役職：</label>
-			 	<select name="Poji_lst"></select>
-			</Position>
-			<Entday>
-				<label>入社日：</label>
-				<input type="text" name="Entday_From_txt">
-			 	<label>～</label>
-			 	<input type="text" name="Entday_To_txt">
-			</Entday>
-			<Field>
-				<label>現場名：</label>
-			 	<input type="text" name="Field_txt">
-			</Field>
-			<Phase>
-				<label>フェーズ：</label>
-		 		<select name="Phase_lst"></select>
-			</Phase>
-			<Prise>
-				<label>単価：</label>
-			 	<select name="Prise_lst"></select>
-			</Prise>
-		 	<Station>
-		 		<label>最寄駅：</label>
-			 	<select name="Station_lst_1"></select>
-			 	<select name="Station_lst_2"></select>
-			 	<select name="Station_lst_3"></select>
-		 	</Station>
-		 	<Address>
-			 	<label>住所：</label>
-			 	<select name="Station_lst_1"></select>
+
+				<label class="hidarizoroe">社員ID：<input type="text" name="Syain_txt" /></label>
+
+				<label >生年月日：<input type="text" name="Birth_From_txt"/>
+				～<input class="Birth_I" type="text" name="Birth_To_txt /">
+				</label>
+
+				<label class="hidarizoroe">前職：<input type="text" name="Maejob_txt"></label>
+
+				<label>役職：<select name="Poji_lst"></select></label>
+
+				<label>入社日：<input type="text" name="Entday_From_txt">
+				～<input type="text" name="Entday_To_txt"></label>
+
+				<label>現場名：<input type="text" name="Field_txt"></label>
+
+				<label class="hidarizoroe">フェーズ：<select name="Phase_lst"></select></label>
+
+				<label>単価：<input type="text" name="Prise_lst"></input></label>
+
+		 		<label>最寄駅：
+		 		<input type="text" name="Station_lst_1"></input>
+			 	<input type="text" name="Station_lst_2"></input>
+			 	<input type="text" name="Station_lst_3"></input>
+			 	</label>
+
+			 	<label>住所：
+			 	<input id="Address" type="text" name="Address"></input>
+
+			 	</label>
 			 	<input type="submit" class="btn btn-default" value="検索" name="searchComGm003">
 				<input type="submit" class="btn btn-default" value="戻る" name="searchComGm003">
-		 	</Address>
+
 		</div>
     	</form:form>
 	</body>
