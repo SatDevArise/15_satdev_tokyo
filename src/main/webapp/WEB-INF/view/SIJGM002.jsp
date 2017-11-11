@@ -9,58 +9,20 @@
 	<head>
 		<meta charset="utf-8">
 		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
+		<link href="<c:url value="/resources/css/SIJGM002.css" />" rel="stylesheet">
 		<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
  		<script src="<c:url value="/resources/js/SIJGM002.js" />"></script>
 		<title>SIJGM002 社員情報新規登録・編集画面</title>
-		<style type="text/css">
-			<!--
-   			body{
-				background-color: #f5fffa;
-			}
-			header{
-				text-align: center;
-				background-color: #00008B;
-				padding-top: 10px;
-				padding-bottom: 10px;
-			}
-
-			header p{
-    				color: #ffffff;
-    				font-size: 20px;
-			}
-			#register dl{
-				background: #D9E5FF;
-				border: 1px solid #ddd;
-				border-top: 0;
-			}
-			#register dl dt,
-			#register dl dd {
-				padding: 10px;
-				border-top: 1px solid #ddd;
-			}
-			#register dl dt {
-				width: 13em;
-				float: left;
-				clear: both;
-				font-weight: bold;
-			}
-			#register dl dd {
-				background-color: #fff;
-				border-left: 1px solid #ddd;
-				margin-left: 13em;
-			}
-			-->
-		</style>
 	</head>
 	<body>
 	<header>
-	<p>社員情報新規登録・編集画面</p>
+		<p>社員情報新規登録・編集画面</p>
 	</header>
 	    <spring:url value="/initSijGm002" var="actionUrl"/>
     	<form:form modelAttribute="SIJGM002Form" id="register">
     		<dl>
     			<dt>社員ID</dt>
-    			<dd><input type="text" id="syain_id" name="syain_id"></dd>
+    			<dd><input type="text" id="syain_id" name="syain_id" disabled></dd>
     			<dt>氏名</dt>
     			<dd><input type="text" id="name" name="name"></dd>
     			<dt>生年月日</dt>
@@ -85,8 +47,7 @@
     			<dd><input type="text" id="brth_place" name="brth_place"></dd>
     			<dt>役職</dt>
     			<dd>
-    			<!-- <input type="text" id="psition" name="psition"> -->
-    				<select id="psition" name="psition"></select>
+    			<select id="psition" name="psition"></select>
     			</dd>
     			<dt>チーム</dt>
     			<dd><input type="text" id="team_na" name="team_na"></dd>

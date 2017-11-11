@@ -1,5 +1,8 @@
 package jp.arise.com.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,9 +49,6 @@ public class COMGM001Controller {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String initComGm001(Model model) {
-		COMGM001Form comGm001Form = new COMGM001Form();
-//		comGm001Form.setUser("山田 太郎");
-		model.addAttribute("COMGM001Form",comGm001Form);
 		return "COMGM001";
 	}
 
@@ -66,6 +66,13 @@ public class COMGM001Controller {
 		COMGM001Dto comGm001Dto = new COMGM001Dto();
 		comGm001Dto.setUserId(comGm001Form.getUserId());
 		comGm001Dto.setPassword(comGm001Form.getPassword());
+
+		//ログイン情報
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String yyyymmdd = sdf.format(new Date());
+		comGm001Dto.setCreatedAt(yyyymmdd);
+		comGm001Dto.setYukoFlg(1);
+		comGm001Dto.setDeleteFlg(0);
 
 		//ユーザーID/Passが一致するかを確認
 		comGm001Service.inputCheck(comGm001Dto);

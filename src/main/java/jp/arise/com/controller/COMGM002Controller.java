@@ -42,18 +42,8 @@ public class COMGM002Controller {
 	 */
 	@RequestMapping(value = "/initComGm002", method = RequestMethod.POST)
 	public String initComGm002(COMGM001MAV comGm001MAV,Model model) {
-//		System.out.println("modelandview:"+comGm001MAV.getUser());
 		COMGM002Form comGm002Form = new COMGM002Form();
 		comGm002Form.setUser(comGm001MAV.getUser());
-//		System.out.println("comGm002Form:"+comGm002Form.getUser());
-		model.addAttribute("COMGM002Form",comGm002Form);
-		return "COMGM002";
-	}
-
-	@RequestMapping(value = "/initComGm002", method = RequestMethod.POST)
-	public String initComGm002(SIJGM002MAV sijGm002MAV,Model model) {
-		COMGM002Form comGm002Form = new COMGM002Form();
-		comGm002Form.setUser(sijGm002MAV.getUser());
 		model.addAttribute("COMGM002Form",comGm002Form);
 		return "COMGM002";
 	}
@@ -68,9 +58,9 @@ public class COMGM002Controller {
 	 */
 	@RequestMapping(value = "/initComGm002", params = "goSijGm001",method = RequestMethod.POST)
 	public ModelAndView goSijGm001(COMGM002Form comGm002Form,Model model) {
-		COMGM002Dto comGm002Dto = new COMGM002Dto();
-		comGm002Dto.setUser(comGm002Form.getUser());
-		comGm002Service.inputCheck(comGm002Dto);
+//		COMGM002Dto comGm002Dto = new COMGM002Dto();
+//		comGm002Dto.setUser(comGm002Form.getUser());
+//		comGm002Service.inputCheck(comGm002Dto);
 
 		COMGM002MAV comGm002MAV = new COMGM002MAV();
 		comGm002MAV.setUser(comGm002Form.getUser());
@@ -128,9 +118,9 @@ public class COMGM002Controller {
 	 */
 	@RequestMapping(value = "/initComGm002", params = "goGbjGm002",method = RequestMethod.POST)
 	public ModelAndView goGbjGm002(COMGM002Form comGm002Form,Model model) {
-		COMGM002Dto comGm002Dto = new COMGM002Dto();
-		comGm002Dto.setUser(comGm002Form.getUser());
-		comGm002Service.inputCheck(comGm002Dto);
+//		COMGM002Dto comGm002Dto = new COMGM002Dto();
+//		comGm002Dto.setUser(comGm002Form.getUser());
+//		comGm002Service.inputCheck(comGm002Dto);
 
 		COMGM002MAV comGm002MAV = new COMGM002MAV();
 		comGm002MAV.setUser(comGm002Form.getUser());

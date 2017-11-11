@@ -1,6 +1,7 @@
 package jp.arise.com.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * COMGM001 ログイン画面用サービス間Dtoクラス
@@ -19,10 +20,26 @@ public class COMGM001Dto implements Serializable{
 	 * ユーザーID
 	 */
 	private String userId;
+
 	/**
 	 * パスワード
 	 */
 	private String password;
+
+	/**
+	 * 作成日付
+	 */
+	private String createdAt;
+
+	/**
+	 * 有効フラグ
+	 */
+	private int yukoFlg;
+
+	/**
+	 * 削除フラグ
+	 */
+	private int deleteFlg;
 
 	/**
 	 * ユーザーを取得
@@ -63,6 +80,31 @@ public class COMGM001Dto implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public int getYukoFlg() {
+		return yukoFlg;
+	}
+
+	public void setYukoFlg(int yukoFlg) {
+		this.yukoFlg = yukoFlg;
+	}
+
+	public int getDeleteFlg() {
+		return deleteFlg;
+	}
+
+	public void setDeleteFlg(int deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
+
 
 
 

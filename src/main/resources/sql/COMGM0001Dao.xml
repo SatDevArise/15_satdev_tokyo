@@ -14,4 +14,13 @@
         FROM login_user_dt
         WHERE user_id = #{userId}
     </select>
+    <select id="count" resultType="int">
+        SELECT COUNT(*)
+        FROM login_rireki_dt
+        WHERE user_id = #{userId}
+    </select>
+    <insert id="insert" parameterType="jp.arise.com.dto.COMGM001Dto">
+        INSERT INTO login_rireki_dt (user_id, user_na, login_date, yuko_fg, sakujo_fg, insert_user, insert_ts, update_user, update_ts)
+	    VALUES(#{userId}, #{userName}, #{createdAt}, #{yukoFlg}, #{deleteFlg}, #{userName}, #{createdAt}, #{userName}, #{createdAt})
+    </insert>
 </mapper>
