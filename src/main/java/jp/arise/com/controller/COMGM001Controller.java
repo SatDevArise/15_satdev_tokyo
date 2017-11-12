@@ -67,13 +67,20 @@ public class COMGM001Controller {
 		comGm001Dto.setUserId(comGm001Form.getUserId());
 		comGm001Dto.setPassword(comGm001Form.getPassword());
 
-		//ログイン情報
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		String yyyymmdd = sdf.format(new Date());
-		comGm001Dto.setCreatedAt(yyyymmdd);
-		comGm001Dto.setYukoFlg(1);
-		comGm001Dto.setDeleteFlg(0);
+		//一時ログイン用
+		//ModelAndView
+		COMGM001MAV comGm001MAV = new COMGM001MAV();
+		comGm001MAV.setUser(comGm001Dto.getUserName());
 
+		//ログイン情報設定
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto.setUser(comGm001Dto.getUserName());
+		loginInfoDto.setUserId(comGm001Dto.getUserId());
+		loginInfo.setAttribute(loginInfoDto);
+
+		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm001MAV);
+
+/*
 		//ユーザーID/Passが一致するかを確認
 		comGm001Service.inputCheck(comGm001Dto);
 
@@ -96,6 +103,7 @@ public class COMGM001Controller {
 		ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.setViewName("COMGM001");
 		return modelAndView;
+**/
 	}
 
 }
