@@ -18,6 +18,10 @@ public class COMGM001Form {
 	 * パスワード
 	 */
 	private String password;
+	/**
+	 * エラー有無
+	 */
+	private String loginFlg;
 
 	public String getUserId() {
 		return userId;
@@ -31,6 +35,13 @@ public class COMGM001Form {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getLoginFlg() {
+		return loginFlg;
+	}
+	public void setLoginFlg(String loginFlg) {
+		this.loginFlg = loginFlg;
+	}
+
 
 
 
