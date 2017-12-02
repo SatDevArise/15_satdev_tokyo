@@ -19,37 +19,39 @@
 		<form:form modelAttribute="COMGM003Form">
 		<div>
 
-				<label class="hidarizoroe">社員ID：<input type="text" name="Syain_txt" /></label>
+				<label class="hidarizoroe">社員ID：<input type="text" name="syain_id" /></label>
 
-				<label >生年月日：<input type="text" name="Birth_From_txt"/>
-				～<input class="Birth_I" type="text" name="Birth_To_txt /">
+				<label >生年月日：<input type="text" name="seinengappi_from"/>
+				～<input class="Birth_I" type="text" name="seinengappi_to "/>
 				</label>
 
-				<label class="hidarizoroe">前職：<input type="text" name="Maejob_txt"></label>
+				<label class="hidarizoroe">前職：<input type="text" name="previous"></label>
 
-				<label>役職：<select name="Poji_lst"></select></label>
+				<label>役職：<select name="psition"></select></label>
 
-				<label>入社日：<input type="text" name="Entday_From_txt">
-				～<input type="text" name="Entday_To_txt"></label>
+				<label>入社日：<input type="text" name="Enyusyabi_from">
+				～<input type="text" name="nyusyabi_to"></label>
 
-				<label>現場名：<input type="text" name="Field_txt"></label>
+				<label>チーム：<input type="text" name="team_na"></label>
 
-				<label class="hidarizoroe">フェーズ：<select name="Phase_lst"></select></label>
+				<label>現場名：<input type="text" name="genba_na"></label>
 
-				<label>単価：<input type="text" name="Prise_lst"></input></label>
+				<label class="hidarizoroe">フェーズ：<select name="phase"></select></label>
+
+				<label>単価：<input type="text" name="tanka"></input></label>
 
 		 		<label>最寄駅：
-		 		<input type="text" name="Station_lst_1"></input>
-			 	<input type="text" name="Station_lst_2"></input>
-			 	<input type="text" name="Station_lst_3"></input>
+		 		<input type="text" name="moyori_1_station"></input>
+			 	<input type="text" name="moyori_2_station"></input>
+			 	<input type="text" name="moyori_3_station"></input>
 			 	</label>
 
 			 	<label>住所：
-			 	<input id="Address" type="text" name="Address"></input>
+			 	<input id="Address" type="text" name="address"></input>
 
 			 	</label>
-			 	<input type="submit" class="btn btn-default" value="検索" name="searchComGm003">
-				<input type="submit" class="btn btn-default" value="戻る" name="searchComGm003">
+			 	<input type="submit" class="btn btn-default" value="検索" name="seach_btn">
+				<input type="submit" class="btn btn-default" value="戻る" name="back_btn">
 
 		</div>
     	</form:form>

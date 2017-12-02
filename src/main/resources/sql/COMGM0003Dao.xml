@@ -13,4 +13,40 @@
         FROM test
         WHERE userid = #{userId}
     </select>
+
+    <select id="getSyainDt" resultMap="resultCOMGM003Dto">
+        SELECT username
+        FROM test
+        WHERE
+        syainId = #{syainId} and
+		seinengappiFrom = #{seinengappiFrom} and
+		seinengappiTo = #{seinengappiTo} and
+		previous = #{previous} and
+		psition = #{psition} and
+		nyusyabiFrom = #{nyusyabiFrom} and
+		nyusyabiTo = #{nyusyabiTo} and
+		teamNa = #{teamNa} and
+		genbaNa = #{genbaNa} and
+		phase = #{phase} and
+		tanka = #{tanka} and
+		moyori1Station = #{moyori1Station} and
+		moyori2Station = #{moyori2Station} and
+		moyori3Station = #{moyori3Station} and
+		address = #{address}
+
+    </select>
+
+    <select id="getGenbaDt" resultMap="resultCOMGM003Dto">
+        SELECT username
+        FROM test
+        WHERE
+        genbaNa = #{genbaNa} and
+		phase = #{phase} and
+		moyori1Station = #{moyori1Station} and
+		moyori2Station = #{moyori2Station} and
+		moyori3Station = #{moyori3Station} and
+		address = #{address}
+
+    </select>
+
 </mapper>

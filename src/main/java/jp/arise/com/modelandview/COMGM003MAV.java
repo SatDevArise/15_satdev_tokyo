@@ -11,22 +11,22 @@ public class COMGM003MAV {
 	/**
 	 * ユーザー
 	 */
-	private String user;
+	private String userId;
 
 	/**
 	 * ユーザーを取得
-	 * @return user
+	 * @return userId
 	 */
-	public String getUser() {
-		return user;
+	public String getUserId() {
+		return userId;
 	}
 
 	/**
 	 * ユーザーを設定
-	 * @param user
+	 * @param userId
 	 */
-	public void setUser(String user) {
-		this.user = user;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 
