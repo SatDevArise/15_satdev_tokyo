@@ -62,7 +62,7 @@ public class COMGM003Controller {
 		comGm003Service.inputCheck(comGm003Dto);
 
 		COMGM003MAV comGm003MAV = new COMGM003MAV();
-		comGm003MAV.setUser(comGm003Form.getUser());
+		comGm003MAV.setUserId(comGm003Form.getUser());
 
 
 		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm003MAV);
