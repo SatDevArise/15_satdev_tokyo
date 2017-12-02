@@ -14,11 +14,141 @@ public class SIJGM001MAV {
 	private String user;
 
 	/**
+	 * 社員ID
+	 */
+	private int userId;
+
+	/**
+	 * 役職
+	 */
+	private String title;
+
+	/**
+	 * 生年月日
+	 */
+	private int birthday;
+
+	/**
+	 * チーム
+	 */
+	private String team;
+
+	/**
+	 * 現場名
+	 */
+	private String site;
+
+	/**
+	 * 経過年数
+	 */
+	private int duration;
+
+	/**
+	 * フェーズ
+	 */
+	private String phase;
+
+	/**
+	 * 使用路線
+	 */
+	private String route;
+
+	/**
+	 * 社歴
+	 */
+	private int history;
+
+	/**
+	 * 単価
+	 */
+	private int unitprice;
+
+	/**
 	 * ユーザーを取得
 	 * @return user
 	 */
 	public String getUser() {
 		return user;
+	}
+
+	/**
+	 * 社員IDを取得
+	 * @return userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	 * 役職を取得
+	 * @return title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * 生年月日を取得
+	 * @return birthday
+	 */
+	public int getBirthday() {
+		return birthday;
+	}
+
+	/**
+	 * チームを取得
+	 * @return team
+	 */
+	public String getTeam() {
+		return team;
+	}
+
+	/**
+	 * 現場名を取得
+	 * @return site
+	 */
+	public String getSite() {
+		return site;
+	}
+
+	/**
+	 * 経過年数を取得
+	 * @return duration
+	 */
+	public int getDuration() {
+		return duration;
+	}
+
+	/**
+	 * フェーズを取得
+	 * @return phase
+	 */
+	public String getPhase() {
+		return phase;
+	}
+
+	/**
+	 * 使用路線を取得
+	 * @return route
+	 */
+	public String getRoute() {
+		return route;
+	}
+
+	/**
+	 * 社歴を取得
+	 * @return history
+	 */
+	public int getHistory() {
+		return history;
+	}
+
+	/**
+	 * 単価を取得
+	 * @return unitprice
+	 */
+	public int getUnitprice() {
+		return unitprice;
 	}
 
 	/**
@@ -29,6 +159,82 @@ public class SIJGM001MAV {
 		this.user = user;
 	}
 
+	/**
+	 * 社員IDを設定
+	 * @param userId
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
+	/**
+	 * 役職を設定
+	 * @param title
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
+	/**
+	 * 生年月日を設定
+	 * @param birthday
+	 */
+	public void setBirthday(int birthday) {
+		this.birthday = birthday;
+	}
+
+	/**
+	 * チームを設定
+	 * @param team
+	 */
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
+	/**
+	 * 現場名を設定
+	 * @param site
+	 */
+	public void setSite(String site) {
+		this.site = site;
+	}
+	/**
+	 * 経過年数を設定
+	 * @param duration
+	 */
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	/**
+	 * フェーズを設定
+	 * @param phase
+	 */
+	public void setPhase(String phase) {
+		this.phase = phase;
+	}
+
+	/**
+	 * 使用路線を設定
+	 * @param route
+	 */
+	public void setRoute(String route) {
+		this.route = route;
+	}
+
+	/**
+	 * 社歴を設定
+	 * @param history
+	 */
+	public void setHistory(int history) {
+		this.history = history;
+	}
+
+	/**
+	 * 単価を設定
+	 * @param unitprice
+	 */
+	public void setUnitprice(int unitprice) {
+		this.unitprice = unitprice;
+	}
 }
