@@ -1,8 +1,5 @@
 package jp.arise.com.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,7 +75,7 @@ public class COMGM001Controller {
 
 			//ログイン情報設定
 			LoginInfoDto loginInfoDto = new LoginInfoDto();
-			loginInfoDto.setUser(comGm001Dto.getUserName());
+			loginInfoDto.setUserNa(comGm001Dto.getUserName());
 			loginInfoDto.setUserId(comGm001Dto.getUserId());
 			loginInfo.setAttribute(loginInfoDto);
 

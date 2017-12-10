@@ -49,7 +49,7 @@ public class GBJGM002Controller {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUser());
+		System.out.println(loginInfoDto.getUserId());
 
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
 		gbjGm002Form.setUser("山田太郎");

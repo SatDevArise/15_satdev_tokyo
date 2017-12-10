@@ -49,7 +49,7 @@ public class SIJGM001Controller {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUser());
+		System.out.println(loginInfoDto.getUserId());
 
 		SIJGM001Form sijGm001Form = new SIJGM001Form();
 		sijGm001Form.setUser("山田 太郎");

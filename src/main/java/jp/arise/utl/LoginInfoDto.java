@@ -10,12 +10,12 @@ public class LoginInfoDto {
 	/**
 	 * ユーザーID
 	 */
-	private Object user_id;
+	private Object userId;
 
 	/**
 	 * ユーザー名
 	 */
-	private Object user_na;
+	private Object userNa;
 
 	/**
 	 * 運用日
@@ -25,38 +25,38 @@ public class LoginInfoDto {
 	/**
 	 * 遷移元画面
 	 */
-	private Object gamen_id;
+	private Object gamenId;
 
 	/**
 	 * ユーザーIDを取得
-	 * @return user_id
+	 * @return userId
 	 */
-	public Object getUser_id() {
-		return user_id;
+	public Object getUserId() {
+		return userId;
 	}
 
 	/**
 	 * ユーザーIDを設定
-	 * @param user_id
+	 * @param userId
 	 */
-	public void setUser_id(Object user_id) {
-		this.user_id = user_id;
+	public void setUserId(Object userId) {
+		this.userId = userId;
 	}
 
 	/**
 	 * ユーザー名を取得
-	 * @return user_na
+	 * @return userNa
 	 */
-	public Object getUser_na() {
-		return user_na;
+	public Object getUserNa() {
+		return userNa;
 	}
 
 	/**
 	 * ユーザー名を設定
-	 * @param user_na
+	 * @param userNa
 	 */
-	public void setUser_na(Object user_na) {
-		this.user_na = user_na;
+	public void setUserNa(Object userNa) {
+		this.userNa = userNa;
 	}
 
 	/**
@@ -77,17 +77,17 @@ public class LoginInfoDto {
 
 	/**
 	 * 遷移元画面を取得
-	 * @return gamen_id
+	 * @return gamenId
 	 */
-	public Object getGamen_id() {
-		return gamen_id;
+	public Object getGamenId() {
+		return gamenId;
 	}
 
 	/**
 	 * 遷移元画面を設定
-	 * @param gamen_id
+	 * @param gamenId
 	 */
-	public void setGamen_id(Object gamen_id) {
-		this.gamen_id = gamen_id;
+	public void setGamenId(Object gamenId) {
+		this.gamenId = gamenId;
 	}
 }
