@@ -1,7 +1,6 @@
 package jp.arise.gbj.dao;
 
 import java.io.Serializable;
-import java.util.List;
 
 import jp.arise.gbj.dto.GBJGM002Dto;
 
@@ -14,8 +13,72 @@ import jp.arise.gbj.dto.GBJGM002Dto;
 public interface GBJGM002Dao extends Serializable{
 
 	/**
-	 * userを取得
+	 * 新規登録処理
 	 * @return user
 	 */
-	public List<GBJGM002Dto> getUser(GBJGM002Dto GBJGM002Dto);
+	public void insert(GBJGM002Dto GBJGM002Dto);
+
+	/**
+	 * 削除処理
+	 * @return user
+	 */
+	public void delete(GBJGM002Dto GBJGM002Dto);
+
+
+//	/**
+//	 * userを取得
+//	 * @return user
+//	 */
+//	public List<GBJGM002Dto> getUser(GBJGM002Dto GBJGM002Dto);
+//
+//	/**
+//	 * genba_Idを取得
+//	 * @return genba_Id
+//	 */
+//	public List<GBJGM002Dto> getGenba_Id(GBJGM002Dto GBJGM002Dto);
+//
+//	/**
+//	 * genba_naを取得
+//	 * @return genba_na
+//	 */
+//	public List<GBJGM002Dto> getGenba_Na(GBJGM002Dto GBJGM002Dto);
+//
+//	/**
+//	 * adressを取得
+//	 * @return adress
+//	 */
+//	public List<GBJGM002Dto> getAdress(GBJGM002Dto GBJGM002Dto);
+//
+//	/**
+//	 * moyori_1_stationを取得
+//	 * @return
+//	 */
+//	public List<GBJGM002Dto> getMoyori1(GBJGM002Dto GBJGM002Dto);
+//
+//
+//	/**
+//	 * moyori_2_stationを取得
+//	 * @return
+//	 */
+//	public List<GBJGM002Dto> getMoyori2(GBJGM002Dto GBJGM002Dto);
+//
+//	/**
+//	 * moyori_3_stationを取得
+//	 * @return
+//	 */
+//	public List<GBJGM002Dto> getMoyori3(GBJGM002Dto GBJGM002Dto);
+//
+//
+//	/**
+//	 * workを取得
+//	 * @return
+//	 */
+//	public List<GBJGM002Dto> getWork(GBJGM002Dto GBJGM002Dto);
+//
+//	/**
+//	 * phaseを取得
+//	 * @return
+//	 */
+//	public List<GBJGM002Dto> getPhase(GBJGM002Dto GBJGM002Dto);
+
 }
