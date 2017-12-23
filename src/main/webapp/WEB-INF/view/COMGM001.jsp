@@ -15,7 +15,7 @@
 	</head>
 	<body>
     	<form:form modelAttribute="COMGM001Form">
-                <form:input path="user_id" />
+                <form:input path="userId" />
                 <form:input path="password" />
     		<input type="submit" class="btn btn-primary" value="ログイン" name="entryComGm001">
     	</form:form>
