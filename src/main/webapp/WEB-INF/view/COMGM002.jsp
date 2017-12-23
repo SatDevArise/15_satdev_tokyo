@@ -16,7 +16,6 @@
 	<body>
 	<spring:url value="/initComGm002" var="actionUrl"/>
     <form:form modelAttribute="COMGM002Form">
-    <form:input path="user" />
 
 <br><br><br><br><br>
 		 	　<input type="submit" class="btn btn-default" value="社員情報一覧表示　　　" name="goSijGm001" formaction="${actionUrl}">　　　　社員情報一覧を表示<br><br>
