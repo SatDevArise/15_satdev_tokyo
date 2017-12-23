@@ -22,13 +22,13 @@ public class COMGM001Servise {
 
 
 	public COMGM001Dto inputCheck(COMGM001Dto dto) {
-        String user = dto.getUser();
+        String user = dto.getUserId();
 
-        dto.setUserId(2);
+        dto.setUserId("2");
 
         List<COMGM001Dto> resultList = comGm001Dao.getUser(dto);
 
-        System.out.println(resultList.get(0).getUser());
+        System.out.println(resultList.get(0).getUserId());
 
         System.out.println(COMMessage.COME001.getMessage());
 
