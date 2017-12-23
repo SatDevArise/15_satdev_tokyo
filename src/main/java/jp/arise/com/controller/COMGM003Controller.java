@@ -1,5 +1,7 @@
 package jp.arise.com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,10 +61,12 @@ public class COMGM003Controller {
 	public ModelAndView  searchComGm003(COMGM003Form comGm003Form,Model model) {
 		COMGM003Dto comGm003Dto = new COMGM003Dto();
 		comGm003Dto.setUser(comGm003Form.getUser());
+		System.out.println("inputCheck前");
 		comGm003Service.inputCheck(comGm003Dto);
-
+		System.out.println("inputCheck後");
+		List<COMGM003Dto> resultList = comGm003Service.search(comGm003Dto);
 		COMGM003MAV comGm003MAV = new COMGM003MAV();
-		comGm003MAV.setUserId(comGm003Form.getUser());
+		comGm003MAV.setResult(resultList);
 
 
 		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm003MAV);

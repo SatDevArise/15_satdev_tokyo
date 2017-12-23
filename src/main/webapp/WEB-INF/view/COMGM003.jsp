@@ -16,44 +16,44 @@
 	</head>
 	<body>
 	   <spring:url value="/initComGm003" var="actionUrl"/>
-		<form:form modelAttribute="COMGM003Form">
+    	<form:form modelAttribute="COMGM003Form">
 		<div>
 
-				<label class="hidarizoroe">社員ID：<input type="text" name="syain_id" /></label>
+			<label class="hidarizoroe">社員ID：<form:input path="syainId"/></label>
 
-				<label >生年月日：<input type="text" name="seinengappi_from"/>
-				～<input class="Birth_I" type="text" name="seinengappi_to "/>
-				</label>
+			<label>生年月日：<form:input path="seinengappiFrom"/>
+			～<form:input class="Birth_I" path="seinengappiTo"/>
+			</label>
 
-				<label class="hidarizoroe">前職：<input type="text" name="previous"></label>
+			<label class="hidarizoroe">前職：<form:input path="previous"/></label>
 
-				<label>役職：<select name="psition"></select></label>
+			<label>役職：<select name="psition"></select></label>
 
-				<label>入社日：<input type="text" name="Enyusyabi_from">
-				～<input type="text" name="nyusyabi_to"></label>
+			<label>入社日：<form:input path="nyusyabiFrom"/>
+			～<form:input path="nyusyabiTo"/></label>
 
-				<label>チーム：<input type="text" name="team_na"></label>
+ 			<label>チーム：<form:input path="teamNa"/></label>
 
-				<label>現場名：<input type="text" name="genba_na"></label>
+			<%-- <label>現場名：<form:input path="genbaNa"/></label> --%>
 
-				<label class="hidarizoroe">フェーズ：<select name="phase"></select></label>
+			<label class="hidarizoroe">フェーズ：<form:select path="phase"/></label>
 
-				<label>単価：<input type="text" name="tanka"></input></label>
+			<label>単価：<form:input path="tanka"/></label>
 
-		 		<label>最寄駅：
-		 		<input type="text" name="moyori_1_station"></input>
-			 	<input type="text" name="moyori_2_station"></input>
-			 	<input type="text" name="moyori_3_station"></input>
-			 	</label>
+			<label>最寄駅：
+			<form:input path="moyori1Station"/>
+			<form:input path="moyori2Station"/>
+			<form:input path="moyori3Station"/>
+			</label>
 
-			 	<label>住所：
-			 	<input id="Address" type="text" name="address"></input>
+			<label>住所：
+			<form:input id="Address" path="address"/>
+			</label>
 
-			 	</label>
-			 	<input type="submit" class="btn btn-default" value="検索" name="seach_btn">
-				<input type="submit" class="btn btn-default" value="戻る" name="back_btn">
+			<input type="submit" class="btn btn-default" value="検索" name="searchComGm003">
+			<input type="submit" class="btn btn-default" value="戻る" name="back_btn">
 
-		</div>
-    	</form:form>
+	</div>
+    </form:form>
 	</body>
 </html>
