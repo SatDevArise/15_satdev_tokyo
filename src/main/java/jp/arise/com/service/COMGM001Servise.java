@@ -1,13 +1,10 @@
 package jp.arise.com.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.arise.com.dao.COMGM001Dao;
 import jp.arise.com.dto.COMGM001Dto;
-import jp.arise.com.message.COMMessage;
 
 /**
  * COMGM001 ログイン画面用サービス
@@ -26,11 +23,11 @@ public class COMGM001Servise {
 
         dto.setUserId("2");
 
-        List<COMGM001Dto> resultList = comGm001Dao.getUser(dto);
-
-        System.out.println(resultList.get(0).getUserId());
-
-        System.out.println(COMMessage.COME001.getMessage());
+//        List<COMGM001Dto> resultList = comGm001Dao.getUser(dto);
+//
+//        System.out.println(resultList.get(0).getUserId());
+//
+//        System.out.println(COMMessage.COME001.getMessage());
 
 		return dto;
 	}
