@@ -11,41 +11,106 @@
     <select id="getUser" resultMap="resultCOMGM003Dto">
         SELECT username
         FROM test
-        WHERE userid = #{userId}
+        WHERE userId = #{user_id}
     </select>
 
     <select id="getSyainDt" resultMap="resultCOMGM003Dto">
         SELECT username
-        FROM test
-        WHERE
-        syainId = #{syainId} and
-		seinengappiFrom = #{seinengappiFrom} and
-		seinengappiTo = #{seinengappiTo} and
-		previous = #{previous} and
-		psition = #{psition} and
-		nyusyabiFrom = #{nyusyabiFrom} and
-		nyusyabiTo = #{nyusyabiTo} and
-		teamNa = #{teamNa} and
-		genbaNa = #{genbaNa} and
-		phase = #{phase} and
-		tanka = #{tanka} and
-		moyori1Station = #{moyori1Station} and
-		moyori2Station = #{moyori2Station} and
-		moyori3Station = #{moyori3Station} and
-		address = #{address}
+        FROM syain_dt
+        <where>
+			<if test="syainId != null">
+				AND syainId like #{syain_id} || '%'
+			</if>
+
+			<if test="seinengappiFrom != null">
+				AND seinengappiFrom like #{seinengappi_from} || '%'
+			</if>
+
+			<if test="seinengappiTo != null">
+				AND seinengappiTo like #{seinengappi_to} || '%'
+			</if>
+
+			<if test="previous != null">
+				AND previous like #{previous} || '%'
+			</if>
+
+			<if test="psition != null">
+				AND psition like #{psition} || '%'
+			</if>
+
+			<if test="nyusyabiFrom != null">
+				AND nyusyabiFrom like #{nyusyabi_from} || '%'
+			</if>
+
+			<if test="nyusyabiTo != null">
+				AND nyusyabiTo like #{nyusyabi_to} || '%'
+			</if>
+
+			<if test="teamNa != null">
+				AND teamNa like #{team_na} || '%'
+			</if>
+
+			<if test="genbaNa != null">
+				AND genbaNa like #{genba_na} || '%'
+			</if>
+
+			<if test="phase != null">
+				AND phase like #{phase} || '%'
+			</if>
+
+			<if test="tanka != null">
+				AND tanka like #{tanka} || '%'
+			</if>
+
+			<if test="moyori1Station != null">
+				AND moyori1Station like #{moyori_eki_1} || '%'
+			</if>
+
+			<if test="moyori2Station != null">
+				AND moyori2Station like #{moyori_eki_2} || '%'
+			</if>
+
+			<if test="moyori3Station != null">
+				AND moyori3Station like #{moyori_eki_3} || '%'
+			</if>
+
+			<if test="address != null">
+				AND address like #{address} || '%'
+			</if>
+        </where>
 
     </select>
 
     <select id="getGenbaDt" resultMap="resultCOMGM003Dto">
         SELECT username
-        FROM test
-        WHERE
-        genbaNa = #{genbaNa} and
-		phase = #{phase} and
-		moyori1Station = #{moyori1Station} and
-		moyori2Station = #{moyori2Station} and
-		moyori3Station = #{moyori3Station} and
-		address = #{address}
+        FROM genba_dt
+        <where>
+
+			<if test="genbaNa != null">
+				AND genbaNa like #{genba_na} || '%'
+			</if>
+
+			<if test="phase != null">
+				AND phase like #{phase} || '%'
+			</if>
+
+			<if test="moyori1Station != null">
+				AND moyori1Station like #{moyori_eki_1} || '%'
+			</if>
+
+			<if test="moyori2Station != null">
+				AND moyori2Station like #{moyori_eki_2} || '%'
+			</if>
+
+			<if test="moyori3Station != null">
+				AND moyori3Station like #{moyori_eki_3} || '%'
+			</if>
+
+			<if test="address != null">
+				AND address like #{address} || '%'
+			</if>
+
+        </where>
 
     </select>
 

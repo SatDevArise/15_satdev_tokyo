@@ -20,18 +20,21 @@ public class COMGM003Servise {
 	@Autowired
 	private COMGM003Dao comGm003Dao;
 
-
 	public COMGM003Dto inputCheck(COMGM003Dto dto) {
         String user = dto.getUser();
 
         dto.setUserId(2);
 
-        List<COMGM003Dto> resultList = comGm003Dao.getUser(dto);
-
-        System.out.println(resultList.get(0).getUser());
+//        List<COMGM003Dto> resultList = comGm003Dao.getUser(dto);
+//        System.out.println(resultList.get(0).getUser());
 
         System.out.println(COMMessage.COME001.getMessage());
 
 		return dto;
+	}
+
+	public List<COMGM003Dto> search(COMGM003Dto dto) {
+
+		return comGm003Dao.getGenbaDt(dto);
 	}
 }

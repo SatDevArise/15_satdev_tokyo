@@ -17,5 +17,10 @@ public interface COMGM003Dao extends Serializable{
 	 * userを取得
 	 * @return user
 	 */
-	public List<COMGM003Dto> getUser(COMGM003Dto COMGM003Dto);
+	//public List<COMGM003Dto> getUser(COMGM003Dto COMGM003Dto);
+
+	public List<COMGM003Dto> getSyainDt(COMGM003Dto COMGM003Dto);
+
+	public List<COMGM003Dto> getGenbaDt(COMGM003Dto COMGM003Dto);
+
 }

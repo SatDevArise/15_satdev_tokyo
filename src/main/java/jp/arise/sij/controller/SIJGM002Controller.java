@@ -49,7 +49,6 @@ public class SIJGM002Controller {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUser());
 
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
 		sijGm002Form.setUser("山田太郎");

@@ -1,13 +1,10 @@
 package jp.arise.gbj.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.arise.gbj.dao.GBJGM002Dao;
 import jp.arise.gbj.dto.GBJGM002Dto;
-import jp.arise.gbj.message.GBJMessage;
 
 /**
  * GBJGM002 現場情報新規登録・編集画面用サービス
@@ -21,18 +18,24 @@ public class GBJGM002Servise {
 	private GBJGM002Dao gbjGm002Dao;
 
 
-	public GBJGM002Dto inputCheck(GBJGM002Dto dto) {
-        String user = dto.getUser();
-        System.out.println(user);
+	public void insertCheck(GBJGM002Dto dto) {
+        //Daoのinsert処理呼び出し
+		System.out.println("住所："+dto.getAdress());
+		System.out.println("現場ID："+dto.getGenba_Id());
+		System.out.println("現場名："+dto.getGenba_Na());
 
-        dto.setUserId(2);
 
-        List<GBJGM002Dto> resultList = gbjGm002Dao.getUser(dto);
+		System.out.println("daoのinsert処理");
+		gbjGm002Dao.insert(dto);
 
-        System.out.println(resultList.get(0).getUser());
+	}
 
-        System.out.println(GBJMessage.GBJE001.getMessage());
+	public void deleteCheck(GBJGM002Dto dto) {
+        //Daoのinsert処理呼び出し
+		System.out.println("現場ID："+dto.getGenba_Id());
 
-		return dto;
+		System.out.println("daoのdelete処理");
+		gbjGm002Dao.delete(dto);
+
 	}
 }

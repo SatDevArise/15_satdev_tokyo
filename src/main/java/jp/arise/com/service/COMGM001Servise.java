@@ -24,10 +24,6 @@ public class COMGM001Servise {
         dto.setUserId("2");
 
 //        List<COMGM001Dto> resultList = comGm001Dao.getUser(dto);
-//
-//        System.out.println(resultList.get(0).getUserId());
-//
-//        System.out.println(COMMessage.COME001.getMessage());
 
 		return dto;
 	}
