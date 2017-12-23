@@ -49,13 +49,14 @@ public class GBJGM002Controller {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUser());
+		System.out.println(loginInfoDto.getUserId());
 
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
 		gbjGm002Form.setUser("山田太郎");
 		model.addAttribute("GBJGM002Form",gbjGm002Form);
 		return "GBJGM002";
 	}
+
 
 	/**
 	 * 初期処理（遷移元：現場情報一覧表示画面<）
@@ -83,6 +84,25 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "entryGbjGm002", method = RequestMethod.POST)
 	public String entryGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+
+		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
+		gbjGm002Dto.setGenbaId(gbjGm002Form.getGenba_id());
+		gbjGm002Dto.setGenba_Na(gbjGm002Form.getGenba_na());
+		gbjGm002Dto.setAdress(gbjGm002Form.getAddress());
+		gbjGm002Dto.setMoyori1(gbjGm002Form.getMoyori_1_station());
+		gbjGm002Dto.setMoyori2(gbjGm002Form.getMoyori_2_station());
+		gbjGm002Dto.setMoyori3(gbjGm002Form.getMoyori_3_station());
+		gbjGm002Dto.setWork(gbjGm002Form.getWork());
+		gbjGm002Dto.setPhase(gbjGm002Form.getPhase());
+		gbjGm002Dto.setPi_id("0");
+		gbjGm002Dto.setYuko_fg("1");
+		gbjGm002Dto.setSakujo_fg("0");
+
+		System.out.println("dtoのセット");
+
+		gbjGm002Service.insertCheck(gbjGm002Dto);
+
+
 		return "GBJGM002";
 	}
 
@@ -109,6 +129,14 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "deleteGbjGm002", method = RequestMethod.POST)
 	public String deleteGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
+		System.out.println(gbjGm002Form.getGenba_id());
+		gbjGm002Dto.setGenbaId(gbjGm002Form.getGenba_id());
+
+		System.out.println("削除dtoのセット");
+
+		gbjGm002Service.deleteCheck(gbjGm002Dto);
+
 		return "GBJGM002";
 	}
 
@@ -124,7 +152,7 @@ public class GBJGM002Controller {
 	public ModelAndView backComGm002(GBJGM002Form gbjGm002Form,Model model) {
 		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
 		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		gbjGm002Service.inputCheck(gbjGm002Dto);
+		//gbjGm002Service.inputCheck(gbjGm002Dto);
 
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
 		gbjGm002MAV.setUser(gbjGm002Form.getUser());
@@ -143,7 +171,7 @@ public class GBJGM002Controller {
 	public ModelAndView backGbjGm001(GBJGM002Form gbjGm002Form,Model model) {
 		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
 		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		gbjGm002Service.inputCheck(gbjGm002Dto);
+		//gbjGm002Service.inputCheck(gbjGm002Dto);
 
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
 		gbjGm002MAV.setUser(gbjGm002Form.getUser());

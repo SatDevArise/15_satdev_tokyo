@@ -19,16 +19,15 @@
 
 	    <spring:url value="/initGbjGm002" var="actionUrl"/>
     	<form:form modelAttribute="GBJGM002Form">
-    		現場ID&emsp;&nbsp;：<input type="text" name="genba_id" class = "textarea1"><br>
-    		現場名&emsp;&nbsp;：<input type="text" name="genba_na"class = "textarea2" ><br>
-    		住所&emsp;&emsp;&nbsp;：<input type="text" name="address"class = "textarea3" ><br>
-    		最寄駅&emsp;&nbsp;：<input type="text" name="moyori_1_station"class = "textarea4">&nbsp;
-    							<input type="text" name="moyori_2_station"class = "textarea4" >&nbsp;
-    							<input type="text" name="moyori_3_station"class = "textarea4" ><br>
-    		作業内容&nbsp;：<input type="text" name="work"class = "textarea3"><br>
-    		フェーズ&nbsp;：<input type="text" name="phase"class = "textarea1" ><br>
+    		現場ID&emsp;&nbsp;：<form:input class = "textarea1" path = "genba_id" /><br>
+    		現場名&emsp;&nbsp;：<form:input class = "textarea2" path = "genba_na" /><br>
+    		住所&emsp;&emsp;&nbsp;：<form:input class = "textarea3" path = "address" /><br>
+    		最寄駅&emsp;&nbsp;：<form:input class = "textarea4" path = "moyori_1_station" />&nbsp;
+    							<form:input class = "textarea4" path = "moyori_2_station" />&nbsp;
+    							<form:input class = "textarea4" path = "moyori_3_station" /><br>
+    		作業内容&nbsp;：<form:input class = "textarea3" path = "work" /><br>
+    		フェーズ&nbsp;：<form:input class = "textarea1" path = "phase" /><br>
 
-    		</select></form>
     		<div class = "btm">
     		<input type="submit" class="btn btn-default" value="新規登録" name="entryGbjGm002" formaction="${actionUrl}">
     		<input type="submit" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}">
@@ -36,6 +35,9 @@
     		<input type="submit" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}">
     		<input type="submit" class="btn btn-warning" value="現場情報一覧画面へ戻る" name="backGbjGm001" formaction="${actionUrl}">
     		</div>
+
+
+
     	</form:form>
 	</body>
 </html>

@@ -49,7 +49,7 @@ public class SIJGM001Controller {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUser());
+		System.out.println(loginInfoDto.getUserId());
 
 		SIJGM001Form sijGm001Form = new SIJGM001Form();
 		sijGm001Form.setUser("山田 太郎");
@@ -86,7 +86,7 @@ public class SIJGM001Controller {
 	public ModelAndView  goToSijGm002(SIJGM001Form sijGm001Form,Model model) {
 		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
 		sijGm001Dto.setUser(sijGm001Form.getUser());
-		sijGm001Service.inputCheck(sijGm001Dto);
+		sijGm001Service.setSession();
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
 		sijGm001MAV.setUser(sijGm001Form.getUser());
@@ -106,7 +106,7 @@ public class SIJGM001Controller {
 	public ModelAndView  backComGm002(SIJGM001Form sijGm001Form,Model model) {
 		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
 		sijGm001Dto.setUser(sijGm001Form.getUser());
-		sijGm001Service.inputCheck(sijGm001Dto);
+		sijGm001Service.setSession();
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
 		sijGm001MAV.setUser(sijGm001Form.getUser());
