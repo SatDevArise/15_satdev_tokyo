@@ -42,7 +42,7 @@ public class COMGM002Controller {
 	@RequestMapping(value = "/initComGm002", method = RequestMethod.POST)
 	public String initComGm002(COMGM001MAV comGm001MAV,Model model) {
 		COMGM002Form comGm002Form = new COMGM002Form();
-		comGm002Form.setUser(comGm001MAV.getUser());
+		comGm002Form.setUser(comGm001MAV.getUserId());
 		model.addAttribute("COMGM002Form",comGm002Form);
 		return "COMGM002";
 	}
