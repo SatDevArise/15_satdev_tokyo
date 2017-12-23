@@ -9,8 +9,8 @@
     </resultMap>
 
     <select id="getUser" resultMap="resultCOMGM001Dto">
-        SELECT username
-        FROM test
-        WHERE userid = #{userId}
+        SELECT user_na
+        FROM login_user_dt
+        WHERE user_id = #{userId}
     </select>
 </mapper>

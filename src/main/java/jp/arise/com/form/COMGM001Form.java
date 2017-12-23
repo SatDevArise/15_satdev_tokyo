@@ -9,24 +9,44 @@ package jp.arise.com.form;
 public class COMGM001Form {
 
 	/**
-	 * ユーザー
+	 * ユーザーID
 	 */
-	private String user;
+	private String userId;
 
 	/**
-	 * ユーザーを取得
-	 * @return user
+	 * パスワード
 	 */
-	public String getUser() {
-		return user;
+	private String password;
+
+	/**
+	 * ユーザーIDを取得
+	 * @return userId
+	 */
+	public String getUserId() {
+		return userId;
 	}
 
 	/**
-	 * ユーザーを設定
-	 * @param user
+	 * ユーザーIDを設定
+	 * @param userId
 	 */
-	public void setUser(String user) {
-		this.user = user;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
+	/**
+	 * パスワードを取得
+	 * @return password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * パスワードを設定
+	 * @param password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

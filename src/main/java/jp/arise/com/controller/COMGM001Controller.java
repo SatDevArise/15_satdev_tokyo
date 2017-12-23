@@ -47,7 +47,7 @@ public class COMGM001Controller {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String initComGm001(Model model) {
 		COMGM001Form comGm001Form = new COMGM001Form();
-		comGm001Form.setUser("山田 太郎");
+		comGm001Form.setUserId("山田 太郎");
 		model.addAttribute("COMGM001Form",comGm001Form);
 		return "COMGM001";
 	}
@@ -63,15 +63,15 @@ public class COMGM001Controller {
 	@RequestMapping(value = "/",params = "entryComGm001",method = RequestMethod.POST)
 	public ModelAndView  entryComGm001(COMGM001Form comGm001Form,Model model) {
 		COMGM001Dto comGm001Dto = new COMGM001Dto();
-		comGm001Dto.setUser(comGm001Form.getUser());
+		comGm001Dto.setUserId(comGm001Form.getUserId());
 		comGm001Service.inputCheck(comGm001Dto);
 
 		COMGM001MAV comGm001MAV = new COMGM001MAV();
-		comGm001MAV.setUser(comGm001Form.getUser());
+		comGm001MAV.setUserId(comGm001Form.getUserId());
 
 		//ログイン情報設定
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto.setUser("testuser");
+		loginInfoDto.setUserNa("testuser");
 		loginInfoDto.setUserId("0001");
 		loginInfo.setAttribute(loginInfoDto);
 
