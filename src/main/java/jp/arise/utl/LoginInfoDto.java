@@ -4,6 +4,7 @@ package jp.arise.utl;
  * ログイン情報用Dtoクラス
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ *
  */
 public class LoginInfoDto {
 
