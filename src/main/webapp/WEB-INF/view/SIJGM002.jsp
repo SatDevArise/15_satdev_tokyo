@@ -18,45 +18,43 @@
 	<header>
 		<p>社員情報新規登録・編集画面</p>
 	</header>
-	    <spring:url value="/initSijGm002" var="actionUrl"/>
+	<spring:url value="/initSijGm002" var="actionUrl"/>
     	<form:form modelAttribute="SIJGM002Form" id="register">
     		<dl>
     			<dt>社員ID</dt>
-    			<dd><input type="text" id="syain_id" name="syain_id" disabled></dd>
+    			<dd><form:input path="syainId" type="text" id="syainId" name="syainId"/></dd>
     			<dt>氏名</dt>
-    			<dd><input type="text" id="name" name="name"></dd>
+    			<dd><form:input path="name" type="text" id="name" name="name" /></dd>
     			<dt>生年月日</dt>
-    			<dd><input type="text" id="seinengappi" name="seinengappi"></dd>
+    			<dd><form:input path="seinengappi" type="text" id="seinengappi" name="seinengappi" /></dd>
     			<dt>住所</dt>
-    			<dd><input type="text" id="address" name="address"></dd>
+    			<dd><form:input path="address" type="text" id="address" name="address" /></dd>
     			<dt>最寄り駅</dt>
-    			<dd><input type="text" id="moyori_1_station" name="moyori_1_station"></dd>
+    			<dd><form:input path="moyoriStation1" type="text" id="moyori_1_station" name="moyori_1_station" /></dd>
     			<dt>最寄り駅2</dt>
-    			<dd><input type="text" id="moyori_2_station" name="moyori_2_station"></dd>
+    			<dd><form:input path="moyoriStation2" type="text" id="moyori_2_station" name="moyori_2_station" /></dd>
     			<dt>最寄り駅3</dt>
-    			<dd><input type="text" id="moyori_3_station" name="moyori_3_station"></dd>
+    			<dd><form:input path="moyoriStation3" type="text" id="moyori_3_station" name="moyori_3_station" /></dd>
     			<dt>エリアコード</dt>
-    			<dd><input type="text" id="area_cd" name="area_cd"></dd>
+    			<dd><form:input path="areaCd" type="text" id="area_cd" name="area_cd" /></dd>
     			<dt>市内局番</dt>
-    			<dd><input type="text" id="city_cd" name="city_cd"></dd>
+    			<dd><form:input path="cityCd" type="text" id="city_cd" name="city_cd" /></dd>
     			<dt>加入者番号</dt>
-    			<dd><input type="text" id="subscriber_no" name="subscriber_no"></dd>
+    			<dd><form:input path="subscriberNo" type="text" id="subscriber_no" name="subscriber_no" /></dd>
     			<dt>前職</dt>
-    			<dd><input type="text" id="previous" name="previous"></dd>
+    			<dd><form:input path="previous" type="text" id="previous" name="previous" /></dd>
     			<dt>出身地</dt>
-    			<dd><input type="text" id="brth_place" name="brth_place"></dd>
+    			<dd><form:input path="birthPlace" type="text" id="brth_place" name="brth_place" /></dd>
     			<dt>役職</dt>
-    			<dd>
-    			<select id="psition" name="psition"></select>
-    			</dd>
+    			<dd><form:input path="position" type="text" id="psition" name="psition" /></dd>
     			<dt>チーム</dt>
-    			<dd><input type="text" id="team_na" name="team_na"></dd>
+    			<dd><form:input path="teamName" type="text" id="team_na" name="team_na" /></dd>
     			<dt>フェーズ</dt>
-    			<dd><input type="text" id="phase" name="phase"></dd>
+    			<dd><form:input path="phase" type="text" id="phase" name="phase" /></dd>
     			<dt>単価</dt>
-    			<dd><input type="number" id="tanka" name="tanka"></dd>
+    			<dd><form:input path="tanka" type="number" id="tanka" name="tanka" /></dd>
     			<dt>現場名</dt>
-    			<dd><input type="text" id="genba_na" name="genba_na"></dd>
+    			<dd><form:input path="genbaName" type="text" id="genba_na" name="genba_na" /></dd>
     		</dl>
 
     		<input type="submit" class="btn btn-default" value="新規登録" name="entrySijGm002" formaction="${actionUrl}">
