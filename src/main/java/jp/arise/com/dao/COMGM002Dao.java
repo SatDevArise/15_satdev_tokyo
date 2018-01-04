@@ -3,8 +3,6 @@ package jp.arise.com.dao;
 import java.io.Serializable;
 import java.util.List;
 
-import jp.arise.com.dto.COMGM002Dto;
-
 /**
  * COMGM002 メニュー画面用サービス間Daoクラス
  * データベースアクセス時に利用するクラス
@@ -14,8 +12,8 @@ import jp.arise.com.dto.COMGM002Dto;
 public interface COMGM002Dao extends Serializable{
 
 	/**
-	 * userを取得
+	 * お知らせを取得
 	 * @return user
 	 */
-	public List<COMGM002Dto> getUser(COMGM002Dto COMGM002Dto);
+	public List<String> getNews();
 }

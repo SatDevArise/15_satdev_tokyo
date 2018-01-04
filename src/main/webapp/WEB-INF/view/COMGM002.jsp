@@ -14,6 +14,10 @@
 		<title>COMGM002 メニュー画面</title>
 	</head>
 	<body>
+	<c:forEach var="str" items="${att3}">
+		<p><c:out value="${str}" /></p>
+	</c:forEach>
+
 	<spring:url value="/initComGm002" var="actionUrl"/>
     <form:form modelAttribute="COMGM002Form">
 

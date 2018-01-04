@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.arise.com.dao.COMGM002Dao;
-import jp.arise.com.dto.COMGM002Dto;
-import jp.arise.com.message.COMMessage;
+import jp.arise.utl.LoginInfo;
 
 /**
  * COMGM002 メニュー画面用サービス
@@ -21,18 +20,17 @@ public class COMGM002Servise {
 	private COMGM002Dao comGm002Dao;
 
 
-	public COMGM002Dto inputCheck(COMGM002Dto dto) {
-        String user = dto.getUser();
-        System.out.println(user);
-
-        dto.setUserId(2);
-
-        List<COMGM002Dto> resultList = comGm002Dao.getUser(dto);
-
-        System.out.println(resultList.get(0).getUser());
-
-        System.out.println(COMMessage.COME001.getMessage());
-
-		return dto;
+	public void upSession(){
+		LoginInfo loginInfo = new LoginInfo();
+		loginInfo.updateAttributeGamenId("COMGM002");
 	}
+
+	public List<String> getNews(){
+
+		//daoのgetNewsメソッドを呼び出し
+		List<String> resultList = comGm002Dao.getNews();
+
+		return resultList;
+	}
+
 }

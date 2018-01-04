@@ -4,13 +4,12 @@
 
 <mapper namespace="jp.arise.com.dao.COMGM002Dao">
     <resultMap id="resultCOMGM002Dto" type="jp.arise.com.dto.COMGM002Dto">
-        <result column="username" property="user"/>
-        <result column="userid" property="userId"/>
+        <result column="osirase_info" property="osiraseInfo"/>
     </resultMap>
 
-    <select id="getUser" resultMap="resultCOMGM002Dto">
-        SELECT username
-        FROM test
-        WHERE userid = #{userId}
+    <select id="getNews" resultType="String">
+        SELECT osirase_info
+        FROM osirase_mst
+        WHERE osirase_start_dt =  date_trunc('day', now());
     </select>
 </mapper>

@@ -1,5 +1,7 @@
 package jp.arise.com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,8 +44,10 @@ public class COMGM002Controller {
 	@RequestMapping(value = "/initComGm002", method = RequestMethod.POST)
 	public String initComGm002(COMGM001MAV comGm001MAV,Model model) {
 		COMGM002Form comGm002Form = new COMGM002Form();
-		comGm002Form.setUser(comGm001MAV.getUserId());
-		model.addAttribute("COMGM002Form",comGm002Form);
+
+		List<String> resultList = comGm002Service.getNews();
+
+		model.addAttribute("att3",resultList);
 		return "COMGM002";
 	}
 
@@ -58,11 +62,12 @@ public class COMGM002Controller {
 	@RequestMapping(value = "/initComGm002", params = "goSijGm001",method = RequestMethod.POST)
 	public ModelAndView goSijGm001(COMGM002Form comGm002Form,Model model) {
 		COMGM002Dto comGm002Dto = new COMGM002Dto();
-		comGm002Dto.setUser(comGm002Form.getUser());
-		comGm002Service.inputCheck(comGm002Dto);
 
 		COMGM002MAV comGm002MAV = new COMGM002MAV();
 		comGm002MAV.setUser(comGm002Form.getUser());
+
+		//セッション情報設定
+		comGm002Service.upSession();
 
 		return new ModelAndView("forward:/initSijGm001","COMGM002MAV",comGm002MAV);
 	}
@@ -78,11 +83,12 @@ public class COMGM002Controller {
 	@RequestMapping(value = "/initComGm002", params = "goSijGm002",method = RequestMethod.POST)
 	public ModelAndView goSijGm002(COMGM002Form comGm002Form,Model model) {
 		COMGM002Dto comGm002Dto = new COMGM002Dto();
-		comGm002Dto.setUser(comGm002Form.getUser());
-		comGm002Service.inputCheck(comGm002Dto);
 
 		COMGM002MAV comGm002MAV = new COMGM002MAV();
 		comGm002MAV.setUser(comGm002Form.getUser());
+
+		//セッション情報設定
+		comGm002Service.upSession();
 
 		return new ModelAndView("forward:/initSijGm002","COMGM002MAV",comGm002MAV);
 	}
@@ -98,11 +104,12 @@ public class COMGM002Controller {
 	@RequestMapping(value = "/initComGm002", params = "goGbjGm001",method = RequestMethod.POST)
 	public ModelAndView goGbjGm001(COMGM002Form comGm002Form,Model model) {
 		COMGM002Dto comGm002Dto = new COMGM002Dto();
-		comGm002Dto.setUser(comGm002Form.getUser());
-		comGm002Service.inputCheck(comGm002Dto);
 
 		COMGM002MAV comGm002MAV = new COMGM002MAV();
 		comGm002MAV.setUser(comGm002Form.getUser());
+
+		//セッション情報設定
+		comGm002Service.upSession();
 
 		return new ModelAndView("forward:/initGbjGm001","COMGM002MAV",comGm002MAV);
 	}
@@ -118,13 +125,13 @@ public class COMGM002Controller {
 	@RequestMapping(value = "/initComGm002", params = "goGbjGm002",method = RequestMethod.POST)
 	public ModelAndView goGbjGm002(COMGM002Form comGm002Form,Model model) {
 		COMGM002Dto comGm002Dto = new COMGM002Dto();
-		comGm002Dto.setUser(comGm002Form.getUser());
-		comGm002Service.inputCheck(comGm002Dto);
 
 		COMGM002MAV comGm002MAV = new COMGM002MAV();
 		comGm002MAV.setUser(comGm002Form.getUser());
 
+		//セッション情報設定
+		comGm002Service.upSession();
+
 		return new ModelAndView("forward:/initGbjGm002","COMGM002MAV",comGm002MAV);
 	}
-
 }
