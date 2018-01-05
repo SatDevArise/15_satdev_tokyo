@@ -14,20 +14,21 @@
 		<title>COMGM002 メニュー画面</title>
 	</head>
 	<body>
+	<h4>　お知らせ</h4>
 	<c:forEach var="str" items="${att3}">
-		<p><c:out value="${str}" /></p>
+		<p>　　<c:out value="${str}" /></p>
 	</c:forEach>
 
 	<spring:url value="/initComGm002" var="actionUrl"/>
     <form:form modelAttribute="COMGM002Form">
 
-<br><br><br><br><br>
-		 	　<input type="submit" class="btn btn-default" value="社員情報一覧表示　　　" name="goSijGm001" formaction="${actionUrl}">　　　　社員情報一覧を表示<br><br>
-			　<input type="submit" class="btn btn-default" value="社員情報新規登録・編集" name="goSijGm002" formaction="${actionUrl}">　　　　社員情報を登録編集<br><br>
-			　<input type="submit" class="btn btn-default" value="現場情報一覧表示　　　" name="goGbjGm001" formaction="${actionUrl}">　　　　現場情報一覧を表示<br><br>
-			　<input type="submit" class="btn btn-default" value="現場情報新規登録・編集" name="goGbjGm002" formaction="${actionUrl}">　　　　現場情報を登録編集<br><br>
-			　<input type="submit" class="btn btn-default" value="システム管理　　　　　" name="goGbjGm002" formaction="${actionUrl}">　　　　システム情報を管理<br><br>
-			　<input type="submit" class="btn btn-default" value="ログアウト" name="goGbjGm002" formaction="${actionUrl}"><br><br>
+<br>
+		 	　　<input type="submit" class="btn btn-default" value="社員情報一覧表示　　　" name="goSijGm001" formaction="${actionUrl}">　　　社員情報一覧を表示<br><br>
+			　　<input type="submit" class="btn btn-default" value="社員情報新規登録・編集" name="goSijGm002" formaction="${actionUrl}">　　　社員情報を登録編集<br><br>
+			　　<input type="submit" class="btn btn-default" value="現場情報一覧表示　　　" name="goGbjGm001" formaction="${actionUrl}">　　　現場情報一覧を表示<br><br>
+			　　<input type="submit" class="btn btn-default" value="現場情報新規登録・編集" name="goGbjGm002" formaction="${actionUrl}">　　　現場情報を登録編集<br><br>
+			　　<input type="submit" class="btn btn-default" value="システム管理　　　　　" name="goGbjGm002" formaction="${actionUrl}">　　　システム情報を管理<br><br>
+			　　<input type="submit" class="btn btn-default" value="ログアウト" name="goGbjGm002" formaction="${actionUrl}"><br><br>
     </form:form>
 
 	</body>
