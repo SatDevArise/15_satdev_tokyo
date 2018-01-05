@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import jp.arise.com.dao.COMGM002Dao;
 import jp.arise.utl.LoginInfo;
+import jp.arise.utl.UTLContent;
 
 /**
  * COMGM002 メニュー画面用サービス
@@ -22,7 +23,7 @@ public class COMGM002Servise {
 
 	public void upSession(){
 		LoginInfo loginInfo = new LoginInfo();
-		loginInfo.updateAttributeGamenId("COMGM002");
+		loginInfo.updateAttributeGamenId(UTLContent.GMID_COMGM002);
 	}
 
 	public List<String> getNews(){
