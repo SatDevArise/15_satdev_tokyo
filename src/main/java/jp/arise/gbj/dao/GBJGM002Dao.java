@@ -1,7 +1,6 @@
 package jp.arise.gbj.dao;
 
 import java.io.Serializable;
-import java.util.List;
 
 import jp.arise.gbj.dto.GBJGM002Dto;
 
@@ -14,8 +13,29 @@ import jp.arise.gbj.dto.GBJGM002Dto;
 public interface GBJGM002Dao extends Serializable{
 
 	/**
-	 * userを取得
+	 * 現場IDを取得
 	 * @return user
 	 */
-	public List<GBJGM002Dto> getUser(GBJGM002Dto GBJGM002Dto);
+public String getGenbaId();
+
+/**
+ * 新規登録処理
+ */
+public void insert (GBJGM002Dto dto);
+
+/**
+ * 採番処理
+ */
+public void numbering (GBJGM002Dto dto);
+
+/**
+ * 削除処理
+ */
+public void delete (GBJGM002Dto dto);
+
+/**
+ * 更新処理
+ */
+public void update (GBJGM002Dto dto);
+
 }

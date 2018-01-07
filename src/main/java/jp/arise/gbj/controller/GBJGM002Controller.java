@@ -15,6 +15,7 @@ import jp.arise.gbj.modelandview.GBJGM002MAV;
 import jp.arise.gbj.service.GBJGM002Servise;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 /**
  * GBJGM002 現場情報新規登録・編集画面用コントローラー
@@ -49,10 +50,13 @@ public class GBJGM002Controller {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUserId());
 
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
-		gbjGm002Form.setUser("山田太郎");
+		//Fromクラスに起動元画面を設定
+		gbjGm002Form.setGamenId(UTLContent.GMID_COMGM002);
+		//Serviseクラスの現場ID採番処理を呼び出す
+		String genbaId = gbjGm002Service.getGenbaId();
+		gbjGm002Form.setGenbaId(genbaId);
 		model.addAttribute("GBJGM002Form",gbjGm002Form);
 		return "GBJGM002";
 	}
@@ -68,7 +72,16 @@ public class GBJGM002Controller {
 	@RequestMapping(value = "/initGbjGm002",params = "goToGbjGm002",method = RequestMethod.POST)
 	public String initGbjGm002(Model model,GBJGM001MAV gbjGm001MAV) {
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
-		gbjGm002Form.setUser(gbjGm001MAV.getUser());
+		gbjGm002Form.setUser("a");
+		gbjGm002Form.setGenbaId("a");
+		gbjGm002Form.setGenbaNa("a");
+		gbjGm002Form.setAddress("a");
+		gbjGm002Form.setMoyori1Station("a");
+		gbjGm002Form.setMoyori2Station("a");
+		gbjGm002Form.setMoyori3Station("a");
+		gbjGm002Form.setWork("a");
+		gbjGm002Form.setPhase("a");
+		gbjGm002Form.setGamenId(UTLContent.GMID_GBJGM001);
 		model.addAttribute("GBJGM002Form",gbjGm002Form);
 		return "GBJGM002";
 	}
@@ -81,8 +94,22 @@ public class GBJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/177
 	 */
+
 	@RequestMapping(value = "/initGbjGm002",params = "entryGbjGm002", method = RequestMethod.POST)
 	public String entryGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+		GBJGM002Dto dto = new GBJGM002Dto();
+		dto.setGenbaId(gbjGm002Form.getGenbaId());
+		dto.setGenbaNa(gbjGm002Form.getGenbaNa());
+		dto.setAddress(gbjGm002Form.getAddress());
+		dto.setMoyori1Station(gbjGm002Form.getMoyori1Station());
+		dto.setMoyori2Station(gbjGm002Form.getMoyori2Station());
+		dto.setMoyori3Station(gbjGm002Form.getMoyori3Station());
+		dto.setWork(gbjGm002Form.getWork());
+		dto.setPhase(gbjGm002Form.getPhase());
+		dto.setPjId("1");
+		dto.setYukoFg("0");
+		dto.setSakujoFg("1");
+		gbjGm002Service.insert(dto);
 		return "GBJGM002";
 	}
 
@@ -96,6 +123,20 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "updateGbjGm002", method = RequestMethod.POST)
 	public String updateGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+		GBJGM002Dto dto = new GBJGM002Dto();
+		dto.setGenbaId(gbjGm002Form.getGenbaId());
+		dto.setGenbaNa(gbjGm002Form.getGenbaNa());
+		dto.setAddress(gbjGm002Form.getAddress());
+		dto.setMoyori1Station(gbjGm002Form.getMoyori1Station());
+		dto.setMoyori2Station(gbjGm002Form.getMoyori2Station());
+		dto.setMoyori3Station(gbjGm002Form.getMoyori3Station());
+		dto.setWork(gbjGm002Form.getWork());
+		dto.setPhase(gbjGm002Form.getPhase());
+		dto.setPjId("1");
+		dto.setYukoFg("0");
+		dto.setSakujoFg("1");
+
+		gbjGm002Service.update(dto);
 		return "GBJGM002";
 	}
 
@@ -109,6 +150,10 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "deleteGbjGm002", method = RequestMethod.POST)
 	public String deleteGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+		GBJGM002Dto dto = new GBJGM002Dto();
+		dto.setGenbaId(gbjGm002Form.getGenbaId());
+
+		gbjGm002Service.delete(dto);
 		return "GBJGM002";
 	}
 
@@ -122,12 +167,8 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "backComGm002", method = RequestMethod.POST)
 	public ModelAndView backComGm002(GBJGM002Form gbjGm002Form,Model model) {
-		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		gbjGm002Service.inputCheck(gbjGm002Dto);
-
+		gbjGm002Service.updateSession();
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
-		gbjGm002MAV.setUser(gbjGm002Form.getUser());
 		return new ModelAndView("forward:/initComGm002","GBJGM002MAV",gbjGm002MAV);
 	}
 
@@ -141,12 +182,17 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "backGbjGm001", method = RequestMethod.POST)
 	public ModelAndView backGbjGm001(GBJGM002Form gbjGm002Form,Model model) {
-		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		gbjGm002Service.inputCheck(gbjGm002Dto);
-
+		gbjGm002Service.updateSession();
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
 		gbjGm002MAV.setUser(gbjGm002Form.getUser());
+		gbjGm002MAV.setGenbaId(gbjGm002Form.getGenbaId());
+		gbjGm002MAV.setGenbaNa(gbjGm002Form.getGenbaNa());
+		gbjGm002MAV.setAddress(gbjGm002Form.getAddress());
+		gbjGm002MAV.setMoyori1Station(gbjGm002Form.getMoyori1Station());
+		gbjGm002MAV.setMoyori2Station(gbjGm002Form.getMoyori2Station());
+		gbjGm002MAV.setMoyori3Station(gbjGm002Form.getMoyori3Station());
+		gbjGm002MAV.setWork(gbjGm002Form.getWork());
+		gbjGm002MAV.setPhase(gbjGm002Form.getPhase());
 		return new ModelAndView("forward:/initGbjGm001","GBJGM002MAV",gbjGm002MAV);
 	}
 

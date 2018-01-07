@@ -3,14 +3,38 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="jp.arise.gbj.dao.GBJGM002Dao">
-    <resultMap id="resultGBJGM002Dto" type="jp.arise.gbj.dto.GBJGM002Dto">
-        <result column="username" property="user"/>
-        <result column="userid" property="userId"/>
-    </resultMap>
 
-    <select id="getUser" resultMap="resultGBJGM002Dto">
-        SELECT username
-        FROM test
-        WHERE userid = #{userId}
+   <select id="getGenbaId" resultType="String">
+    SELECT max(genba_id)
+    FROM seq
     </select>
+
+	<insert id= "insert" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
+	INSERT INTO genba_dt (genba_id,genba_na,genba_address,genba_moyori_eki_1,genba_moyori_eki_2,genba_moyori_eki_3,sagyonaiyo,phase_cd,pj_id,yuko_fg,sakujo_fg)
+	VALUES(#{genbaId},#{genbaNa},#{address},#{moyori1Station},#{moyori2Station},#{moyori3Station},#{work},#{phase},#{pjId},#{yukoFg},#{sakujoFg})
+	</insert>
+	<insert id="numbering" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
+	INSERT INTO seq (genba_id, syain_id) VALUES (#{genbaId},#{genbaId})
+	</insert>
+
+	<delete id= "delete" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
+	DELETE FROM genba_dt
+	WHERE genba_id = #{genbaId}
+	</delete>
+
+	<update id= "update" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
+	UPDATE genba_dt
+	SET genba_na = #{genbaNa},
+	 genba_address = #{address},
+	 genba_moyori_eki_1 = #{moyori1Station},
+	 genba_moyori_eki_2 = #{moyori2Station},
+	 genba_moyori_eki_3 = #{moyori3Station},
+	 sagyonaiyo = #{work},
+	 phase_cd = #{phase},
+	 pj_id = #{pjId},
+	 yuko_fg = #{yukoFg},
+	 sakujo_fg = #{sakujoFg}
+	WHERE genba_id = #{genbaId}
+	</update>
+
 </mapper>

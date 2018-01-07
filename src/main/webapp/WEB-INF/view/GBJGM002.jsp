@@ -8,41 +8,36 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 		<link href="<c:url value="/resources/css/GBJGM002.css" />" rel="stylesheet">
+		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 		<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
 		<script src="<c:url value="/resources/js/GBJGM002.js" />"></script>
 		<title>GBJGM002 現場情報新規登録・編集画面</title>
 	</head>
 	<body>
-	<header>
-		<p>現場情報新規登録・編集画面</p>
-	</header>
-	<spring:url value="/initGbjGm002" var="actionUrl"/>
-    	<form:form modelAttribute="GBJGM002Form" id="register">
-    	    		<dl>
-    			<dt>現場ID</dt>
-    			<dd><input type="text" id="genba_id" name="genba_id" disabled></dd>
-    			<dt>現場名</dt>
-    			<dd><input type="text" id="genba_na" name="genba_na"></dd>
-    			<dt>住所</dt>
-    			<dd><input type="text" id="address" name="address"></dd>
-    			<dt>最寄り駅</dt>
-    			<dd><input type="text" id="moyori_1_station" name="moyori_1_station"></dd>
-    			<dt>最寄り駅2</dt>
-    			<dd><input type="text" id="moyori_2_station" name="moyori_2_station"></dd>
-    			<dt>最寄り駅3</dt>
-    			<dd><input type="text" id="moyori_3_station" name="moyori_3_station"></dd>
-    			<dt>作業内容</dt>
-    			<dd><input type="number" id="work" name="work"></dd>
-    			<dt>フェーズ</dt>
-    			<dd><input type="text" id="phase" name="phase"></dd>
-    		</dl>
-    		<input type="submit" class="btn btn-default" value="新規登録" name="entryGbjGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-success" value="削除" name="deleteGbjGm002" formaction="${actionUrl}">
+		<div class = "title">社員情報管理システム</div>
+        <div id="error_hyoji"></div>
+	    <spring:url value="/initGbjGm002" var="actionUrl"/>
+    	<form:form modelAttribute="GBJGM002Form" name="GBJ002">
+    		現場ID&emsp;&nbsp;：<form:input class = "textarea1" path = "genbaId" id="genbaId" /><br>
+    		現場名&emsp;&nbsp;：<form:input class = "textarea2" path = "genbaNa" id="genbaNa" /><br>
+    		住所&emsp;&emsp;&nbsp;：<form:input class = "textarea3" path = "address" id="address" /><br>
+    		最寄駅&emsp;&nbsp;：<form:input class = "textarea4" path = "moyori1Station" id="moyori1Station" />&nbsp;
+    							<form:input class = "textarea4" path = "moyori2Station" id="moyori2Station" />&nbsp;
+    							<form:input class = "textarea4" path = "moyori3Station" id="moyori3Station" /><br>
+    		作業内容&nbsp;：<form:input class = "textarea3" path = "work" id="work" /><br>
+    		フェーズ&nbsp;：<form:input class = "textarea1" path = "phase" id="phase" /><br>
+
+    		<div class = "btm">
+    		<input type="submit" class="btn btn-default" value="新規登録" name="entryGbjGm002" formaction="${actionUrl}"onclick= "return formCheck()">
+    		<input type="submit" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}" onclick= "return formCheck()">
+    		<input type="submit" class="btn btn-success" value="削除" name="deleteGbjGm002" formaction="${actionUrl}" onclick="return confirmDelete()">
     		<input type="submit" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-warning" value="戻る" name="backGbjGm001" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-warning" value="現場情報一覧画面へ戻る" name="backGbjGm001" formaction="${actionUrl}">
+    		</div>
+
+
+
     	</form:form>
 	</body>
 </html>
