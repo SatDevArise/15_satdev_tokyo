@@ -16,7 +16,35 @@ public class GBJGM002Form {
 	private String moyori_3_station;
 	private String work;
 	private String phase;
+	private String gamen_id;
+	private String pi_id;
+	private String yuko_fg;
+	private String sakujo_fg;
 
+	public String getPi_id() {
+		return pi_id;
+	}
+	public void setPi_id(String pi_id) {
+		this.pi_id = pi_id;
+	}
+	public String getYuko_fg() {
+		return yuko_fg;
+	}
+	public void setYuko_fg(String yuko_fg) {
+		this.yuko_fg = yuko_fg;
+	}
+	public String getSakujo_fg() {
+		return sakujo_fg;
+	}
+	public void setSakujo_fg(String sakujo_fg) {
+		this.sakujo_fg = sakujo_fg;
+	}
+	public String getGamen_id() {
+		return gamen_id;
+	}
+	public void setGamen_id(String gamen_id) {
+		this.gamen_id = gamen_id;
+	}
 	public String getGenba_id() {
 		return genba_id;
 	}

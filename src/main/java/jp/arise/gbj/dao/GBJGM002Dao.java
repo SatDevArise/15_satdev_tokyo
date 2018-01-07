@@ -24,6 +24,18 @@ public interface GBJGM002Dao extends Serializable{
 	 */
 	public void delete(GBJGM002Dto GBJGM002Dto);
 
+	/**
+	 * 更新処理
+	 * @return user
+	 */
+	public void update(GBJGM002Dto GBJGM002Dto);
+
+	/**
+	 * 採番登録処理
+	 * @return user
+	 */
+	public void numbering(GBJGM002Dto GBJGM002Dto);
+
 
 //	/**
 //	 * userを取得
@@ -31,11 +43,11 @@ public interface GBJGM002Dao extends Serializable{
 //	 */
 //	public List<GBJGM002Dto> getUser(GBJGM002Dto GBJGM002Dto);
 //
-//	/**
-//	 * genba_Idを取得
-//	 * @return genba_Id
-//	 */
-//	public List<GBJGM002Dto> getGenba_Id(GBJGM002Dto GBJGM002Dto);
+	/**
+	 * genba_Idを取得
+	 * @return genba_Id
+	 */
+	public String getGenbaId();
 //
 //	/**
 //	 * genba_naを取得

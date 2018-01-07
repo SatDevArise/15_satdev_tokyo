@@ -15,6 +15,7 @@ import jp.arise.gbj.modelandview.GBJGM002MAV;
 import jp.arise.gbj.service.GBJGM002Servise;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 /**
  * GBJGM002 現場情報新規登録・編集画面用コントローラー
@@ -49,10 +50,13 @@ public class GBJGM002Controller {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUserId());
+
 
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
-		gbjGm002Form.setUser("山田太郎");
+		gbjGm002Form.setGamen_id(UTLContent.GMID_COMGM002);
+		//Serviseクラスの現場ID採番処理を呼び出す。
+		String genbaId = gbjGm002Service.getGenbaId();
+		gbjGm002Form.setGenba_id(genbaId);
 		model.addAttribute("GBJGM002Form",gbjGm002Form);
 		return "GBJGM002";
 	}
@@ -69,8 +73,21 @@ public class GBJGM002Controller {
 	@RequestMapping(value = "/initGbjGm002",params = "goToGbjGm002",method = RequestMethod.POST)
 	public String initGbjGm002(Model model,GBJGM001MAV gbjGm001MAV) {
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
-		gbjGm002Form.setUser(gbjGm001MAV.getUser());
+		gbjGm002Form.setGamen_id(UTLContent.GMID_GBJGM001);
 		model.addAttribute("GBJGM002Form",gbjGm002Form);
+
+		//FromクラスにMAVクラスの現場情報を設定する。
+		gbjGm002Form.setGenba_id(gbjGm001MAV.getGenbaId());
+		gbjGm002Form.setGenba_na(gbjGm001MAV.getGenbaNa());
+		gbjGm002Form.setAddress(gbjGm001MAV.getAddress());
+		gbjGm002Form.setMoyori_1_station(gbjGm001MAV.getMoyori1Station());
+		gbjGm002Form.setMoyori_2_station(gbjGm001MAV.getMoyori2Station());
+		gbjGm002Form.setMoyori_3_station(gbjGm001MAV.getMoyori3Station());
+		gbjGm002Form.setWork(gbjGm001MAV.getWork());
+		gbjGm002Form.setPhase(gbjGm001MAV.getPhase());
+		gbjGm002Form.setPi_id("0");
+		gbjGm002Form.setYuko_fg("1");
+		gbjGm002Form.setSakujo_fg("0");
 		return "GBJGM002";
 	}
 
@@ -116,6 +133,23 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "updateGbjGm002", method = RequestMethod.POST)
 	public String updateGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+
+		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
+		gbjGm002Dto.setGenbaId(gbjGm002Form.getGenba_id());
+		gbjGm002Dto.setGenba_Na(gbjGm002Form.getGenba_na());
+		gbjGm002Dto.setAdress(gbjGm002Form.getAddress());
+		gbjGm002Dto.setMoyori1(gbjGm002Form.getMoyori_1_station());
+		gbjGm002Dto.setMoyori2(gbjGm002Form.getMoyori_2_station());
+		gbjGm002Dto.setMoyori3(gbjGm002Form.getMoyori_3_station());
+		gbjGm002Dto.setWork(gbjGm002Form.getWork());
+		gbjGm002Dto.setPhase(gbjGm002Form.getPhase());
+		gbjGm002Dto.setPi_id("0");
+		gbjGm002Dto.setYuko_fg("1");
+		gbjGm002Dto.setSakujo_fg("0");
+
+		System.out.println("更新dtoのセット");
+
+		gbjGm002Service.updateCheck(gbjGm002Dto);
 		return "GBJGM002";
 	}
 
@@ -150,12 +184,11 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "backComGm002", method = RequestMethod.POST)
 	public ModelAndView backComGm002(GBJGM002Form gbjGm002Form,Model model) {
-		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		//gbjGm002Service.inputCheck(gbjGm002Dto);
 
+		//Serviseクラスのセッション情報設定処理を呼び出す。
+		//gbjGm002Service.updateSession();
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
-		gbjGm002MAV.setUser(gbjGm002Form.getUser());
+
 		return new ModelAndView("forward:/initComGm002","GBJGM002MAV",gbjGm002MAV);
 	}
 
@@ -169,12 +202,22 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "backGbjGm001", method = RequestMethod.POST)
 	public ModelAndView backGbjGm001(GBJGM002Form gbjGm002Form,Model model) {
-		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		//gbjGm002Service.inputCheck(gbjGm002Dto);
 
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
-		gbjGm002MAV.setUser(gbjGm002Form.getUser());
+		gbjGm002MAV.setGenbaId(gbjGm002Form.getGenba_id());
+		gbjGm002MAV.setGenba_Na(gbjGm002Form.getGenba_na());
+		gbjGm002MAV.setAdress(gbjGm002Form.getAddress());
+		gbjGm002MAV.setMoyori1(gbjGm002Form.getMoyori_1_station());
+		gbjGm002MAV.setMoyori2(gbjGm002Form.getMoyori_2_station());
+		gbjGm002MAV.setMoyori3(gbjGm002Form.getMoyori_3_station());
+		gbjGm002MAV.setWork(gbjGm002Form.getWork());
+		gbjGm002MAV.setPhase(gbjGm002Form.getPhase());
+		gbjGm002MAV.setPi_id("0");
+		gbjGm002MAV.setYuko_fg("1");
+		gbjGm002MAV.setSakujo_fg("0");
+		//Serviseクラスのセッション情報設定処理を呼び出す。
+		//gbjGm002Service.updateSession();
+
 		return new ModelAndView("forward:/initGbjGm001","GBJGM002MAV",gbjGm002MAV);
 	}
 
