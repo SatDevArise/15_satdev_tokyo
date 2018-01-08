@@ -51,7 +51,7 @@ public class GBJGM001Controller {
 		loginInfoDto = loginInfo.getAttribute();
 
 		GBJGM001Form gbjGm001Form = new GBJGM001Form();
-		gbjGm001Form.setUser("テスト太郎");
+		gbjGm001Form.setUserId("テスト太郎");
 		model.addAttribute("GBJGM001Form",gbjGm001Form);
 		return "GBJGM001";
 	}
@@ -67,7 +67,7 @@ public class GBJGM001Controller {
     @RequestMapping(value = "/initGbjGm001",params = "backGbjGm001", method = RequestMethod.POST)
 	public String initGbjGm001(GBJGM002MAV gbjGm002MAV,Model model) {
 		GBJGM001Form gbjGm001Form = new GBJGM001Form();
-		gbjGm001Form.setUser(gbjGm002MAV.getUser());
+		gbjGm001Form.setUserId(gbjGm002MAV.getUser());
 		model.addAttribute("GBJGM001Form",gbjGm001Form);
 		return "GBJGM001";
 	}
@@ -83,11 +83,10 @@ public class GBJGM001Controller {
 	@RequestMapping(value = "/initGbjGm001",params = "goToGbjGm002",method = RequestMethod.POST)
 	public ModelAndView  goToGbjGm002(GBJGM001Form gbjGm001Form,Model model) {
 		GBJGM001Dto gbjGm001Dto = new GBJGM001Dto();
-		gbjGm001Dto.setUser(gbjGm001Form.getUser());
-		gbjGm001Service.inputCheck(gbjGm001Dto);
+		gbjGm001Dto.setUserId(gbjGm001Form.getUserId());
 
 		GBJGM001MAV gbjGm001MAV = new GBJGM001MAV();
-		gbjGm001MAV.setUser(gbjGm001Form.getUser());
+		gbjGm001MAV.setUserId(gbjGm001Form.getUserId());
 
 		return new ModelAndView("forward:/initGbjGm002","GBJGM001MAV",gbjGm001MAV);
 	}
@@ -103,11 +102,11 @@ public class GBJGM001Controller {
 	@RequestMapping(value = "/initGbjGm001",params = "backComGm002",method = RequestMethod.POST)
 	public ModelAndView  backComGm002(GBJGM001Form gbjGm001Form,Model model) {
 		GBJGM001Dto gbjGm001Dto = new GBJGM001Dto();
-		gbjGm001Dto.setUser(gbjGm001Form.getUser());
-		gbjGm001Service.inputCheck(gbjGm001Dto);
+		gbjGm001Dto.setUserId(gbjGm001Form.getUserId());
+
 
 		GBJGM001MAV gbjGm001MAV = new GBJGM001MAV();
-		gbjGm001MAV.setUser(gbjGm001Form.getUser());
+		gbjGm001MAV.setUserId(gbjGm001Form.getUserId());
 
 		return new ModelAndView("forward:/initComGm002","GBJGM001MAV",gbjGm001MAV);
 	}
