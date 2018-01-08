@@ -20,18 +20,19 @@
 
 		<spring:url value="/initGbjGm001" var="actionUrl"/>
 
-    	<form:form modelAttribute="GBJGM001Form">
-    		<input type="button" class="btn btn-default" value="検索" onclick="openCOMGM003();">
-    		<input type="submit" class="btn btn-warning" value="戻る" name="backComGm002" formaction="${actionUrl}">
+    	<form:form modelAttribute="GBJGM001Form" class="text-center"
+			style="margin-top: 30px;">
+    		<input type="button" class="btn btn-default" value="検索" onclick="openCOMGM003();" style="margin-left: 10px;">
+    		<input type="submit" class="btn btn-warning" value="戻る" name="backComGm002" formaction="${actionUrl}" style="margin-left: 10px;">
     	</form:form>
 
 
             <!-- 現場情報一覧表示 -->
  			<div align="center">
- 				<table>
+ 				<table class="table-bordered" style="margin-top: 30px;">
 
  					<!-- ヘッダ -->
- 					<thead>
+ 					<thead style="color: #FFFFFF; background-color: #191970;">
  						<tr>
  							<th>現場名</th>
  							<th>作業内容</th>
@@ -41,13 +42,13 @@
 
  					<!-- 明細 -->
  					<tr>
-                         <c:forEach var="genbaInfoList" items="${GBJGM001Form}">
+                         <c:forEach var="genbaInfo" items="${GBJGM001FormList}">
  							<th><input type="submit" class="btn btn-link"
- 								value="${genbaInfoList.ganbaId}" name="goToGBJGM002"
+ 								value="${genbaInfo.genbaId}" name="goToGbjGm002"
  								formaction="${actionUrl}"></th>
- 							<th><c:out value="${genbaInfoList.genba_na}" /></th>
- 							<th><c:out value="${genbaInfoList.work}" /></th>
- 							<th><c:out value="${genbaInfoList.phase}" /></th>
+ 							<th><c:out value="${genbaInfo.genbaNa}" /></th>
+ 							<th><c:out value="${genbaInfo.work}" /></th>
+ 							<th><c:out value="${genbaInfo.phase}" /></th>
  						</c:forEach>
                     </tr>
  				</table>
