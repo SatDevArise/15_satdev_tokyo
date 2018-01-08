@@ -19,10 +19,10 @@ public class COMGM002Servise {
 
 	@Autowired
 	private COMGM002Dao comGm002Dao;
-
+	@Autowired
+	public LoginInfo loginInfo;
 
 	public void upSession(){
-		LoginInfo loginInfo = new LoginInfo();
 		loginInfo.updateAttributeGamenId(UTLContent.GMID_COMGM002);
 	}
 
