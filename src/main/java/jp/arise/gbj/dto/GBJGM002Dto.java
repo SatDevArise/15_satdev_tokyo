@@ -1,6 +1,7 @@
 package jp.arise.gbj.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * GBJGM002 現場新規登録・編集画面用サービス間Dtoクラス
@@ -69,6 +70,84 @@ public class GBJGM002Dto implements Serializable{
 	 * 削除フラグ
 	 */
 	private String sakujoFg;
+
+	/**
+	 * 登録日
+	 */
+	private Date insertTs;
+
+	/**
+	 * 更新日
+	 */
+	private Date updateTs;
+
+	/**
+	 * 削除日
+	 */
+	private Date deleteTs;
+
+	/**
+	 * 登録者
+	 */
+	private String insertUser;
+
+	/**
+	 * 更新者
+	 */
+	private String updateUser;
+
+	/**
+	 * 削除者
+	 */
+	private String deleteUser;
+
+	public Date getInsertTs() {
+		return insertTs;
+	}
+
+	public void setInsertTs(Date insertTs) {
+		this.insertTs = insertTs;
+	}
+
+	public Date getUpdateTs() {
+		return updateTs;
+	}
+
+	public void setUpdateTs(Date updateTs) {
+		this.updateTs = updateTs;
+	}
+
+	public Date getDeleteTs() {
+		return deleteTs;
+	}
+
+	public void setDeleteTs(Date deleteTs) {
+		this.deleteTs = deleteTs;
+	}
+
+	public String getInsertUser() {
+		return insertUser;
+	}
+
+	public void setInsertUser(String insertUser) {
+		this.insertUser = insertUser;
+	}
+
+	public String getUpdateUser() {
+		return updateUser;
+	}
+
+	public void setUpdateUser(String updateUser) {
+		this.updateUser = updateUser;
+	}
+
+	public String getDeleteUser() {
+		return deleteUser;
+	}
+
+	public void setDeleteUser(String deleteUser) {
+		this.deleteUser = deleteUser;
+	}
 
 	public String getPjId() {
 		return pjId;

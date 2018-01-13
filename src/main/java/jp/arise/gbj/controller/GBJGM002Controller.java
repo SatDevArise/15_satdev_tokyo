@@ -1,5 +1,7 @@
 package jp.arise.gbj.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -97,6 +99,10 @@ public class GBJGM002Controller {
 
 	@RequestMapping(value = "/initGbjGm002",params = "entryGbjGm002", method = RequestMethod.POST)
 	public String entryGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+	   	//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
+
 		GBJGM002Dto dto = new GBJGM002Dto();
 		dto.setGenbaId(gbjGm002Form.getGenbaId());
 		dto.setGenbaNa(gbjGm002Form.getGenbaNa());
@@ -107,8 +113,10 @@ public class GBJGM002Controller {
 		dto.setWork(gbjGm002Form.getWork());
 		dto.setPhase(gbjGm002Form.getPhase());
 		dto.setPjId("1");
-		dto.setYukoFg("0");
-		dto.setSakujoFg("1");
+		dto.setYukoFg("1");
+		dto.setSakujoFg("0");
+		dto.setInsertTs(new Date());
+		dto.setInsertUser((String)loginInfoDto.getUserNa());
 		gbjGm002Service.insert(dto);
 		return "GBJGM002";
 	}
@@ -123,6 +131,10 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "updateGbjGm002", method = RequestMethod.POST)
 	public String updateGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+	   	//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
+
 		GBJGM002Dto dto = new GBJGM002Dto();
 		dto.setGenbaId(gbjGm002Form.getGenbaId());
 		dto.setGenbaNa(gbjGm002Form.getGenbaNa());
@@ -133,8 +145,10 @@ public class GBJGM002Controller {
 		dto.setWork(gbjGm002Form.getWork());
 		dto.setPhase(gbjGm002Form.getPhase());
 		dto.setPjId("1");
-		dto.setYukoFg("0");
-		dto.setSakujoFg("1");
+		dto.setYukoFg("1");
+		dto.setSakujoFg("0");
+		dto.setUpdateTs(new Date());
+		dto.setUpdateUser((String)loginInfoDto.getUserNa());
 
 		gbjGm002Service.update(dto);
 		return "GBJGM002";
@@ -150,8 +164,17 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "deleteGbjGm002", method = RequestMethod.POST)
 	public String deleteGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+	   	//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
+
 		GBJGM002Dto dto = new GBJGM002Dto();
 		dto.setGenbaId(gbjGm002Form.getGenbaId());
+		dto.setPjId("1");
+		dto.setYukoFg("0");
+		dto.setSakujoFg("1");
+		dto.setDeleteTs(new Date());
+		dto.setDeleteUser((String)loginInfoDto.getUserNa());
 
 		gbjGm002Service.delete(dto);
 		return "GBJGM002";

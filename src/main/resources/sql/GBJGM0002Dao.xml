@@ -10,17 +10,22 @@
     </select>
 
 	<insert id= "insert" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
-	INSERT INTO genba_dt (genba_id,genba_na,genba_address,genba_moyori_eki_1,genba_moyori_eki_2,genba_moyori_eki_3,sagyonaiyo,phase_cd,pj_id,yuko_fg,sakujo_fg)
-	VALUES(#{genbaId},#{genbaNa},#{address},#{moyori1Station},#{moyori2Station},#{moyori3Station},#{work},#{phase},#{pjId},#{yukoFg},#{sakujoFg})
+	INSERT INTO genba_dt (genba_id,genba_na,genba_address,genba_moyori_eki_1,genba_moyori_eki_2,genba_moyori_eki_3,sagyonaiyo,phase_cd,pj_id,yuko_fg,sakujo_fg,insert_user,insert_ts)
+	VALUES(#{genbaId},#{genbaNa},#{address},#{moyori1Station},#{moyori2Station},#{moyori3Station},#{work},#{phase},#{pjId},#{yukoFg},#{sakujoFg},#{insertUser},#{insertTs})
 	</insert>
 	<insert id="numbering" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
 	INSERT INTO seq (genba_id, syain_id) VALUES (#{genbaId},#{genbaId})
 	</insert>
 
-	<delete id= "delete" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
-	DELETE FROM genba_dt
+	<update id= "delete" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
+	UPDATE genba_dt
+	SET
+	 delete_user = #{deleteUser},
+	 delete_ts = #{deleteTs},
+	 yuko_fg = #{yukoFg},
+	 sakujo_fg = #{sakujoFg}
 	WHERE genba_id = #{genbaId}
-	</delete>
+	</update>
 
 	<update id= "update" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
 	UPDATE genba_dt
@@ -32,6 +37,8 @@
 	 sagyonaiyo = #{work},
 	 phase_cd = #{phase},
 	 pj_id = #{pjId},
+	 update_user = #{updateUser},
+	 update_ts = #{updateTs},
 	 yuko_fg = #{yukoFg},
 	 sakujo_fg = #{sakujoFg}
 	WHERE genba_id = #{genbaId}
