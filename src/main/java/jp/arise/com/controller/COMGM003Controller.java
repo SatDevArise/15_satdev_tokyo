@@ -68,8 +68,7 @@ public class COMGM003Controller {
 		COMGM003MAV comGm003MAV = new COMGM003MAV();
 		comGm003MAV.setResult(resultList);
 
-
-		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm003MAV);
+		return new ModelAndView("forward:/initComGm002","COMGM003MAV",comGm003MAV);
 	}
 
 }
