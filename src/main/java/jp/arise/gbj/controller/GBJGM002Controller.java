@@ -170,7 +170,6 @@ public class GBJGM002Controller {
 
 		GBJGM002Dto dto = new GBJGM002Dto();
 		dto.setGenbaId(gbjGm002Form.getGenbaId());
-		dto.setPjId("1");
 		dto.setYukoFg("0");
 		dto.setSakujoFg("1");
 		dto.setDeleteTs(new Date());
