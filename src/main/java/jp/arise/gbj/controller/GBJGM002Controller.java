@@ -1,5 +1,7 @@
 package jp.arise.gbj.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,6 +53,7 @@ public class GBJGM002Controller {
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 
+		System.out.println("usename:" + loginInfoDto.getUserNa());
 
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
 		gbjGm002Form.setGamen_id(UTLContent.GMID_COMGM002);
@@ -101,19 +104,24 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "entryGbjGm002", method = RequestMethod.POST)
 	public String entryGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+    	//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
 
 		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setGenbaId(gbjGm002Form.getGenba_id());
-		gbjGm002Dto.setGenba_Na(gbjGm002Form.getGenba_na());
-		gbjGm002Dto.setAdress(gbjGm002Form.getAddress());
-		gbjGm002Dto.setMoyori1(gbjGm002Form.getMoyori_1_station());
-		gbjGm002Dto.setMoyori2(gbjGm002Form.getMoyori_2_station());
-		gbjGm002Dto.setMoyori3(gbjGm002Form.getMoyori_3_station());
+		gbjGm002Dto.setGenba_Id(gbjGm002Form.getGenba_id());
+		gbjGm002Dto.setGenba_na(gbjGm002Form.getGenba_na());
+		gbjGm002Dto.setAddress(gbjGm002Form.getAddress());
+		gbjGm002Dto.setMoyori_1_station(gbjGm002Form.getMoyori_1_station());
+		gbjGm002Dto.setMoyori_2_station(gbjGm002Form.getMoyori_2_station());
+		gbjGm002Dto.setMoyori_3_station(gbjGm002Form.getMoyori_3_station());
 		gbjGm002Dto.setWork(gbjGm002Form.getWork());
 		gbjGm002Dto.setPhase(gbjGm002Form.getPhase());
 		gbjGm002Dto.setPi_id("0");
 		gbjGm002Dto.setYuko_fg("1");
 		gbjGm002Dto.setSakujo_fg("0");
+		gbjGm002Dto.setInsert_date(new Date());
+		gbjGm002Dto.setInsert_user((String) loginInfoDto.getUserNa());
 
 		System.out.println("dtoのセット");
 
@@ -133,19 +141,24 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "updateGbjGm002", method = RequestMethod.POST)
 	public String updateGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+		//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
 
 		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setGenbaId(gbjGm002Form.getGenba_id());
-		gbjGm002Dto.setGenba_Na(gbjGm002Form.getGenba_na());
-		gbjGm002Dto.setAdress(gbjGm002Form.getAddress());
-		gbjGm002Dto.setMoyori1(gbjGm002Form.getMoyori_1_station());
-		gbjGm002Dto.setMoyori2(gbjGm002Form.getMoyori_2_station());
-		gbjGm002Dto.setMoyori3(gbjGm002Form.getMoyori_3_station());
+		gbjGm002Dto.setGenba_Id(gbjGm002Form.getGenba_id());
+		gbjGm002Dto.setGenba_na(gbjGm002Form.getGenba_na());
+		gbjGm002Dto.setAddress(gbjGm002Form.getAddress());
+		gbjGm002Dto.setMoyori_1_station(gbjGm002Form.getMoyori_1_station());
+		gbjGm002Dto.setMoyori_2_station(gbjGm002Form.getMoyori_2_station());
+		gbjGm002Dto.setMoyori_3_station(gbjGm002Form.getMoyori_3_station());
 		gbjGm002Dto.setWork(gbjGm002Form.getWork());
 		gbjGm002Dto.setPhase(gbjGm002Form.getPhase());
 		gbjGm002Dto.setPi_id("0");
 		gbjGm002Dto.setYuko_fg("1");
 		gbjGm002Dto.setSakujo_fg("0");
+		gbjGm002Dto.setUpdate_date(new Date());
+		gbjGm002Dto.setUpdate_user((String) loginInfoDto.getUserNa());
 
 		System.out.println("更新dtoのセット");
 
@@ -163,11 +176,16 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "deleteGbjGm002", method = RequestMethod.POST)
 	public String deleteGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
-		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		System.out.println(gbjGm002Form.getGenba_id());
-		gbjGm002Dto.setGenbaId(gbjGm002Form.getGenba_id());
+		//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
 
-		System.out.println("削除dtoのセット");
+		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
+		gbjGm002Dto.setGenba_Id(gbjGm002Form.getGenba_id());
+		gbjGm002Dto.setYuko_fg("0");
+		gbjGm002Dto.setSakujo_fg("1");
+		gbjGm002Dto.setDelete_date(new Date());
+		gbjGm002Dto.setDelete_user((String) loginInfoDto.getUserNa());
 
 		gbjGm002Service.deleteCheck(gbjGm002Dto);
 
