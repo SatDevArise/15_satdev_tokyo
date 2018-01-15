@@ -50,7 +50,7 @@
 			<form:input id="Address" path="address"/>
 			</label>
 
-			<input type="submit" class="btn btn-default" value="検索" name="searchComGm003">
+			<input type="submit" class="btn btn-default" value="検索" name="searchComGm003" onclick="closeCOMGM003();">
 			<input type="submit" class="btn btn-default" value="戻る" name="back_btn">
 
 	</div>

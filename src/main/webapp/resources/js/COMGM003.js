@@ -4,8 +4,13 @@
  * @since 2017/07/17
  */
 
-
-
+/**
+ * 検索共通画面閉じる処理
+ */
+function closeCOMGM003()
+{
+	window.close();
+}
 
 /**
  * 必須チェック処理

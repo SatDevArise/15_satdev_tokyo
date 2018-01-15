@@ -12,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jp.arise.com.dto.COMGM003Dto;
 import jp.arise.com.form.COMGM003Form;
-import jp.arise.com.modelandview.COMGM003MAV;
 import jp.arise.com.service.COMGM003Servise;
+import jp.arise.utl.LoginInfo;
 
 
 /**
@@ -26,6 +26,9 @@ public class COMGM003Controller {
 
 	@Autowired
 	private COMGM003Servise comGm003Service;
+
+	@Autowired
+	public LoginInfo loginInfo;
 
     @ModelAttribute
     public COMGM003Form setComGm003Formm() {
@@ -65,10 +68,9 @@ public class COMGM003Controller {
 		comGm003Service.inputCheck(comGm003Dto);
 		System.out.println("inputCheck後");
 		List<COMGM003Dto> resultList = comGm003Service.search(comGm003Dto);
-		COMGM003MAV comGm003MAV = new COMGM003MAV();
-		comGm003MAV.setResult(resultList);
 
-		return new ModelAndView("forward:/initComGm002","COMGM003MAV",comGm003MAV);
+		loginInfo.updateAttributeSearchResult(resultList);
+		return new ModelAndView("forward:/resultGbjGm001");
 	}
 
 }

@@ -18,7 +18,7 @@ public class COMGM003Dto implements Serializable{
 	/**
 	 * ユーザーID
 	 */
-	private int userId;
+	private String userId;
 
 	private String syainId;
 
@@ -190,7 +190,7 @@ public class COMGM003Dto implements Serializable{
 	 * ユーザーIDを取得
 	 * @return userId
 	 */
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
@@ -198,7 +198,7 @@ public class COMGM003Dto implements Serializable{
 	 * ユーザーIDを設定
 	 * @param userId
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

@@ -4,18 +4,32 @@
 
 <mapper namespace="jp.arise.com.dao.COMGM003Dao">
     <resultMap id="resultCOMGM003Dto" type="jp.arise.com.dto.COMGM003Dto">
-        <result column="username" property="user"/>
-        <result column="userid" property="userId"/>
+         <result column="syain_id" property="syainId"/>
+        <result column="birth_dt" property="seinengappiFrom"/>
+        <result column="birth_dt" property="seinengappiTo"/>
+        <result column="zensyoku_na" property="previous"/>
+        <result column="yakusyoku_cd" property="psition"/>
+        <result column="nyusya_dt" property="nyusyabiFrom"/>
+        <result column="nyusya_dt" property="nyusyabiTo"/>
+        <result column="syozoku_team" property="teamNa"/>
+        <result column="genba_na" property="genbaNa"/>
+        <result column="tanka_vl" property="tanka"/>
+        <result column="phase_cd" property="phase"/>
+
+        <result column="moyori_eki_1" property="moyori1Station"/>
+        <result column="moyori_eki_2" property="moyori2Station"/>
+        <result column="moyori_eki_3" property="moyori3Station"/>
+        <result column="address" property="address"/>
+
+        <result column="genba_na" property="genbaNa"/>
+        <result column="genba_moyori_eki_1" property="moyori1Station"/>
+        <result column="genba_moyori_eki_2" property="moyori2Station"/>
+        <result column="genba_moyori_eki_3" property="moyori3Station"/>
+        <result column="genba_address" property="address"/>
     </resultMap>
 
-    <select id="getUser" resultMap="resultCOMGM003Dto">
-        SELECT username
-        FROM test
-        WHERE userId = #{user_id}
-    </select>
-
     <select id="getSyainDt" resultMap="resultCOMGM003Dto">
-        SELECT username
+        SELECT *
         FROM syain_dt
         <where>
 			<if test="syainId != null">
@@ -23,31 +37,31 @@
 			</if>
 
 			<if test="seinengappiFrom != null">
-				AND seinengappiFrom like #{seinengappi_from} || '%'
+				AND seinengappiFrom like #{birth_dt} || '%'
 			</if>
 
 			<if test="seinengappiTo != null">
-				AND seinengappiTo like #{seinengappi_to} || '%'
+				AND seinengappiTo like #{birth_dt} || '%'
 			</if>
 
 			<if test="previous != null">
-				AND previous like #{previous} || '%'
+				AND previous like #{zensyoku_na} || '%'
 			</if>
 
 			<if test="psition != null">
-				AND psition like #{psition} || '%'
+				AND psition like #{yakusyoku_cd} || '%'
 			</if>
 
 			<if test="nyusyabiFrom != null">
-				AND nyusyabiFrom like #{nyusyabi_from} || '%'
+				AND nyusyabiFrom like #{nyusya_dt} || '%'
 			</if>
 
 			<if test="nyusyabiTo != null">
-				AND nyusyabiTo like #{nyusyabi_to} || '%'
+				AND nyusyabiTo like #{nyusya_dt} || '%'
 			</if>
 
 			<if test="teamNa != null">
-				AND teamNa like #{team_na} || '%'
+				AND teamNa like #{syozoku_team} || '%'
 			</if>
 
 			<if test="genbaNa != null">
@@ -55,11 +69,11 @@
 			</if>
 
 			<if test="phase != null">
-				AND phase like #{phase} || '%'
+				AND phase like #{phase_cd} || '%'
 			</if>
 
 			<if test="tanka != null">
-				AND tanka like #{tanka} || '%'
+				AND tanka like #{tanka_vl} || '%'
 			</if>
 
 			<if test="moyori1Station != null">
@@ -75,14 +89,14 @@
 			</if>
 
 			<if test="address != null">
-				AND address like #{address} || '%'
+				AND address like #{syain_address} || '%'
 			</if>
         </where>
 
     </select>
 
     <select id="getGenbaDt" resultMap="resultCOMGM003Dto">
-        SELECT username
+        SELECT *
         FROM genba_dt
         <where>
 
@@ -91,23 +105,23 @@
 			</if>
 
 			<if test="phase != null">
-				AND phase like #{phase} || '%'
+				AND phase like #{phase_cd} || '%'
 			</if>
 
 			<if test="moyori1Station != null">
-				AND moyori1Station like #{moyori_eki_1} || '%'
+				AND moyori1Station like #{genba_moyori_eki_1} || '%'
 			</if>
 
 			<if test="moyori2Station != null">
-				AND moyori2Station like #{moyori_eki_2} || '%'
+				AND moyori2Station like #{genba_moyori_eki_2} || '%'
 			</if>
 
 			<if test="moyori3Station != null">
-				AND moyori3Station like #{moyori_eki_3} || '%'
+				AND moyori3Station like #{genba_moyori_eki_3} || '%'
 			</if>
 
 			<if test="address != null">
-				AND address like #{address} || '%'
+				AND address like #{genba_address} || '%'
 			</if>
 
         </where>
