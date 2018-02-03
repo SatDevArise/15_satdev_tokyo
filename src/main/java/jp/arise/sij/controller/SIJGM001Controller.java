@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.arise.com.modelandview.COMGM003MAV;
 import jp.arise.sij.dto.SIJGM001Dto;
 import jp.arise.sij.form.SIJGM001Form;
 import jp.arise.sij.modelandview.SIJGM001MAV;
 import jp.arise.sij.modelandview.SIJGM002MAV;
 import jp.arise.sij.service.SIJGM001Servise;
 import jp.arise.utl.LoginInfo;
-import jp.arise.utl.LoginInfoDto;
 
 /**
  * SIJGM001 社員情報一覧表示画面用コントローラー
@@ -46,14 +46,7 @@ public class SIJGM001Controller {
 	 */
     @RequestMapping(value = "/initSijGm001", method = RequestMethod.POST)
 	public String initSijGm001(Model model) {
-    	//ログイン情報取得
-		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUserId());
-
-		SIJGM001Form sijGm001Form = new SIJGM001Form();
-		sijGm001Form.setUser("山田 太郎");
-		model.addAttribute("SIJGM001Form",sijGm001Form);
+		sijGm001Service.setSession();
 
 		return "SIJGM001";
 	}
@@ -71,6 +64,8 @@ public class SIJGM001Controller {
 		SIJGM001Form sijGm001Form = new SIJGM001Form();
 		sijGm001Form.setUser(sijGm002MAV.getUser());
 		model.addAttribute("SIJGM001Form",sijGm001Form);
+		sijGm001Service.setSession();
+
 		return "SIJGM001";
 	}
 
@@ -86,7 +81,6 @@ public class SIJGM001Controller {
 	public ModelAndView  goToSijGm002(SIJGM001Form sijGm001Form,Model model) {
 		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
 		sijGm001Dto.setUser(sijGm001Form.getUser());
-		sijGm001Service.setSession();
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
 		sijGm001MAV.setUser(sijGm001Form.getUser());
@@ -106,12 +100,24 @@ public class SIJGM001Controller {
 	public ModelAndView  backComGm002(SIJGM001Form sijGm001Form,Model model) {
 		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
 		sijGm001Dto.setUser(sijGm001Form.getUser());
-		sijGm001Service.setSession();
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
 		sijGm001MAV.setUser(sijGm001Form.getUser());
 
 		return new ModelAndView("forward:/initComGm002","SIJGM001MAV",sijGm001MAV);
 	}
+
+	/**
+	 * 社員情報リストの呼び出し
+	 *
+	 * @param syainList
+	 * @throws @author
+	 *             Narumi
+	 * @since 2018/1/8
+	 */
+    @RequestMapping(value = "/initSijGm001",params = "backSijGm001", method = RequestMethod.POST)
+	public void backComGm003(COMGM003MAV COMGm003MAV,Model model) {
+		sijGm001Service.setSijgm001FormList(COMGm003MAV.getResult(), null);
+    }
 
 }

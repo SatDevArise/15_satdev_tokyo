@@ -22,9 +22,9 @@ public class GBJGM002Servise {
 
 	public void insertCheck(GBJGM002Dto dto) {
         //Daoのinsert処理呼び出し
-		System.out.println("住所："+dto.getAdress());
+		System.out.println("住所："+dto.getAddress());
 		System.out.println("現場ID："+dto.getGenba_Id());
-		System.out.println("現場名："+dto.getGenba_Na());
+		System.out.println("現場名："+dto.getGenba_na());
 
 
 		System.out.println("daoのinsert処理");

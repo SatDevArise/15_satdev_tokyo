@@ -16,7 +16,7 @@ public class SIJGM001MAV {
 	/**
 	 * 社員ID
 	 */
-	private int userId;
+	private String userId;
 
 	/**
 	 * 役職
@@ -26,7 +26,7 @@ public class SIJGM001MAV {
 	/**
 	 * 生年月日
 	 */
-	private int birthday;
+	private String birthday;
 
 	/**
 	 * チーム
@@ -41,7 +41,7 @@ public class SIJGM001MAV {
 	/**
 	 * 経過年数
 	 */
-	private int duration;
+	private String duration;
 
 	/**
 	 * フェーズ
@@ -56,12 +56,12 @@ public class SIJGM001MAV {
 	/**
 	 * 社歴
 	 */
-	private int history;
+	private String history;
 
 	/**
 	 * 単価
 	 */
-	private int unitprice;
+	private int price;
 
 	/**
 	 * ユーザーを取得
@@ -75,7 +75,7 @@ public class SIJGM001MAV {
 	 * 社員IDを取得
 	 * @return userId
 	 */
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
@@ -91,7 +91,7 @@ public class SIJGM001MAV {
 	 * 生年月日を取得
 	 * @return birthday
 	 */
-	public int getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
@@ -115,7 +115,7 @@ public class SIJGM001MAV {
 	 * 経過年数を取得
 	 * @return duration
 	 */
-	public int getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
@@ -139,16 +139,16 @@ public class SIJGM001MAV {
 	 * 社歴を取得
 	 * @return history
 	 */
-	public int getHistory() {
+	public String getHistory() {
 		return history;
 	}
 
 	/**
 	 * 単価を取得
-	 * @return unitprice
+	 * @return price
 	 */
-	public int getUnitprice() {
-		return unitprice;
+	public int getPrice() {
+		return price;
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class SIJGM001MAV {
 	 * 社員IDを設定
 	 * @param userId
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
@@ -179,7 +179,7 @@ public class SIJGM001MAV {
 	 * 生年月日を設定
 	 * @param birthday
 	 */
-	public void setBirthday(int birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
@@ -202,7 +202,7 @@ public class SIJGM001MAV {
 	 * 経過年数を設定
 	 * @param duration
 	 */
-	public void setDuration(int duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 
@@ -226,15 +226,15 @@ public class SIJGM001MAV {
 	 * 社歴を設定
 	 * @param history
 	 */
-	public void setHistory(int history) {
+	public void setHistory(String history) {
 		this.history = history;
 	}
 
 	/**
 	 * 単価を設定
-	 * @param unitprice
+	 * @param price
 	 */
-	public void setUnitprice(int unitprice) {
-		this.unitprice = unitprice;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 }
