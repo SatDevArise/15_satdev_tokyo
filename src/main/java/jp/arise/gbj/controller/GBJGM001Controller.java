@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.arise.com.dto.COMGM003Dto;
 import jp.arise.com.modelandview.COMGM003MAV;
 import jp.arise.gbj.form.GBJGM001Form;
 import jp.arise.gbj.modelandview.GBJGM001MAV;
 import jp.arise.gbj.modelandview.GBJGM002MAV;
 import jp.arise.gbj.service.GBJGM001Servise;
 import jp.arise.utl.LoginInfo;
+import jp.arise.utl.LoginInfoDto;
 
 /**
  * GBJGM001 現場情報一覧表示画面用コントローラー
@@ -83,10 +85,16 @@ public class GBJGM001Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-    @RequestMapping(value = "/initGbjGm001",params = "searchGbjGm001", method = RequestMethod.POST)
+    @RequestMapping(value = "/resultGbjGm001", method = RequestMethod.POST)
 	public String initGbjGm001(COMGM003MAV comGm003MAV,Model model) {
+
+    	//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
     	//GBJGM002MAVの値をGBJGM001Formにセットする
-    	List<GBJGM001Form> formList = gbjGm001Service.setGBJGM001FormList(comGm003MAV.getResult());
+
+    	@SuppressWarnings("unchecked")
+		List<GBJGM001Form> formList = gbjGm001Service.setGBJGM001FormList((List<COMGM003Dto>) loginInfoDto.getSearchResult());
 
 		model.addAttribute("GBJGM001FormList",formList);
 		return "GBJGM001";
