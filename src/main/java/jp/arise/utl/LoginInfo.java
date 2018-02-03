@@ -1,9 +1,13 @@
 package jp.arise.utl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import jp.arise.com.dto.COMGM003Dto;
 
 /**
  * ログイン情報保持用セッションクラス
@@ -28,6 +32,7 @@ public class LoginInfo {
 		session.setAttribute("USERNA", loginInfoDto.getUserNa());
 		session.setAttribute("UNYOUBI", loginInfoDto.getUnyoubi());
 		session.setAttribute("GAMENID", loginInfoDto.getGamenId());
+		session.setAttribute("SEARCHRESULT", loginInfoDto.getSearchResult());
 	}
 
 	/**
@@ -43,6 +48,21 @@ public class LoginInfo {
 		this.setAttribute(loginInfoDto);
 	}
 
+
+	/**
+	 * セッション設定(検索結果)
+	 * @param gamenId
+	 * @author MasahikoHayashi
+	 * @since 2017/12/10
+	 */
+	public void updateAttributeSearchResult(List<COMGM003Dto> resultList) {
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = this.getAttribute();
+		loginInfoDto.setSearchResult(resultList);
+		this.setAttribute(loginInfoDto);
+	}
+
+
 	/**
 	 * セッション取得
 	 * @return LoginInfoDto
@@ -55,6 +75,7 @@ public class LoginInfo {
 		loginInfoDto.setUserNa(session.getAttribute("USERNA"));
 		loginInfoDto.setUnyoubi(session.getAttribute("UNYOUBI"));
 		loginInfoDto.setGamenId(session.getAttribute("GAMENID"));
+		loginInfoDto.setSearchResult(session.getAttribute("SEARCHRESULT"));
 		return loginInfoDto;
 	}
 

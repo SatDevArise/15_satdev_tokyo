@@ -29,6 +29,11 @@ public class LoginInfoDto {
 	private Object gamenId;
 
 	/**
+	 * 検索結果
+	 */
+	private Object searchResult;
+
+	/**
 	 * ユーザーIDを取得
 	 * @return userId
 	 */
@@ -60,6 +65,7 @@ public class LoginInfoDto {
 		this.userNa = userNa;
 	}
 
+
 	/**
 	 * 運用日を取得
 	 * @return unyoubi
@@ -90,5 +96,19 @@ public class LoginInfoDto {
 	 */
 	public void setGamenId(Object gamenId) {
 		this.gamenId = gamenId;
+	}
+
+	/**
+	 * @return searchResult
+	 */
+	public Object getSearchResult() {
+		return searchResult;
+	}
+
+	/**
+	 * @param searchResult セットする searchResult
+	 */
+	public void setSearchResult(Object searchResult) {
+		this.searchResult = searchResult;
 	}
 }
