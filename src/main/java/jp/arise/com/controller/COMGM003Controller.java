@@ -14,6 +14,8 @@ import jp.arise.com.dto.COMGM003Dto;
 import jp.arise.com.form.COMGM003Form;
 import jp.arise.com.service.COMGM003Servise;
 import jp.arise.utl.LoginInfo;
+import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 
 /**
@@ -62,6 +64,12 @@ public class COMGM003Controller {
 	 */
 	@RequestMapping(value = "/initComGm003",params = "searchComGm003",method = RequestMethod.POST)
 	public ModelAndView  searchComGm003(COMGM003Form comGm003Form,Model model) {
+    	// 遷移元画面判定処理
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
+		// セッション情報の遷移元画面を取得
+		String strGamenId = (String) loginInfoDto.getGamenId();
+
 		COMGM003Dto comGm003Dto = new COMGM003Dto();
 		comGm003Dto.setUser(comGm003Form.getUser());
 		System.out.println("inputCheck前");
@@ -70,7 +78,19 @@ public class COMGM003Controller {
 		List<COMGM003Dto> resultList = comGm003Service.search(comGm003Dto);
 
 		loginInfo.updateAttributeSearchResult(resultList);
-		return new ModelAndView("forward:/resultGbjGm001");
+
+		// 戻り先画面格納用変数
+		String returnGamen = null;
+
+		if (strGamenId.equals(UTLContent.GMID_SIJGM001)) {
+			// 社員情報の場合、社員情報検索処理を呼び出す
+			returnGamen = "forward:/resultSijGm001";
+		} else if (strGamenId.equals(UTLContent.GMID_GBJGM001)){
+			// 現場情報の場合、現場情報検索処理を呼び出す。
+			returnGamen = "forward:/resultGbjGm001";
+		}
+		return new ModelAndView(returnGamen);
+
 	}
 
 }
