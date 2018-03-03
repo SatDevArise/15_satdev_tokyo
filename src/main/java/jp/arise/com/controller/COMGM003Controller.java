@@ -89,6 +89,7 @@ public class COMGM003Controller {
 			// 現場情報の場合、現場情報検索処理を呼び出す。
 			returnGamen = "forward:/resultGbjGm001";
 		}
+
 		return new ModelAndView(returnGamen);
 
 	}
