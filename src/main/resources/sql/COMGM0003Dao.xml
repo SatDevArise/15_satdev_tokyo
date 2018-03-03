@@ -42,13 +42,13 @@
 			</if>
 			 -->
 
-			and Between
+			and birth_dt Between
 			<choose>
 				<when test="seinengappiFrom != null">
-					birth_dt like #{seinengappiFrom} || '%'
+					 like #{seinengappiFrom} || '%'
 				</when>
 				<otherwise>
-					birth_dt = '00000000' || '%'
+					'00000000'
 				</otherwise>
 			</choose>
             and
@@ -60,10 +60,10 @@
 
 			<choose>
 				<when test="seinengappiTo != null">
-					birth_dt like #{seinengappiTo} || '%'
+					like #{seinengappiTo} || '%'
 				</when>
 				<otherwise>
-					birth_dt = '99999999' || '%'
+					'99999999'
 				</otherwise>
 			</choose>
 
@@ -81,13 +81,13 @@
 			</if>
 			 -->
 
-			and between
+			and nyusya_dt between
 			<choose>
 				<when test="nyusyabiFrom != null">
-					nyusya_dt like #{nyusyabiFrom} || '%'
+					like #{nyusyabiFrom} || '%'
 				</when>
 				<otherwise>
-					nyusya_dt = '00000000' || '%'
+					'00000000'
 				</otherwise>
 			</choose>
 
@@ -100,10 +100,10 @@
 
 			<choose>
 				<when test="nyusyabiTo != null">
-					nyusya_dt like #{nyusyabiTo} || '%'
+					like #{nyusyabiTo} || '%'
 				</when>
 				<otherwise>
-					nyusya_dt = '99999999' || '%'
+					'99999999'
 				</otherwise>
 			</choose>
 
@@ -119,9 +119,7 @@
 				AND phase_cd like #{phase} || '%'
 			</if>
 
-			<if test="tanka != null">
-				AND tanka_vl like #{tanka} || '%'
-			</if>
+
 
 			<if test="moyori1Station != null">
 				AND moyori_eki_1 like #{moyori1Station} || '%'
