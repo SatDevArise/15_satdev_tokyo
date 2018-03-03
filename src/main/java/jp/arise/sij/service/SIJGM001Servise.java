@@ -79,7 +79,8 @@ public class SIJGM001Servise {
 				//現段階で、COMGM003Dtoに使用路線を入力する項目がないため、エラー
 				//COMGM003Dtoにて作成してもらう必要がある。
 
-				sijGm001Form.setRoute(list.get(i).getRoute());
+				//検索共通画面に使用路線の項目がないため、値が持ってこれない
+				//sijGm001Form.setRoute(list.get(i).getRoute());
 				sijGm001Form.setPrice(list.get(i).getTanka());
 				sijgm001FormList.add(sijGm001Form);
 
@@ -92,7 +93,7 @@ public class SIJGM001Servise {
 				System.out.println("現場名：" + list.get(i).getGenbaNa());
 				System.out.println("経過年数：" + yearDiff);
 				System.out.println("フェーズ区分：" + list.get(i).getPhase());
-				System.out.println("使用路線：" + list.get(i).getRoute());
+				//System.out.println("使用路線：" + list.get(i).getRoute());
 				System.out.println("単価：" + list.get(i).getTanka());
 				System.out.println("---------------------------------------------");
 			}

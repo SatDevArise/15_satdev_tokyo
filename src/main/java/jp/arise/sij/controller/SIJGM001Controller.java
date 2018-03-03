@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.arise.com.modelandview.COMGM003MAV;
 import jp.arise.sij.dto.SIJGM001Dto;
 import jp.arise.sij.form.SIJGM001Form;
 import jp.arise.sij.modelandview.SIJGM001MAV;
@@ -115,9 +114,10 @@ public class SIJGM001Controller {
 	 *             Narumi
 	 * @since 2018/1/8
 	 */
-    @RequestMapping(value = "/initSijGm001",params = "backSijGm001", method = RequestMethod.POST)
-	public void backComGm003(COMGM003MAV COMGm003MAV,Model model) {
-		sijGm001Service.setSijgm001FormList(COMGm003MAV.getResult(), null);
-    }
+	//COMGm003MAV.javaにgetResult()があるが使用していないためコメントアウト
+    //@RequestMapping(value = "/initSijGm001",params = "backSijGm001", method = RequestMethod.POST)
+	//public void backComGm003(COMGM003MAV COMGm003MAV,Model model) {
+	//	sijGm001Service.setSijgm001FormList(COMGm003MAV.getResult(), null);
+    //}
 
 }
