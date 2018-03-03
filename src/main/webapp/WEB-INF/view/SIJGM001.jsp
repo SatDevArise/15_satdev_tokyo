@@ -37,40 +37,21 @@
       <th>単価</th>
     </tr>
 
-    <c:forEach items="${SIJGM001MAV}" var="SIJ">
+    <c:forEach var="SIJ" items="${SIJGM001MAV}">
     <tr>
-      <td><a href="./SIJGM002?userId=${SIJ.userId}"></a></td>
-      <td>${SIJ.user}</td>
-      <td>${SIJ.title}</td>
-      <td>${SIJ.birthday}</td>
-      <td>${SIJ.team}</td>
-      <td>${SIJ.site}</td>
-      <td>${SIJ.duration}</td>
-      <td>${SIJ.phase}</td>
-      <td>${SIJ.route}</td>
-      <td>${SIJ.history}</td>
-      <td>${SIJ.unitprice}</td>
+      <td><a href="./SIJGM002?userId=${SIJ.userId}"><c:out value="${SIJ.userId}"/></a></td>
+      <td><c:out value="${SIJ.user}"/></td>
+      <td><c:out value="${SIJ.title}"/></td>
+      <td><c:out value="${SIJ.birthday}"/></td>
+      <td><c:out value="${SIJ.team}"/></td>
+      <td><c:out value="${SIJ.site}"/></td>
+      <td><c:out value="${SIJ.duration}"/></td>
+      <td><c:out value="${SIJ.phase}"/></td>
+      <td><c:out value="${SIJ.route}"/></td>
+      <td><c:out value="${SIJ.history}"/></td>
+      <td><c:out value="${SIJ.price}"/></td>
     </tr>
 	</c:forEach>
-
-	<tr>
-      <td><a href="<%= request.getContextPath() %>/initSIJGM002">user</a></td><td>aaa</td><td>bbb</td>
-    </tr>
-    <tr>
-     <td><a href="./initSijGm002"">002</a></td><td>aa</td><td>bb</td>
-    </tr>
-    <tr>
-     <td><a href="javascript:setAndSubmit('003')">003</a></td><td>a</td><td>b</td>
-    </tr>
-    <tr>
-     <td><a href="javascript:setAndSubmit('004')">004</a></td><td>a</td><td>b</td>
-    </tr>
-    <tr>
-     <td><a href="javascript:setAndSubmit('005')">005</a></td><td>a</td><td>b</td>
-    </tr>
-    <tr>
-     <td><a href="javascript:setAndSubmit('006')">006</a></td><td>a</td><td>b</td>
-    </tr>
 
 	</TABLE>
 	</div>
