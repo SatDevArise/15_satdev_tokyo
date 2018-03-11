@@ -38,11 +38,11 @@ public class SIJGM001Servise {
 	 *             Narumi
 	 * @since 2018/1/8
 	 */
-	public List<SIJGM001Form> setSijgm001FormList(List<COMGM003Dto> list, Date nyushaDate) {
+	public List<SIJGM001Form> setSijgm001FormList(List<COMGM003Dto> list) {
 
 		SIJGM001Form sijGm001Form = new SIJGM001Form();
 
-		List<SIJGM001Form> sijgm001FormList = new ArrayList<SIJGM001Form>();
+		List<SIJGM001Form> SIJGM001FormList = new ArrayList<SIJGM001Form>();
 
 		if (list != null) {
 			for (int i = 0; i < list.size(); i++) {
@@ -82,7 +82,7 @@ public class SIJGM001Servise {
 				//検索共通画面に使用路線の項目がないため、値が持ってこれない
 				//sijGm001Form.setRoute(list.get(i).getRoute());
 				sijGm001Form.setPrice(list.get(i).getTanka());
-				sijgm001FormList.add(sijGm001Form);
+				SIJGM001FormList.add(sijGm001Form);
 
 				System.out.println("---------------------------------------------");
 				System.out.println("社員ID：" + list.get(i).getUserId());
@@ -98,6 +98,7 @@ public class SIJGM001Servise {
 				System.out.println("---------------------------------------------");
 			}
 		}
-		return sijgm001FormList;
+		return SIJGM001FormList;
 	}
+
 }
