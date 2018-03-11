@@ -37,19 +37,19 @@
       <th>単価</th>
     </tr>
 
-    <c:forEach var="SIJ" items="${SIJGM001MAV}">
+    <c:forEach var="syainInfo" items="${SIJGM001FormList}">
     <tr>
       <td><a href="./SIJGM002?userId=${SIJ.userId}"><c:out value="${SIJ.userId}"/></a></td>
-      <td><c:out value="${SIJ.user}"/></td>
-      <td><c:out value="${SIJ.title}"/></td>
-      <td><c:out value="${SIJ.birthday}"/></td>
-      <td><c:out value="${SIJ.team}"/></td>
-      <td><c:out value="${SIJ.site}"/></td>
-      <td><c:out value="${SIJ.duration}"/></td>
-      <td><c:out value="${SIJ.phase}"/></td>
-      <td><c:out value="${SIJ.route}"/></td>
-      <td><c:out value="${SIJ.history}"/></td>
-      <td><c:out value="${SIJ.price}"/></td>
+      <td><c:out value="${syainInfo.user}"/></td>
+      <td><c:out value="${syainInfo.title}"/></td>
+      <td><c:out value="${syainInfo.birthday}"/></td>
+      <td><c:out value="${syainInfo.team}"/></td>
+      <td><c:out value="${syainInfo.site}"/></td>
+      <td><c:out value="${syainInfo.duration}"/></td>
+      <td><c:out value="${syainInfo.phase}"/></td>
+      <td><c:out value="${syainInfo.route}"/></td>
+      <td><c:out value="${syainInfo.history}"/></td>
+      <td><c:out value="${syainInfo.price}"/></td>
     </tr>
 	</c:forEach>
 
