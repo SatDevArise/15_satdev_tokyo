@@ -45,10 +45,11 @@
 			and birth_dt Between
 			<choose>
 				<when test="seinengappiFrom != null">
-					 like #{seinengappiFrom} || '%'
+					<!-- like #{seinengappiFrom} || '%' -->
+					 to_date(#{seinengappiFrom},'YYYYMMDD') || '%'
 				</when>
 				<otherwise>
-					'00000000'
+					to_date('00000000','YYYYMMDD')
 				</otherwise>
 			</choose>
             and
@@ -60,10 +61,11 @@
 
 			<choose>
 				<when test="seinengappiTo != null">
-					like #{seinengappiTo} || '%'
+					<!-- like #{seinengappiTo} || '%' -->
+					to_date(#{seinengappiTo},'YYYYMMDD') || '%'
 				</when>
 				<otherwise>
-					'99999999'
+					to_date('99999999','YYYYMMDD')
 				</otherwise>
 			</choose>
 
@@ -75,35 +77,26 @@
 				AND yakusyoku_cd like #{psition} || '%'
 			</if>
 
-			<!--
-			<if test="nyusyabiFrom != null">
-				AND nyusyabiFrom like #{nyusya_dt} || '%'
-			</if>
-			 -->
-
-			and nyusya_dt between
+			and nyusya_dt Between
 			<choose>
 				<when test="nyusyabiFrom != null">
-					like #{nyusyabiFrom} || '%'
+					<!--like #{nyusyabiFrom} || '%' -->
+					to_date(#{nyusyabiFrom},'YYYYMMDD') || '%'
 				</when>
 				<otherwise>
-					'00000000'
+					to_date('00000000','YYYYMMDD')
 				</otherwise>
 			</choose>
 
 			and
-			<!--
-			<if test="nyusyabiTo != null">
-				AND nyusyabiTo like #{nyusya_dt} || '%'
-			</if>
-			 -->
 
 			<choose>
 				<when test="nyusyabiTo != null">
-					like #{nyusyabiTo} || '%'
+					<!-- like #{nyusyabiTo} || '%' -->
+					to_date(#{nyusyabiTo},'YYYYMMDD') || '%'
 				</when>
 				<otherwise>
-					'99999999'
+					to_date('99999999','YYYYMMDD')
 				</otherwise>
 			</choose>
 
