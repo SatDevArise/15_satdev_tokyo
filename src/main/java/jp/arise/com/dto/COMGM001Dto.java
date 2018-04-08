@@ -1,6 +1,7 @@
 package jp.arise.com.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * COMGM001 ログイン画面用サービス間Dtoクラス
@@ -11,19 +12,50 @@ import java.io.Serializable;
 public class COMGM001Dto implements Serializable{
 
 	/**
+	 * ユーザー名
+	 */
+	private String userName;
+
+	/**
 	 * ユーザーID
 	 */
 	private String userId;
 
 	/**
-	 * ユーザー名
-	 */
-	private String userNa;
-
-	/**
 	 * パスワード
 	 */
 	private String password;
+
+	/**
+	 * 作成日付
+	 */
+	private String createdAt;
+
+	/**
+	 * 有効フラグ
+	 */
+	private int yukoFlg;
+
+	/**
+	 * 削除フラグ
+	 */
+	private int deleteFlg;
+
+	/**
+	 * ユーザーを取得
+	 * @return user
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * ユーザーを設定
+	 * @param user
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	/**
 	 * ユーザーIDを取得
@@ -41,35 +73,39 @@ public class COMGM001Dto implements Serializable{
 		this.userId = userId;
 	}
 
-	/**
-	 * ユーザー名を取得
-	 * @return userNa
-	 */
-	public String getUserNa() {
-		return userNa;
-	}
-
-	/**
-	 * ユーザー名を設定
-	 * @param userNa
-	 */
-	public void setUserNa(String userNa) {
-		this.userNa = userNa;
-	}
-
-	/**
-	 * パスワードを取得
-	 * @return password
-	 */
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * パスワードを設定
-	 * @param password
-	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public int getYukoFlg() {
+		return yukoFlg;
+	}
+
+	public void setYukoFlg(int yukoFlg) {
+		this.yukoFlg = yukoFlg;
+	}
+
+	public int getDeleteFlg() {
+		return deleteFlg;
+	}
+
+	public void setDeleteFlg(int deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
+
+
+
+
 }

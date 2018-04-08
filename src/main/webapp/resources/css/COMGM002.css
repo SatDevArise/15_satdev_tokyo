@@ -1,0 +1,51 @@
+@charset "UTF-8";
+#main{
+    width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #555;
+  	border-radius: 6px;
+  	border: solid #4eb4c2 1px;
+	background: #fafafa;
+}
+
+#main {
+    font-size: 14px;
+    color: #077685;
+  	font-weight: bold;
+  	text-align:center;
+}
+
+#main .form-title{
+	text-align: center;
+	font-family: Arial;
+	font-size: 30px;
+	color: #077685;
+	padding-bottom: 6px;
+	border-bottom: 2px solid #4eb4c2;
+	margin-bottom: 20px;
+}
+
+.employeeList input,.employeeRegister input,.genbaList input,.genbaRegister input{
+	width:300px !important;
+	margin-bottom: 20px;
+}
+
+.submit input{
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 16px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	text-decoration: none;
+	border-radius: 10px;
+	box-shadow: 0px 8px 6px #e3e3e3;
+	border: solid #f5fdff 4px;
+}
+
+
+.submit input:hover{
+ 	background: #37a4bf;
+ }

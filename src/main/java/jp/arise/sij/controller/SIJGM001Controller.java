@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.arise.com.dto.COMGM003Dto;
 import jp.arise.com.modelandview.COMGM003MAV;
 import jp.arise.sij.dto.SIJGM001Dto;
 import jp.arise.sij.form.SIJGM001Form;
@@ -53,13 +54,6 @@ public class SIJGM001Controller {
 		sijGm001Service.setSession();
 
 		List<SIJGM001Form> SijGm001FormList = new ArrayList();
-
-		for(int i=0;i<20;i++) {
-			SIJGM001Form form = new SIJGM001Form();
-			form.setPrice(1000);
-			SijGm001FormList.add(form);
-		}
-
 		model.addAttribute("SIJGM001FormList", SijGm001FormList);
 
 		return "SIJGM001";
@@ -104,6 +98,22 @@ public class SIJGM001Controller {
 	}
 
 	/**
+	 * 検索画面遷移処理
+	 * @param SIJGM001Form
+	 * @return SIJGM001.jsp
+	 * @throws
+	 * @author AtsushiNishizawa
+	 * @since 2017/07/17
+	 */
+	@RequestMapping(value = "/initSijGm001",params = "initComGm003",method = RequestMethod.POST)
+	public ModelAndView  initComGm003(SIJGM001Form sijGm001Form,Model model) {
+		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
+		sijGm001MAV.setUser(sijGm001Form.getUser());
+
+		return new ModelAndView("forward:/initComGm003","SIJGM001MAV",sijGm001MAV);
+	}
+
+	/**
 	 * 検索処理（遷移元：検索画面）
 	 * @param model
 	 * @return SIJGM001.jsp
@@ -114,14 +124,19 @@ public class SIJGM001Controller {
     @RequestMapping(value = "/resultSijGm001", method = RequestMethod.POST)
 	public String initSijGm001(COMGM003MAV comGm003MAV, Model model) {
 
-    	//ログイン情報取得
+    		//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 
 		//COMGM003DtoをSIJGM001Formにセットする
 
-    	@SuppressWarnings("unchecked")
-		List<SIJGM001Form> formList = sijGm001Service.setSijgm001FormList(comGm003MAV.getResult());
+    		@SuppressWarnings("unchecked")
+//		List<SIJGM001Form> formList = sijGm001Service.setSijgm001FormList(comGm003MAV.getResult());
+    		List<SIJGM001Form> formList = sijGm001Service.setSijgm001FormList((List<COMGM003Dto> )loginInfoDto.getSearchResult());
+    		for(SIJGM001Form form:formList) {
+    			System.out.println("社員ID:"+form.getUserId());
+    		}
+
 		model.addAttribute("SIJGM001FormList",formList);
 		return "SIJGM001";
 	}

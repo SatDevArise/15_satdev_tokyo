@@ -8,6 +8,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link href="<c:url value="/resources/css/layout.css" />" rel="stylesheet">
 		<link href="<c:url value="/resources/css/GBJGM002.css" />" rel="stylesheet">
 		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 		<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
@@ -15,7 +16,10 @@
 		<title>GBJGM002 現場情報新規登録・編集画面</title>
 	</head>
 	<body>
-		<div class = "title">社員情報管理システム</div>
+<!-- 		<div class = "title">社員情報管理システム</div> -->
+	<header>
+		<h1>現場情報新規登録・編集画面</h1>
+	</header>
 
 		<div id="error_hyoji"></div>
 	    <spring:url value="/initGbjGm002" var="actionUrl"/>

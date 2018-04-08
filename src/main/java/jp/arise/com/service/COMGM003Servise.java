@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import jp.arise.com.dao.COMGM003Dao;
 import jp.arise.com.dto.COMGM003Dto;
+import jp.arise.com.form.COMGM003Form;
 import jp.arise.com.message.COMMessage;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
@@ -63,5 +64,25 @@ public class COMGM003Servise {
 		}
 		// 検索結果を遷移元画面に返す
 		return resultList;
+	}
+
+	public COMGM003Dto setInfo(COMGM003Form comGm003Form) {
+		COMGM003Dto comGm003Dto = new COMGM003Dto();
+		comGm003Dto.setSyainId(comGm003Form.getSyainId());
+		comGm003Dto.setSeinengappiFrom(comGm003Form.getSeinengappiFrom());
+		comGm003Dto.setSeinengappiTo(comGm003Form.getSeinengappiTo());
+		comGm003Dto.setPrevious(comGm003Form.getPrevious());
+		comGm003Dto.setPsition(comGm003Form.getPsition());
+		comGm003Dto.setNyusyabiFrom(comGm003Form.getNyusyabiFrom());
+		comGm003Dto.setNyusyabiTo(comGm003Form.getNyusyabiTo());
+		comGm003Dto.setTeamNa(comGm003Form.getTeamNa());
+		comGm003Dto.setGenbaNa(comGm003Form.getGenbaNa());
+		comGm003Dto.setPhase(comGm003Form.getPhase());
+		comGm003Dto.setTanka(comGm003Form.getTanka());
+		comGm003Dto.setMoyori1Station(comGm003Form.getMoyori1Station());
+		comGm003Dto.setMoyori2Station(comGm003Form.getMoyori2Station());
+		comGm003Dto.setMoyori3Station(comGm003Form.getMoyori3Station());
+		comGm003Dto.setAddress(comGm003Form.getAddress());
+		return comGm003Dto;
 	}
 }

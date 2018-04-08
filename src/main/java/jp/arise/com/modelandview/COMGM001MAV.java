@@ -14,6 +14,11 @@ public class COMGM001MAV {
 	private String userId;
 
 	/**
+	 * ユーザー名
+	 */
+	private String userName;
+
+	/**
 	 * ユーザーIDを取得
 	 * @return userId
 	 */
@@ -28,4 +33,21 @@ public class COMGM001MAV {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+	/**
+	 * ユーザー名を取得
+	 * @return userId
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * ユーザー名を設定
+	 * @param username
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 }

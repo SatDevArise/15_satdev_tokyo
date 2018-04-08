@@ -46,10 +46,9 @@ public class COMGM003Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initComGm003", method = RequestMethod.GET)
+	@RequestMapping(value = "/initComGm003", method = RequestMethod.POST)
 	public String initComGm003(Model model) {
 		COMGM003Form comGm003Form = new COMGM003Form();
-		comGm003Form.setUser("山田 太郎");
 		model.addAttribute("COMGM003Form",comGm003Form);
 		return "COMGM003";
 	}
@@ -64,18 +63,18 @@ public class COMGM003Controller {
 	 */
 	@RequestMapping(value = "/initComGm003",params = "searchComGm003",method = RequestMethod.POST)
 	public ModelAndView  searchComGm003(COMGM003Form comGm003Form,Model model) {
-    	// 遷移元画面判定処理
+    		// 遷移元画面判定処理
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 		// セッション情報の遷移元画面を取得
 		String strGamenId = (String) loginInfoDto.getGamenId();
 
-		COMGM003Dto comGm003Dto = new COMGM003Dto();
-		comGm003Dto.setUser(comGm003Form.getUser());
-		System.out.println("inputCheck前");
-		comGm003Service.inputCheck(comGm003Dto);
-		System.out.println("inputCheck後");
+		COMGM003Dto comGm003Dto = comGm003Service.setInfo(comGm003Form);
 		List<COMGM003Dto> resultList = comGm003Service.search(comGm003Dto);
+
+		for(COMGM003Dto dto:resultList) {
+			System.out.println(dto.getSyainId());
+		}
 
 		loginInfo.updateAttributeSearchResult(resultList);
 

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#register dl{
+	background: #D9E5FF;
+	border: 1px solid #ddd;
+	border-top: 0;
+}
+#register dl dt,
+#register dl dd {
+	padding: 10px;
+	border-top: 1px solid #ddd;
+}
+#register dl dt {
+	width: 13em;
+	float: left;
+	clear: both;
+	font-weight: bold;
+}
+#register dl dd {
+	background-color: #fff;
+	border-left: 1px solid #ddd;
+	margin-left: 13em;
+}

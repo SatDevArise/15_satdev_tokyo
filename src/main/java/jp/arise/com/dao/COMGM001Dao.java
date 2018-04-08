@@ -14,8 +14,20 @@ import jp.arise.com.dto.COMGM001Dto;
 public interface COMGM001Dao extends Serializable{
 
 	/**
-	 * userを取得
+	 * ユーザー情報登録処理
 	 * @return user
 	 */
-	public List<COMGM001Dto> getUser(COMGM001Dto COMGM001Dto);
+	public List<COMGM001Dto> select(String userId);
+
+	/**
+	 * ログイン履歴作成処理
+	 * @return user
+	 */
+	public void insert(COMGM001Dto dto);
+
+	/**
+	 * ログイン初回判定処理
+	 * @return user
+	 */
+	public int count(String userId);
 }

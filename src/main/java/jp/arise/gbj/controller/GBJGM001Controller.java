@@ -17,6 +17,7 @@ import jp.arise.gbj.form.GBJGM001Form;
 import jp.arise.gbj.modelandview.GBJGM001MAV;
 import jp.arise.gbj.modelandview.GBJGM002MAV;
 import jp.arise.gbj.service.GBJGM001Servise;
+import jp.arise.sij.modelandview.SIJGM001MAV;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
 
@@ -69,12 +70,18 @@ public class GBJGM001Controller {
 	 */
     @RequestMapping(value = "/initGbjGm001",params = "backGbjGm001", method = RequestMethod.POST)
 	public String initGbjGm001(GBJGM002MAV gbjGm002MAV,Model model) {
-    	//GBJGM002MAVの値をGBJGM001Formにセットする
-
-
+    		//GBJGM002MAVの値をGBJGM001Formにセットする
 		GBJGM001Form gbjGm001Form = new GBJGM001Form();
 		model.addAttribute("GBJGM001Form",gbjGm001Form);
 		return "GBJGM001";
+	}
+
+	/**
+	 * 検索画面遷移処理
+	 */
+    @RequestMapping(value = "/initGbjGm001",params = "initComGm003", method = RequestMethod.POST)
+	public ModelAndView initGbjGm001(GBJGM001Form gbjGm001Form,Model model) {
+		return new ModelAndView("forward:/initComGm003");
 	}
 
 	/**

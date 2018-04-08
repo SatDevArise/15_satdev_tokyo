@@ -46,9 +46,6 @@ public class COMGM001Controller {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String initComGm001(Model model) {
-		COMGM001Form comGm001Form = new COMGM001Form();
-		comGm001Form.setUserId("山田 太郎");
-		model.addAttribute("COMGM001Form",comGm001Form);
 		return "COMGM001";
 	}
 
@@ -60,22 +57,35 @@ public class COMGM001Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/",params = "entryComGm001",method = RequestMethod.POST)
-	public ModelAndView  entryComGm001(COMGM001Form comGm001Form,Model model) {
+	@RequestMapping(value = "/initComGm001",params = "entryComGm001",method = RequestMethod.POST)
+	public ModelAndView entryComGm001(COMGM001Form comGm001Form,Model model) {
+		//Dtoを作成し、入力したユーザー名を設定
 		COMGM001Dto comGm001Dto = new COMGM001Dto();
 		comGm001Dto.setUserId(comGm001Form.getUserId());
+		comGm001Dto.setPassword(comGm001Form.getPassword());
+
+		//ユーザーID/Passが一致するかを確認
 		comGm001Service.inputCheck(comGm001Dto);
 
-		COMGM001MAV comGm001MAV = new COMGM001MAV();
-		comGm001MAV.setUserId(comGm001Form.getUserId());
+		//ユーザーネームがNullでなければ
+		if(comGm001Dto.getUserName()!=null) {
+			//ModelAndView
+			COMGM001MAV comGm001MAV = new COMGM001MAV();
+			comGm001MAV.setUserName(comGm001Dto.getUserName());
 
-		//ログイン情報設定
-		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto.setUserNa("testuser");
-		loginInfoDto.setUserId("0001");
-		loginInfo.setAttribute(loginInfoDto);
+			//ログイン情報設定
+			LoginInfoDto loginInfoDto = new LoginInfoDto();
+			loginInfoDto.setUserNa(comGm001Dto.getUserName());
+			loginInfoDto.setUserId(comGm001Dto.getUserId());
+			loginInfo.setAttribute(loginInfoDto);
 
-		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm001MAV);
+			return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm001MAV);
+		}
+
+		//nullであれば、ログイン画面へ
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.setViewName("COMGM001");
+		return modelAndView;
 	}
 
 }

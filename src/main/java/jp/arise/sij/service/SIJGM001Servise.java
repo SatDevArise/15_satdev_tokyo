@@ -40,20 +40,18 @@ public class SIJGM001Servise {
 	 */
 	public List<SIJGM001Form> setSijgm001FormList(List<COMGM003Dto> list) {
 
-		SIJGM001Form sijGm001Form = new SIJGM001Form();
-
 		List<SIJGM001Form> SIJGM001FormList = new ArrayList<SIJGM001Form>();
 
 		if (list != null) {
 			for (int i = 0; i < list.size(); i++) {
-
+				SIJGM001Form sijGm001Form = new SIJGM001Form();
 				sijGm001Form.setUserId(list.get(i).getSyainId());
 				sijGm001Form.setUser(list.get(i).getUser());
 				sijGm001Form.setTitle(list.get(i).getPsition());
 				sijGm001Form.setBirthday(list.get(i).getSeinengappiFrom());
 				sijGm001Form.setTeam(list.get(i).getTeamNa());
 				sijGm001Form.setSite(list.get(i).getGenbaNa());
-
+/**
 				//入社日を取得し、Date型変換
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 				Date enteringDay = null;
@@ -78,14 +76,14 @@ public class SIJGM001Servise {
 
 				//現段階で、COMGM003Dtoに使用路線を入力する項目がないため、エラー
 				//COMGM003Dtoにて作成してもらう必要がある。
-
+**/
 				//検索共通画面に使用路線の項目がないため、値が持ってこれない
 				//sijGm001Form.setRoute(list.get(i).getRoute());
 				sijGm001Form.setPrice(list.get(i).getTanka());
 				SIJGM001FormList.add(sijGm001Form);
-
+/**
 				System.out.println("---------------------------------------------");
-				System.out.println("社員ID：" + list.get(i).getUserId());
+				System.out.println("社員ID：" + list.get(i).getSyainId());
 				System.out.println("社員名：" + list.get(i).getUser());
 				System.out.println("役職：" + list.get(i).getPsition());
 				System.out.println("生年月日：" + list.get(i).getSeinengappiFrom());
@@ -96,6 +94,7 @@ public class SIJGM001Servise {
 				//System.out.println("使用路線：" + list.get(i).getRoute());
 				System.out.println("単価：" + list.get(i).getTanka());
 				System.out.println("---------------------------------------------");
+**/
 			}
 		}
 		return SIJGM001FormList;

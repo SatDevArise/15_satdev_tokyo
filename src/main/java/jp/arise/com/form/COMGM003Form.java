@@ -94,7 +94,7 @@ public class COMGM003Form {
 		this.teamNa = teamNa;
 	}
 
-	public String getTenbaNa() {
+	public String getGenbaNa() {
 		return genbaNa;
 	}
 
