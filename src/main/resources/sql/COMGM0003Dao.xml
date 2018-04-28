@@ -36,33 +36,19 @@
 				AND syain_id like #{syainId} || '%'
 			</if>
 
-			<!--
-			<if test="seinengappiFrom != null">
-				AND seinengappiFrom like #{birth_dt} || '%'
-			</if>
-			 -->
-
 			and birth_dt Between
 			<choose>
-				<when test="seinengappiFrom != null">
-					<!-- like #{seinengappiFrom} || '%' -->
-					 to_date(#{seinengappiFrom},'YYYYMMDD') || '%'
+				<when test="seinengappiFrom != ''">
+					 to_date(#{seinengappiFrom},'YYYYMMDD')
 				</when>
 				<otherwise>
 					to_date('00000000','YYYYMMDD')
 				</otherwise>
 			</choose>
             and
-			<!--
-			<if test="seinengappiTo != null">
-				AND seinengappiTo like #{birth_dt} || '%'
-			</if>
-			 -->
-
 			<choose>
-				<when test="seinengappiTo != null">
-					<!-- like #{seinengappiTo} || '%' -->
-					to_date(#{seinengappiTo},'YYYYMMDD') || '%'
+				<when test="seinengappiTo != ''">
+					to_date(#{seinengappiTo},'YYYYMMDD')
 				</when>
 				<otherwise>
 					to_date('99999999','YYYYMMDD')
@@ -79,21 +65,17 @@
 
 			and nyusya_dt Between
 			<choose>
-				<when test="nyusyabiFrom != null">
-					<!--like #{nyusyabiFrom} || '%' -->
-					to_date(#{nyusyabiFrom},'YYYYMMDD') || '%'
+				<when test="nyusyabiFrom != ''">
+					to_date(#{nyusyabiFrom},'YYYYMMDD')
 				</when>
 				<otherwise>
 					to_date('00000000','YYYYMMDD')
 				</otherwise>
 			</choose>
-
 			and
-
 			<choose>
-				<when test="nyusyabiTo != null">
-					<!-- like #{nyusyabiTo} || '%' -->
-					to_date(#{nyusyabiTo},'YYYYMMDD') || '%'
+				<when test="nyusyabiTo  != ''">
+					to_date(#{nyusyabiTo},'YYYYMMDD')
 				</when>
 				<otherwise>
 					to_date('99999999','YYYYMMDD')
