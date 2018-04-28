@@ -82,6 +82,7 @@
 				</otherwise>
 			</choose>
 
+
 			<if test="teamNa != null">
 				AND syozoku_team like #{teamNa} || '%'
 			</if>
