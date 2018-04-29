@@ -34,14 +34,14 @@ public class SIJGM002Servise {
 	public String getSyainId() {
 		//採番ID取得
 		String syainId = sijGm002Dao.getSyainId();
-		//DBで取得した値の不要な空白を除去
-		syainId = syainId.replaceAll(" ", "");
 
 		//社員IDが取得できなかったら
 		String result = "0001";
 		if(syainId == null || syainId.isEmpty()) {
 			return result;
 		}
+		//DBで取得した値の不要な空白を除去
+		syainId = syainId.replaceAll(" ", "");
 
 		//最新の社員IDを1インクリメントする
 		syainId = String.valueOf(Integer.parseInt(syainId) + 1);

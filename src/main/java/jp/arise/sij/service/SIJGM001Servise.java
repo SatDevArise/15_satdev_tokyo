@@ -46,7 +46,7 @@ public class SIJGM001Servise {
 			for (int i = 0; i < list.size(); i++) {
 				SIJGM001Form sijGm001Form = new SIJGM001Form();
 				sijGm001Form.setUserId(list.get(i).getSyainId());
-				sijGm001Form.setUser(list.get(i).getUser());
+				sijGm001Form.setUser(list.get(i).getSyainName());
 				sijGm001Form.setTitle(list.get(i).getPsition());
 				sijGm001Form.setBirthday(list.get(i).getSeinengappiFrom());
 				sijGm001Form.setTeam(list.get(i).getTeamNa());

@@ -22,6 +22,8 @@ public class COMGM003Dto implements Serializable{
 
 	private String syainId;
 
+	private String syainName;
+
 	private String seinengappiFrom;
 
 	private String seinengappiTo;
@@ -56,6 +58,14 @@ public class COMGM003Dto implements Serializable{
 
 	public void setSyainId(String syainId) {
 		this.syainId = syainId;
+	}
+
+	public String getSyainName() {
+		return syainName;
+	}
+
+	public void setSyainName(String syainName) {
+		this.syainName = syainName;
 	}
 
 	public String getSeinengappiFrom() {

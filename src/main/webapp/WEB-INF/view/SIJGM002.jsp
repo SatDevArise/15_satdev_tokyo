@@ -29,7 +29,7 @@
     		<input type="submit" class="btn btn-info" value="戻る" name="back" formaction="${actionUrl}">
     		<dl>
     			<dt>社員ID</dt>
-    			<dd><form:input path="syainId" type="text" id="syainId" name="syainId" disabled="true"/></dd>
+    			<dd><form:input path="syainId" type="text" id="syainId" name="syainId" /></dd>
     			<dt>氏名</dt>
     			<dd><form:input path="name" type="text" id="name" name="name" /></dd>
     			<dt>生年月日</dt>
