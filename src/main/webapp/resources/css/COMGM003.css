@@ -1,9 +1,69 @@
 @charset "utf-8";
-
-#Address {
- width:500px;
+body{
+	background-color:#ddd;
 }
 
-.hidarizoroe{
-	float:left;
+#COMGM003Form{
+	width:640px;
+	margin: 0 auto;
+	background:white;
+	margin-top:10px;
+	padding:10px 20px;
 }
+
+#COMGM003Form input,#COMGM003Form select{
+	width:100px;
+}
+
+#row{
+	display:flex;
+}
+
+.left{
+	width:240px;
+	padding:5px 10px;
+}
+.left input,.left select{
+	margin-left:5px;
+	width: 100px;
+}
+.right{
+	width:360px;
+	padding:5px 10px;
+}
+.right input,.right select{
+	margin-left:5px;
+	width: 100px;
+}
+
+.line{
+	margin: 0 10px;
+}
+.item{
+	width:60px;
+	display:inline-block;
+	padding:0 5px;
+}
+
+.birthdate input {
+	width:50px;
+}
+
+.hiredate{
+	width:500px;
+}
+.team{
+	width:500px;
+}
+
+.station{
+	width:500px;
+}
+
+.address{
+ 	width:500px;
+}
+.address input{
+ 	width:350px !important;
+}
+
