@@ -129,13 +129,9 @@ public class SIJGM001Controller {
 		loginInfoDto = loginInfo.getAttribute();
 
 		//COMGM003DtoをSIJGM001Formにセットする
-
     		@SuppressWarnings("unchecked")
 //		List<SIJGM001Form> formList = sijGm001Service.setSijgm001FormList(comGm003MAV.getResult());
     		List<SIJGM001Form> formList = sijGm001Service.setSijgm001FormList((List<COMGM003Dto> )loginInfoDto.getSearchResult());
-    		for(SIJGM001Form form:formList) {
-    			System.out.println("社員ID:"+form.getUserId());
-    		}
 
 		model.addAttribute("SIJGM001FormList",formList);
 		return "SIJGM001";

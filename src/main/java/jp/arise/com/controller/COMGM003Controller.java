@@ -72,10 +72,6 @@ public class COMGM003Controller {
 		COMGM003Dto comGm003Dto = comGm003Service.setInfo(comGm003Form);
 		List<COMGM003Dto> resultList = comGm003Service.search(comGm003Dto);
 
-		for(COMGM003Dto dto:resultList) {
-			System.out.println(dto.getSyainId());
-		}
-
 		loginInfo.updateAttributeSearchResult(resultList);
 
 		// 戻り先画面格納用変数

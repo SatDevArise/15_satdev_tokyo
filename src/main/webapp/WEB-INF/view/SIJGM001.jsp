@@ -44,7 +44,7 @@
 
 		    		<c:forEach var="syainInfo" items="${SIJGM001FormList}">
 				    <tr>
-				      <td><a href="./SIJGM002?userId=${syainInfo.userId}"><c:out value="${syainInfo.userId}"/></a></td>
+				      <td><a href="./SIJGM002?syainId=${syainInfo.userId}"><c:out value="${syainInfo.userId}"/></a></td>
 				      <td><c:out value="${syainInfo.user}"/></td>
 				      <td><c:out value="${syainInfo.title}"/></td>
 				      <td><c:out value="${syainInfo.birthday}"/></td>

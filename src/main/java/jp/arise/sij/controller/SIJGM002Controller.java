@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import jp.arise.com.modelandview.COMGM002MAV;
@@ -18,6 +19,7 @@ import jp.arise.sij.modelandview.SIJGM002MAV;
 import jp.arise.sij.service.SIJGM002Servise;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 /**
  * SIJGM002 社員情報新規登録・編集画面用コントローラー
@@ -49,17 +51,16 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "goSijGm002", method = RequestMethod.POST)
 	public String initSijGm002(COMGM002MAV comGm002MAV,Model model) {
-		//ログイン情報取得
-		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto = loginInfo.getAttribute();
+		//画面ID更新処理
+		sijGm002Service.upSession(UTLContent.GMID_COMGM002);
 
+		//Formを生成
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
-		//Fomクラスに起動元画面を設定
-		sijGm002Form.setGamenId(loginInfoDto.getGamenId());
 
 		//Serviseクラスの社員ID採番処理を呼び出す。
 		String syainId = sijGm002Service.getSyainId();
-		//formに社員IDをセット
+
+		//Formに社員IDをセット
 		sijGm002Form.setSyainId(syainId);
 
 		model.addAttribute("SIJGM002Form",sijGm002Form);
@@ -74,35 +75,16 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initSijGm002",params = "goToSijGm002",method = RequestMethod.POST)
-	public String initSijGm002(Model model,SIJGM001MAV sijGm001MAV) {
-		//ログイン情報取得
-		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto = loginInfo.getAttribute();
+	@RequestMapping(value = "/SIJGM002", method = RequestMethod.GET)
+	public String initSIJGm002(@RequestParam("syainId") String syainId,Model model){
+		//画面ID更新処理
+		sijGm002Service.upSession(UTLContent.GMID_SIJGM001);
 
-		SIJGM002Form sijGm002Form = new SIJGM002Form();
+		//GETパラメータから社員情報を取得
+		SIJGM002Dto sijGm002Dto = sijGm002Service.getSyainInfo(syainId);
 
-		//Fromクラスに起動元画面を設定
-		sijGm002Form.setGamenId(loginInfoDto.getGamenId());
-
-		//FromクラスにMAVクラスの社員情報を設定する。
-		sijGm002Form.setAddress("a");
-		sijGm002Form.setAreaCd("a");
-		sijGm002Form.setBirthPlace("19910101");
-		sijGm002Form.setCityCd("a");
-		sijGm002Form.setGenbaName("a");
-		sijGm002Form.setMoyoriStation1("a");
-		sijGm002Form.setMoyoriStation2("a");
-		sijGm002Form.setMoyoriStation3("a");
-		sijGm002Form.setName("a");
-		sijGm002Form.setPhase("a");
-		sijGm002Form.setPosition("a");
-		sijGm002Form.setPrevious("a");
-		sijGm002Form.setSeinengappi("a");
-		sijGm002Form.setSubscriberNo("0001");
-		sijGm002Form.setSyainId("1111");
-		sijGm002Form.setTanka(400000);
-		sijGm002Form.setTeamName("a");
+		//FormにSIJGM001MAVの情報を設定
+		SIJGM002Form sijGm002Form = setSijgm002form(sijGm002Dto);
 
 		model.addAttribute("SIJGM002Form",sijGm002Form);
 		return "SIJGM002";
@@ -118,32 +100,9 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "entrySijGm002", method = RequestMethod.POST)
 	public String entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
-		//Dtoを生成
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		String user = "test";
-		Date date = new Date();
 
-		//DtoクラスにFromクラスの値を設定する。
-		sijGm002Dto.setAddress(sijGm002Form.getAddress());
-		sijGm002Dto.setAreaCd(sijGm002Form.getAreaCd());
-		sijGm002Dto.setBirthPlace(sijGm002Form.getBirthPlace());
-		sijGm002Dto.setCityCd(sijGm002Form.getCityCd());
-		sijGm002Dto.setGenbaName(sijGm002Form.getGenbaName());
-		sijGm002Dto.setMoyoriStation1(sijGm002Form.getMoyoriStation1());
-		sijGm002Dto.setMoyoriStation2(sijGm002Form.getMoyoriStation2());
-		sijGm002Dto.setMoyoriStation3(sijGm002Form.getMoyoriStation3());
-		sijGm002Dto.setName(sijGm002Form.getName());
-		sijGm002Dto.setPhase(sijGm002Form.getPhase());
-		sijGm002Dto.setPosition(sijGm002Form.getPosition());
-		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
-		sijGm002Dto.setSeinengappi(sijGm002Service.convertDate(sijGm002Form.getSeinengappi()));
-		sijGm002Dto.setSubscriberNo(sijGm002Form.getSubscriberNo());
-		sijGm002Dto.setSyainId(sijGm002Form.getSyainId());
-		sijGm002Dto.setTanka(sijGm002Form.getTanka());
-		sijGm002Dto.setTeamName(sijGm002Form.getTeamName());
-		sijGm002Dto.setGenbaId("1111");
-		sijGm002Dto.setDate(date);
-		sijGm002Dto.setUser(user);
+		//Formの情報をDtoにセットする。
+		SIJGM002Dto sijGm002Dto = setSijgm002dto(sijGm002Form);
 
 		//Serviseクラスのチェック処理を呼び出す。
 		sijGm002Service.insertCheck(sijGm002Dto);
@@ -161,28 +120,8 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
 	public String updateSijGm002(SIJGM002Form sijGm002Form,Model model) {
-
-		//Dtoを生成
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-
-		//DtoクラスにFromクラスの値を設定する。
-		sijGm002Dto.setAddress(sijGm002Form.getAddress());
-		sijGm002Dto.setAreaCd(sijGm002Form.getAreaCd());
-		sijGm002Dto.setBirthPlace(sijGm002Form.getBirthPlace());
-		sijGm002Dto.setCityCd(sijGm002Form.getCityCd());
-		sijGm002Dto.setGenbaName(sijGm002Form.getGenbaName());
-		sijGm002Dto.setMoyoriStation1(sijGm002Form.getMoyoriStation1());
-		sijGm002Dto.setMoyoriStation2(sijGm002Form.getMoyoriStation2());
-		sijGm002Dto.setMoyoriStation3(sijGm002Form.getMoyoriStation3());
-		sijGm002Dto.setName(sijGm002Form.getName());
-		sijGm002Dto.setPhase(sijGm002Form.getPhase());
-		sijGm002Dto.setPosition(sijGm002Form.getPosition());
-		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
-		sijGm002Dto.setSeinengappi(sijGm002Service.convertDate(sijGm002Form.getSeinengappi()));
-		sijGm002Dto.setSubscriberNo(sijGm002Form.getSubscriberNo());
-		sijGm002Dto.setSyainId(sijGm002Form.getSyainId());
-		sijGm002Dto.setTanka(sijGm002Form.getTanka());
-		sijGm002Dto.setTeamName(sijGm002Form.getTeamName());
+		//Formの情報をDtoにセットする。
+		SIJGM002Dto sijGm002Dto = setSijgm002dto(sijGm002Form);
 
 		//Serviseクラスのチェック処理を呼び出す。
 		sijGm002Service.updateCheck(sijGm002Dto);
@@ -200,11 +139,8 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
 	public String deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
-		//Dtoを生成
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-
-		//Formの値をDtoに設定
-		sijGm002Dto.setSyainId(sijGm002Form.getSyainId());
+		//Formの情報をDtoにセットする。
+		SIJGM002Dto sijGm002Dto = setSijgm002dto(sijGm002Form);
 
 		//Serviseクラスのチェック処理を呼び出す。
 		sijGm002Service.deleteCheck(sijGm002Dto);
@@ -220,58 +156,93 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/177
 	 */
-	@RequestMapping(value = "/initSijGm002",params = "backComGm002", method = RequestMethod.POST)
-	public ModelAndView backComGm002(SIJGM002Form sijGm002Form,Model model) {
+	@RequestMapping(value = "/initSijGm002",params = "back", method = RequestMethod.POST)
+	public ModelAndView back(SIJGM002Form sijGm002Form,Model model) {
 		//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 
-		//Serviseクラスのセッション情報設定処理を呼び出す。
-		sijGm002Service.setSession(loginInfoDto);
+		// セッション情報の遷移元画面を取得
+		String strGamenId = (String) loginInfoDto.getGamenId();
+		System.out.println("画面ID:"+strGamenId);
 
-		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
-		return new ModelAndView("forward:/initComGm002","SIJGM002MAV",sijGm002MAV);
+		// 戻り先画面格納用変数
+		String returnGamen = null;
+
+		if (strGamenId.equals(UTLContent.GMID_SIJGM001)) {
+			returnGamen = "forward:/initSijGm001";
+		} else if (strGamenId.equals(UTLContent.GMID_COMGM002)){
+			returnGamen = "forward:/initComGm002";
+		}
+		System.out.println("戻り先:"+returnGamen);
+		return new ModelAndView(returnGamen);
 	}
 
-	/**
-	 * 戻る処理（遷移先：社員情報一覧表示画面）
-	 * @param SIJGM002Form
-	 * @return SiJGM001Controller.java
-	 * @throws
-	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
-	 */
-	@RequestMapping(value = "/initSijGm002",params = "backSijGm001", method = RequestMethod.POST)
-	public ModelAndView backSijGm001(SIJGM002Form sijGm002Form,Model model) {
-		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 
-		//MAVクラスにFromクラスの社員情報を設定する。
-		sijGm002MAV.setAddress("a");
-		sijGm002MAV.setAreaCd("a");
-		sijGm002MAV.setBirthPlace("a");
-		sijGm002MAV.setCityCd("a");
-		sijGm002MAV.setGenbaName("a");
-		sijGm002MAV.setMoyoriStation1("a");
-		sijGm002MAV.setMoyoriStation2("a");
-		sijGm002MAV.setMoyoriStation3("a");
-		sijGm002MAV.setName("a");
-		sijGm002MAV.setPhase("a");
-		sijGm002MAV.setPosition("a");
-		sijGm002MAV.setPrevious("a");
-		sijGm002MAV.setSeinengappi("a");
-		sijGm002MAV.setSubscriberNo("0001");
-		sijGm002MAV.setSyainId("1111");
-		sijGm002MAV.setTanka(400000);
-		sijGm002MAV.setTeamName("a");
+	private SIJGM002Dto setSijgm002dto(SIJGM002Form sijGm002Form) {
+		//Dtoを生成
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 
+		//日付を取得
+		Date date = new Date();
 		//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto = loginInfo.getAttribute();
+		String userId = (String)loginInfo.getAttribute().getUserId();
 
-		//Serviseクラスのセッション情報設定処理を呼び出す。
-		sijGm002Service.setSession(loginInfoDto);
+		//DtoにFormの値を設定する。
+		sijGm002Dto.setAddress(sijGm002Form.getAddress());
+		sijGm002Dto.setAreaCd(sijGm002Form.getAreaCd());
+		sijGm002Dto.setBirthPlace(sijGm002Form.getBirthPlace());
+		sijGm002Dto.setCityCd(sijGm002Form.getCityCd());
+		sijGm002Dto.setGenbaName(sijGm002Form.getGenbaName());
+		sijGm002Dto.setMoyoriStation1(sijGm002Form.getMoyoriStation1());
+		sijGm002Dto.setMoyoriStation2(sijGm002Form.getMoyoriStation2());
+		sijGm002Dto.setMoyoriStation3(sijGm002Form.getMoyoriStation3());
+		sijGm002Dto.setName(sijGm002Form.getName());
+		sijGm002Dto.setPhase(sijGm002Form.getPhase());
+		sijGm002Dto.setPosition(sijGm002Form.getPosition());
+		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
+		if(sijGm002Form.getSeinengappi() != null) {
+			sijGm002Dto.setSeinengappi(sijGm002Service.convertDate(sijGm002Form.getSeinengappi()));
+		}
+		sijGm002Dto.setSubscriberNo(sijGm002Form.getSubscriberNo());
+		sijGm002Dto.setSyainId(sijGm002Form.getSyainId());
+		sijGm002Dto.setTanka(sijGm002Form.getTanka());
+		sijGm002Dto.setTeamName(sijGm002Form.getTeamName());
 
-		return new ModelAndView("forward:/initSijGm001","SIJGM002MAV",sijGm002MAV);
+		sijGm002Dto.setGenbaId("");
+		sijGm002Dto.setDate(date);
+		sijGm002Dto.setUser(userId);
+
+		return sijGm002Dto;
+	}
+
+	private SIJGM002Form setSijgm002form(SIJGM002Dto sijGm002Dto) {
+		//Formを生成
+		SIJGM002Form sijGm002Form = new SIJGM002Form();
+
+		//FormにDtoの情報を設定する。
+		sijGm002Form.setAddress(sijGm002Dto.getAddress());
+		sijGm002Form.setAreaCd(sijGm002Dto.getAreaCd());
+		sijGm002Form.setBirthPlace(sijGm002Dto.getBirthPlace());
+		sijGm002Form.setCityCd(sijGm002Dto.getCityCd());
+		sijGm002Form.setGenbaName(sijGm002Dto.getGenbaName());
+		sijGm002Form.setMoyoriStation1(sijGm002Dto.getMoyoriStation1());
+		sijGm002Form.setMoyoriStation2(sijGm002Dto.getMoyoriStation2());
+		sijGm002Form.setMoyoriStation3(sijGm002Dto.getMoyoriStation3());
+		sijGm002Form.setName(sijGm002Dto.getName());
+		sijGm002Form.setPhase(sijGm002Dto.getPhase());
+		sijGm002Form.setPosition(sijGm002Dto.getPhase());
+		sijGm002Form.setPrevious(sijGm002Dto.getPhase());
+		if(sijGm002Dto.getSeinengappi() != null) {
+			sijGm002Form.setSeinengappi(sijGm002Service.parseDateToString(sijGm002Dto.getSeinengappi()));
+		}
+		sijGm002Form.setSubscriberNo(sijGm002Dto.getSubscriberNo());
+		sijGm002Form.setSyainId(sijGm002Dto.getSyainId());
+		sijGm002Form.setTanka(sijGm002Dto.getTanka());
+		sijGm002Form.setTeamName(sijGm002Dto.getTeamName());
+
+		return sijGm002Form;
 	}
 
 }

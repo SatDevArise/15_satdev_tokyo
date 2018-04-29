@@ -29,7 +29,7 @@ public class SIJGM002Servise {
 	private LoginInfo loginInfo;
 
 	/*
-	 * 社員ID取得処理
+	 * 社員ID採番処理
 	 */
 	public String getSyainId() {
 		//採番ID取得
@@ -57,6 +57,17 @@ public class SIJGM002Servise {
 		return syainId;
 	}
 
+	/*
+	 * 社員情報取得処理
+	 */
+	public SIJGM002Dto getSyainInfo(String syainId) {
+		List<SIJGM002Dto> resultList = sijGm002Dao.getSyainInfo(syainId);
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		for(SIJGM002Dto result: resultList) {
+			sijGm002Dto = result;
+		}
+		return sijGm002Dto;
+	}
 
 	/*
 	 * 新規登録処理
@@ -64,12 +75,14 @@ public class SIJGM002Servise {
 	public void insertCheck(SIJGM002Dto dto) {
 		//insert処理
 		sijGm002Dao.insert(dto);
+
+		//seq追加
+		sijGm002Dao.insertSeq(dto);
 	}
 
 	/*
 	 * 更新処理
 	 */
-
 	public void updateCheck(SIJGM002Dto dto) {
 		//update処理
 		sijGm002Dao.update(dto);
@@ -81,11 +94,6 @@ public class SIJGM002Servise {
 	public void deleteCheck(SIJGM002Dto dto) {
 		//delete処理
 		sijGm002Dao.delete(dto);
-	}
-
-	public void setSession(LoginInfoDto loginInfoDto) {
-		loginInfoDto.setGamenId("SIJGM002");
-		loginInfo.setAttribute(loginInfoDto);
 	}
 
 	/*
@@ -100,6 +108,22 @@ public class SIJGM002Servise {
 			e.printStackTrace();
 		}
 		 return date;
+	}
+
+	public String parseDateToString(Date date){
+		String DATE_PATTERN ="yyyy/MM/dd HH:mm:ss";
+		String str;
+
+		if(date == null) {
+			str = null;
+		} else {
+			str = new SimpleDateFormat(DATE_PATTERN).format(date);
+		}
+		return str;
+	}
+
+	public void upSession(String gamenId) {
+        loginInfo.updateAttributeGamenId(gamenId);
 	}
 
 }

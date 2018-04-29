@@ -34,6 +34,7 @@
 			<!-- ヘッダ -->
 			<thead style="color: #FFFFFF; background-color: #191970;">
 				<tr id="columnName">
+					<th>現場ID</th>
 					<th>現場名</th>
 					<th>作業内容</th>
 					<th>フェーズ</th>
