@@ -28,9 +28,6 @@ public class COMGM001Servise {
         String userId = dto.getUserId();
         String pass = dto.getPassword();
 
-//        System.out.println("userId(画面取得):" + userId);
-//        System.out.println("password(画面取得):" + pass);
-
         //DAOを呼び出して、DBから情報を取得
         List<COMGM001Dto> resultList = comGm001Dao.select(userId);
 
@@ -47,10 +44,6 @@ public class COMGM001Servise {
         //DBで取得した値の不要な空白を除去
         db_userName = db_userName.replaceAll(" ", "");
         db_pass = db_pass.replaceAll(" ", "");
-
-//        System.out.println("userName(DB取得):" + db_userName);
-//        System.out.println("userId(DB取得):" + db_userId);
-//        System.out.println("userPass(DB取得):" + db_pass);
 
 		//ログイン情報をセット
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");

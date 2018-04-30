@@ -10,7 +10,6 @@
     <select id="getNews" resultType="String">
         SELECT osirase_info
         FROM osirase_mst
-        WHERE osirase_start_dt =  date_trunc('day', now())
-        AND osirase_end_dt >= date_trunc('day', now())
+        WHERE osirase_end_dt <![CDATA[ >= ]]> date_trunc('day', now()) AND osirase_start_dt <![CDATA[ <= ]]> date_trunc('day', now())
     </select>
 </mapper>

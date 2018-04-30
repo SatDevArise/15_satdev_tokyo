@@ -1,6 +1,6 @@
 @charset "UTF-8";
 #main{
-    width: 400px;
+    width: 700px;
     margin: 30px auto;
     padding: 20px;
     border: 1px solid #555;
@@ -26,9 +26,29 @@
 	margin-bottom: 20px;
 }
 
+#main .news{
+	width: 600px;
+	height:80px;
+	background:white;
+	margin: 0 auto 10px;
+	border: 1px solid #ddd;
+}
+.news h3{
+	font-size:20px;
+	color:white;
+	background:steelblue;
+	margin: 0;
+}
+
+.flex{
+	display:flex;
+	margin: 0 auto;
+}
+
 .employeeList input,.employeeRegister input,.genbaList input,.genbaRegister input{
-	width:300px !important;
-	margin-bottom: 20px;
+	width:250px !important;
+	margin:10px 50px;
+
 }
 
 .submit input{
