@@ -11,36 +11,38 @@
  */
 function formCheck(){
 var form = document.forms.SIJ002;
-var result_syainId = form.syainId.value;
-var result_name = form.name.value;
-var result_moyori_1_station = form.moyori_1_station.value;
-var result_moyori_2_station = form.moyori_2_station.value;
-var result_moyori_3_station = form.moyori_3_station.value;
+var syainId = form.syainId.value;
+var name = form.name.value;
+var moyori_1_station = form.moyori_1_station.value;
+var moyori_2_station = form.moyori_2_station.value;
+var moyori_3_station = form.moyori_3_station.value;
 
-console.log("result_syainId");
-console.log("result_name");
-console.log("result_moyori_1_station");
-console.log("result_moyori_2_station");
+console.log("syainId");
+console.log("name");
+console.log("moyori_1_station");
+console.log("moyori_2_station");
 
-if(result_syainId ==  ""){
+if(syainId ==  ""){
 	document.getElementById("error_hyoji").innerHTML= "社員IDを入力してください。";
 	document.getElementById("error_hyoji").style.color= "red";
 	return false;
-} else if(result_name == ""){
+} else if(name == ""){
 	document.getElementById("error_hyoji").innerHTML= "氏名を入力してください。";
 	document.getElementById("error_hyoji").style.color= "red";
 	return false;
-} else if(result_moyori_1_station == ""){
+} else if(moyori_1_station == ""){
 	document.getElementById("error_hyoji").innerHTML= "最寄駅を入力してください。";
 	document.getElementById("error_hyoji").style.color= "red";
 	return false;
-} else if(result_moyori_1_station != "" && result_moyori_3_station != "" && result_moyori_2_station == ""){
+} else if(moyori_1_station != "" && moyori_3_station != "" && moyori_2_station == ""){
 	document.getElementById("error_hyoji").innerHTML= "最寄駅2を入力してください。";
 	document.getElementById("error_hyoji").style.color= "red";
 	return false;
 
 }else {
-	// ＊＊＊
+	//社員IDを活性化する
+	undisabled();
+
 	// OK場合はtrueを返す
 	return true;
 }
@@ -49,9 +51,7 @@ if(result_syainId ==  ""){
 
 
 /**
-
  * 削除確認処理
-
  */
 
 function confirmDelete()
@@ -63,3 +63,7 @@ function confirmDelete()
 		return false;
 	};
 };
+
+function undisabled(){
+	document.getElementById( "syainId" ).disabled = false;
+}

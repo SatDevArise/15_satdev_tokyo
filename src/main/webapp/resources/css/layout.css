@@ -23,4 +23,11 @@ header h1{
 	border: 1px solid white;
 	color: white;
 	background: #005FFF;
+	text-align:center;
+}
+
+td{
+	text-align:center;
+	padding: 10px 0;
+	border-bottom:1px solid #ddd;
 }

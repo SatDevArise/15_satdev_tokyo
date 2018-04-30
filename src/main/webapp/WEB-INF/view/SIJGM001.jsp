@@ -8,9 +8,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 		<link href="<c:url value="/resources/css/layout.css" />" rel="stylesheet">
 		<link href="<c:url value="/resources/css/SIJGM001.css" />" rel="stylesheet">
-		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 		<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
 		<script src="<c:url value="/resources/js/SIJGM001.js" />"></script>
 		<title>SIJGM001 社員情報一覧表示画面</title>

@@ -29,7 +29,7 @@
     		<input type="submit" class="btn btn-info" value="戻る" name="back" formaction="${actionUrl}">
     		<dl>
     			<dt>社員ID</dt>
-    			<dd><form:input path="syainId" type="text" id="syainId" name="syainId" /></dd>
+    			<dd><form:input path="syainId" type="text" id="syainId" name="syainId" disabled="true"/></dd>
     			<dt>氏名</dt>
     			<dd><form:input path="name" type="text" id="name" name="name" /></dd>
     			<dt>生年月日</dt>
@@ -37,17 +37,12 @@
     			<dt>住所</dt>
     			<dd><form:input path="address" type="text" id="address" name="address" /></dd>
     			<dt>最寄り駅</dt>
-    			<dd><form:input path="moyoriStation1" type="text" id="moyori_1_station" name="moyori_1_station" /></dd>
-    			<dt>最寄り駅2</dt>
-    			<dd><form:input path="moyoriStation2" type="text" id="moyori_2_station" name="moyori_2_station" /></dd>
-    			<dt>最寄り駅3</dt>
-    			<dd><form:input path="moyoriStation3" type="text" id="moyori_3_station" name="moyori_3_station" /></dd>
-    			<dt>エリアコード</dt>
-    			<dd><form:input path="areaCd" type="text" id="area_cd" name="area_cd" /></dd>
-    			<dt>市内局番</dt>
-    			<dd><form:input path="cityCd" type="text" id="city_cd" name="city_cd" /></dd>
-    			<dt>加入者番号</dt>
-    			<dd><form:input path="subscriberNo" type="text" id="subscriber_no" name="subscriber_no" /></dd>
+    			<dd><form:input path="moyoriStation1" type="text" id="moyori_1_station" name="moyori_1_station" />
+    				<form:input path="moyoriStation2" type="text" id="moyori_2_station" name="moyori_2_station" />
+    				<form:input path="moyoriStation3" type="text" id="moyori_3_station" name="moyori_3_station" />
+    			</dd>
+    			<dt>入社日</dt>
+    			<dd><form:input path="hireDate" type="text" id="hireDate" name="hireDate" /></dd>
     			<dt>前職</dt>
     			<dd><form:input path="previous" type="text" id="previous" name="previous" /></dd>
     			<dt>出身地</dt>
@@ -60,8 +55,6 @@
     			<dd><form:input path="phase" type="text" id="phase" name="phase" /></dd>
     			<dt>単価</dt>
     			<dd><form:input path="tanka" type="number" id="tanka" name="tanka" /></dd>
-    			<dt>現場名</dt>
-    			<dd><form:input path="genbaName" type="text" id="genba_na" name="genba_na" /></dd>
     		</dl>
 
     		<input type="submit" class="btn btn-default" value="新規登録" name="entrySijGm002" formaction="${actionUrl}" onclick= "return formCheck()">

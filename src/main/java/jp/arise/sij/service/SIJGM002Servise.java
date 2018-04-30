@@ -110,8 +110,11 @@ public class SIJGM002Servise {
 		 return date;
 	}
 
+	/*
+	 * 日付を文字列に変換する処理
+	 */
 	public String parseDateToString(Date date){
-		String DATE_PATTERN ="yyyy/MM/dd HH:mm:ss";
+		String DATE_PATTERN ="yyyy/MM/dd";
 		String str;
 
 		if(date == null) {
@@ -122,6 +125,9 @@ public class SIJGM002Servise {
 		return str;
 	}
 
+	/*
+	 * 画面IDを更新する処理
+	 */
 	public void upSession(String gamenId) {
         loginInfo.updateAttributeGamenId(gamenId);
 	}

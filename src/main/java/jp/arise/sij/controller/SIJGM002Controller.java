@@ -191,13 +191,13 @@ public class SIJGM002Controller {
 
 		//DtoにFormの値を設定する。
 		sijGm002Dto.setAddress(sijGm002Form.getAddress());
-		sijGm002Dto.setAreaCd(sijGm002Form.getAreaCd());
 		sijGm002Dto.setBirthPlace(sijGm002Form.getBirthPlace());
-		sijGm002Dto.setCityCd(sijGm002Form.getCityCd());
-		sijGm002Dto.setGenbaName(sijGm002Form.getGenbaName());
 		sijGm002Dto.setMoyoriStation1(sijGm002Form.getMoyoriStation1());
 		sijGm002Dto.setMoyoriStation2(sijGm002Form.getMoyoriStation2());
 		sijGm002Dto.setMoyoriStation3(sijGm002Form.getMoyoriStation3());
+		if(sijGm002Form.getHireDate() != null) {
+			sijGm002Dto.setHireDate(sijGm002Service.convertDate(sijGm002Form.getHireDate()));
+		}
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setPhase(sijGm002Form.getPhase());
 		sijGm002Dto.setPosition(sijGm002Form.getPosition());
@@ -205,7 +205,6 @@ public class SIJGM002Controller {
 		if(sijGm002Form.getSeinengappi() != null) {
 			sijGm002Dto.setSeinengappi(sijGm002Service.convertDate(sijGm002Form.getSeinengappi()));
 		}
-		sijGm002Dto.setSubscriberNo(sijGm002Form.getSubscriberNo());
 		sijGm002Dto.setSyainId(sijGm002Form.getSyainId());
 		sijGm002Dto.setTanka(sijGm002Form.getTanka());
 		sijGm002Dto.setTeamName(sijGm002Form.getTeamName());
@@ -223,21 +222,20 @@ public class SIJGM002Controller {
 
 		//FormにDtoの情報を設定する。
 		sijGm002Form.setAddress(sijGm002Dto.getAddress());
-		sijGm002Form.setAreaCd(sijGm002Dto.getAreaCd());
 		sijGm002Form.setBirthPlace(sijGm002Dto.getBirthPlace());
-		sijGm002Form.setCityCd(sijGm002Dto.getCityCd());
-		sijGm002Form.setGenbaName(sijGm002Dto.getGenbaName());
 		sijGm002Form.setMoyoriStation1(sijGm002Dto.getMoyoriStation1());
 		sijGm002Form.setMoyoriStation2(sijGm002Dto.getMoyoriStation2());
 		sijGm002Form.setMoyoriStation3(sijGm002Dto.getMoyoriStation3());
+		if(sijGm002Dto.getHireDate() != null) {
+			sijGm002Form.setHireDate(sijGm002Service.parseDateToString(sijGm002Dto.getHireDate()));
+		}
 		sijGm002Form.setName(sijGm002Dto.getName());
 		sijGm002Form.setPhase(sijGm002Dto.getPhase());
-		sijGm002Form.setPosition(sijGm002Dto.getPhase());
-		sijGm002Form.setPrevious(sijGm002Dto.getPhase());
+		sijGm002Form.setPosition(sijGm002Dto.getPosition());
+		sijGm002Form.setPrevious(sijGm002Dto.getPrevious());
 		if(sijGm002Dto.getSeinengappi() != null) {
 			sijGm002Form.setSeinengappi(sijGm002Service.parseDateToString(sijGm002Dto.getSeinengappi()));
 		}
-		sijGm002Form.setSubscriberNo(sijGm002Dto.getSubscriberNo());
 		sijGm002Form.setSyainId(sijGm002Dto.getSyainId());
 		sijGm002Form.setTanka(sijGm002Dto.getTanka());
 		sijGm002Form.setTeamName(sijGm002Dto.getTeamName());

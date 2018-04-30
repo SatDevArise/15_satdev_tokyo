@@ -72,11 +72,14 @@ public class SIJGM001Servise {
 				//経過年数を算出し、int値に変換
 			    int yearDiff = (int)( dateTimeTo1 - dateTimeTo2  ) / (1000 * 60 * 60 * 24 * 365);
 
-				sijGm001Form.setPhase(list.get(i).getPhase());
+
 
 				//現段階で、COMGM003Dtoに使用路線を入力する項目がないため、エラー
 				//COMGM003Dtoにて作成してもらう必要がある。
 **/
+
+				sijGm001Form.setPhase(list.get(i).getPhase());
+
 				//検索共通画面に使用路線の項目がないため、値が持ってこれない
 				//sijGm001Form.setRoute(list.get(i).getRoute());
 				sijGm001Form.setPrice(list.get(i).getTanka());

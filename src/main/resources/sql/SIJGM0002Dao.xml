@@ -11,6 +11,7 @@
         <result column="moyori_eki_1" property="moyoriStation1"/>
         <result column="moyori_eki_2" property="moyoriStation2"/>
         <result column="moyori_eki_3" property="moyoriStation3"/>
+        <result column="nyusya_dt" property="hireDate"/>
         <result column="zensyoku_na" property="previous"/>
         <result column="syussin_na" property="birthPlace"/>
         <result column="yakusyoku_cd" property="position"/>
@@ -34,8 +35,8 @@
         FROM seq
     </select>
      <insert id="insert" parameterType="jp.arise.sij.dto.SIJGM002Dto">
-        INSERT INTO syain_dt(syain_id,genba_id,syain_na,yakusyoku_cd,phase_cd,moyori_eki_1,moyori_eki_2,moyori_eki_3,syozoku_team,birth_dt,tanka_vl,zensyoku_na,syain_address,syussin_na,yuko_fg,sakujo_fg,insert_user,insert_ts)
-	    VALUES(#{syainId}, #{genbaId}, #{name}, #{position}, #{phase},#{moyoriStation1}, #{moyoriStation2}, #{moyoriStation3}, #{teamName}, #{seinengappi}, #{tanka}, #{previous}, #{address}, #{birthPlace},1,0,#{user},#{date})
+        INSERT INTO syain_dt(syain_id,genba_id,syain_na,yakusyoku_cd,phase_cd,moyori_eki_1,moyori_eki_2,moyori_eki_3,nyusya_dt,syozoku_team,birth_dt,tanka_vl,zensyoku_na,syain_address,syussin_na,yuko_fg,sakujo_fg,insert_user,insert_ts)
+	    VALUES(#{syainId}, #{genbaId}, #{name}, #{position}, #{phase},#{moyoriStation1}, #{moyoriStation2}, #{moyoriStation3}, #{hireDate},#{teamName}, #{seinengappi}, #{tanka}, #{previous}, #{address}, #{birthPlace},1,0,#{user},#{date})
     </insert>
      <delete id="delete" parameterType="jp.arise.sij.dto.SIJGM002Dto">
         UPDATE syain_dt
@@ -53,6 +54,7 @@
         		moyori_eki_1 = #{moyoriStation1},
         		moyori_eki_2 = #{moyoriStation2},
         		moyori_eki_3 = #{moyoriStation3},
+        		nyusya_dt = #{hireDate},
         		syozoku_team = #{teamName},
         		birth_dt = #{seinengappi},
         		tanka_vl = #{tanka},
