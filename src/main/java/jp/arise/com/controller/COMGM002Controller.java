@@ -46,8 +46,12 @@ public class COMGM002Controller {
 		COMGM002Form comGm002Form = new COMGM002Form();
 
 		List<String> resultList = comGm002Service.getNews();
+		if(resultList.size() == 0) {
+			String none = "特にお知らせはありません";
+			resultList.add(none);
+		}
 
-		model.addAttribute("att3",resultList);
+		model.addAttribute("COMGM002FormList",resultList);
 		return "COMGM002";
 	}
 

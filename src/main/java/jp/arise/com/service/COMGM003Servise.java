@@ -26,19 +26,6 @@ public class COMGM003Servise {
 	@Autowired
 	public LoginInfo loginInfo;
 
-	public COMGM003Dto inputCheck(COMGM003Dto dto) {
-        String user = dto.getUser();
-
-        dto.setUserId("2");
-
-//        List<COMGM003Dto> resultList = comGm003Dao.getUser(dto);
-//        System.out.println(resultList.get(0).getUser());
-
-        System.out.println(COMMessage.COME001.getMessage());
-
-		return dto;
-	}
-
 	/**
 	 * 遷移元画面判定処理
 	 * @param dto

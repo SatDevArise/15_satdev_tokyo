@@ -164,7 +164,6 @@ public class SIJGM002Controller {
 
 		// セッション情報の遷移元画面を取得
 		String strGamenId = (String) loginInfoDto.getGamenId();
-		System.out.println("画面ID:"+strGamenId);
 
 		// 戻り先画面格納用変数
 		String returnGamen = null;
@@ -174,7 +173,6 @@ public class SIJGM002Controller {
 		} else if (strGamenId.equals(UTLContent.GMID_COMGM002)){
 			returnGamen = "forward:/initComGm002";
 		}
-		System.out.println("戻り先:"+returnGamen);
 		return new ModelAndView(returnGamen);
 	}
 
