@@ -5,6 +5,7 @@
 <mapper namespace="jp.arise.com.dao.COMGM003Dao">
     <resultMap id="resultCOMGM003Dto" type="jp.arise.com.dto.COMGM003Dto">
         <result column="syain_id" property="syainId"/>
+		<result column="syain_na" property="syainName"/>
         <result column="birth_dt" property="seinengappiFrom"/>
         <result column="birth_dt" property="seinengappiTo"/>
         <result column="zensyoku_na" property="previous"/>

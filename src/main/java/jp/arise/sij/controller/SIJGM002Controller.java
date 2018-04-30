@@ -195,14 +195,14 @@ public class SIJGM002Controller {
 		sijGm002Dto.setMoyoriStation1(sijGm002Form.getMoyoriStation1());
 		sijGm002Dto.setMoyoriStation2(sijGm002Form.getMoyoriStation2());
 		sijGm002Dto.setMoyoriStation3(sijGm002Form.getMoyoriStation3());
-		if(sijGm002Form.getHireDate() != null) {
+		if(sijGm002Form.getHireDate() != null && !sijGm002Form.getHireDate().isEmpty()) {
 			sijGm002Dto.setHireDate(sijGm002Service.convertDate(sijGm002Form.getHireDate()));
 		}
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setPhase(sijGm002Form.getPhase());
 		sijGm002Dto.setPosition(sijGm002Form.getPosition());
 		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
-		if(sijGm002Form.getSeinengappi() != null) {
+		if(sijGm002Form.getSeinengappi() != null && !sijGm002Form.getSeinengappi().isEmpty()) {
 			sijGm002Dto.setSeinengappi(sijGm002Service.convertDate(sijGm002Form.getSeinengappi()));
 		}
 		sijGm002Dto.setSyainId(sijGm002Form.getSyainId());
@@ -226,14 +226,14 @@ public class SIJGM002Controller {
 		sijGm002Form.setMoyoriStation1(sijGm002Dto.getMoyoriStation1());
 		sijGm002Form.setMoyoriStation2(sijGm002Dto.getMoyoriStation2());
 		sijGm002Form.setMoyoriStation3(sijGm002Dto.getMoyoriStation3());
-		if(sijGm002Dto.getHireDate() != null) {
+		if(sijGm002Dto.getHireDate() != null && !sijGm002Dto.getHireDate().toString().isEmpty()) {
 			sijGm002Form.setHireDate(sijGm002Service.parseDateToString(sijGm002Dto.getHireDate()));
 		}
 		sijGm002Form.setName(sijGm002Dto.getName());
 		sijGm002Form.setPhase(sijGm002Dto.getPhase());
 		sijGm002Form.setPosition(sijGm002Dto.getPosition());
 		sijGm002Form.setPrevious(sijGm002Dto.getPrevious());
-		if(sijGm002Dto.getSeinengappi() != null) {
+		if(sijGm002Dto.getSeinengappi() != null && !sijGm002Dto.getSeinengappi().toString().isEmpty()) {
 			sijGm002Form.setSeinengappi(sijGm002Service.parseDateToString(sijGm002Dto.getSeinengappi()));
 		}
 		sijGm002Form.setSyainId(sijGm002Dto.getSyainId());

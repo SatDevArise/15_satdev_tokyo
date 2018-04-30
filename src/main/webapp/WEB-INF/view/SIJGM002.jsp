@@ -37,20 +37,20 @@
     			<dt>住所</dt>
     			<dd><form:input path="address" type="text" id="address" name="address" /></dd>
     			<dt>最寄り駅</dt>
-    			<dd><form:input path="moyoriStation1" type="text" id="moyori_1_station" name="moyori_1_station" />
-    				<form:input path="moyoriStation2" type="text" id="moyori_2_station" name="moyori_2_station" />
-    				<form:input path="moyoriStation3" type="text" id="moyori_3_station" name="moyori_3_station" />
+    			<dd><form:input path="moyoriStation1" type="text" id="moyoriStation1" name="moyoriStation1" />
+    				<form:input path="moyoriStation2" type="text" id="moyoriStation2" name="moyoriStation2" />
+    				<form:input path="moyoriStation3" type="text" id="moyoriStation3" name="moyoriStation3" />
     			</dd>
     			<dt>入社日</dt>
     			<dd><form:input path="hireDate" type="text" id="hireDate" name="hireDate" /></dd>
     			<dt>前職</dt>
     			<dd><form:input path="previous" type="text" id="previous" name="previous" /></dd>
     			<dt>出身地</dt>
-    			<dd><form:input path="birthPlace" type="text" id="brth_place" name="brth_place" /></dd>
+    			<dd><form:input path="birthPlace" type="text" id="birthPlace" name="birthPlace" /></dd>
     			<dt>役職</dt>
-    			<dd><form:input path="position" type="text" id="psition" name="psition" /></dd>
+    			<dd><form:input path="position" type="text" id="position" name="position" /></dd>
     			<dt>チーム</dt>
-    			<dd><form:input path="teamName" type="text" id="team_na" name="team_na" /></dd>
+    			<dd><form:input path="teamName" type="text" id="teamName" name="teamName" /></dd>
     			<dt>フェーズ</dt>
     			<dd><form:input path="phase" type="text" id="phase" name="phase" /></dd>
     			<dt>単価</dt>
