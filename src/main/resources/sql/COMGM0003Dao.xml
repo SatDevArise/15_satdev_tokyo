@@ -35,6 +35,7 @@
         SELECT *
         FROM syain_dt
         <where>
+            yuko_fg = '1' and sakujo_fg = '0'
 			<if test="syainId != null">
 				AND syain_id like #{syainId} || '%'
 			</if>
@@ -94,7 +95,7 @@
         SELECT *
         FROM genba_dt
         <where>
-
+			yuko_fg = '1' and sakujo_fg = '0'
 			<if test="genbaNa != null">
 				AND genba_na like #{genbaNa} || '%'
 			</if>
