@@ -59,16 +59,15 @@ public class GBJGM002Servise {
 		//採番ID取得
 		String genbaId = gbjGm002Dao.getGenbaId();
 
-		//DBで取得した値の不要な空白を除去
-		genbaId = genbaId.replaceAll(" ", "");
-
-		//社員IDが取得できなかったら
+		// 現場IDが取得できなかったら
 		String result = "0001";
 		if(genbaId == null || genbaId.isEmpty()) {
 			return result;
 		}
+		//DBで取得した値の不要な空白を除去
+		genbaId = genbaId.replaceAll(" ", "");
 
-		//最新の社員IDを1インクリメントする
+		//最新の現場IDを1インクリメントする
 		genbaId = String.valueOf(Integer.parseInt(genbaId) + 1);
 		if(genbaId.length() == 1) {
 			return "000" + genbaId;

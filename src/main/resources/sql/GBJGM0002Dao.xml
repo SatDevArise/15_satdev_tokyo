@@ -6,8 +6,9 @@
 
    <select id="getGenbaId" resultType="String">
     SELECT max(genba_id)
-    FROM seq
+    FROM genba_id_seq
     </select>
+
 
 	<insert id= "insert" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
 	INSERT INTO genba_dt (genba_id,genba_na,genba_address,genba_moyori_eki_1,genba_moyori_eki_2,genba_moyori_eki_3,sagyonaiyo,phase_cd,pj_id,yuko_fg,sakujo_fg,insert_ts,insert_user)
