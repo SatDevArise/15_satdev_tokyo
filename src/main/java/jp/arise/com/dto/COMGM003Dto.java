@@ -40,6 +40,10 @@ public class COMGM003Dto implements Serializable{
 
 	private String genbaNa;
 
+	private String genbaId;
+
+	private String work;
+
 	private String phase;
 
 	private int tanka;
@@ -210,6 +214,22 @@ public class COMGM003Dto implements Serializable{
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public String getGenbaId() {
+		return genbaId;
+	}
+
+	public void setGenbaId(String genbaId) {
+		this.genbaId = genbaId;
+	}
+
+	public String getWork() {
+		return work;
+	}
+
+	public void setWork(String work) {
+		this.work = work;
 	}
 
 }
