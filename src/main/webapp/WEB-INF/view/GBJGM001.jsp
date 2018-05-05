@@ -29,7 +29,7 @@
     		<input type="submit" class="btn btn-warning" value="戻る" name="backComGm002" formaction="${actionUrl}" style="margin-left: 10px;">
     	</form:form>
 	<!-- 現場情報一覧表示 -->
-	<div align="center">
+	<div id="container" align="center">
 		<table class="table-bordered" style="margin-top: 30px;">
 			<!-- ヘッダ -->
 			<thead style="color: #FFFFFF; background-color: #191970;">
@@ -41,16 +41,14 @@
 				</tr>
 			</thead>
 			<!-- 明細 -->
-			<tr>
 	            <c:forEach var="genbaInfo" items="${GBJGM001FormList}">
-					<th><input type="submit" class="btn btn-link"
-						value="${genbaInfo.genbaId}" name="goToGbjGm002"
-						formaction="${actionUrl}"></th>
+	              <tr>
+                    <th><a href="./GBJGM002?genbaId=${genbaInfo.genbaId}"><c:out value="${genbaInfo.genbaId}"/></a></th>
 					<th><c:out value="${genbaInfo.genbaNa}" /></th>
 					<th><c:out value="${genbaInfo.work}" /></th>
 					<th><c:out value="${genbaInfo.phase}" /></th>
+				  </tr>
 				</c:forEach>
-	         </tr>
 		</table>
 	</div>
 <!-- 	</div> -->

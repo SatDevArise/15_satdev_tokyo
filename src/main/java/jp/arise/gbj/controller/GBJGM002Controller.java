@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import jp.arise.gbj.dto.GBJGM002Dto;
@@ -93,6 +94,30 @@ public class GBJGM002Controller {
 		gbjGm002Form.setSakujo_fg("0");
 		return "GBJGM002";
 	}
+
+	/**
+	 * 初期処理（遷移元：現場情報一覧表示画面<）
+	 * @param model
+	 * @return GBJGM002.jsp
+	 * @throws
+	 * @author AtsushiNishizawa
+	 * @since 2017/07/17
+	 */
+	@RequestMapping(value = "/GBJGM002", method = RequestMethod.GET)
+	public String initGBJGm002(@RequestParam("genbaId") String genbaId,Model model){
+		//画面ID更新処理
+//		gbjGm002Service.upSession(UTLContent.GMID_GBJGM001);
+
+		//GETパラメータから現場情報を取得
+//		GBJGM002Dto gbjGm002Dto = gbjGm002Service.getGenbaInfo(genbaId);
+
+		//FormにGBJGM001MAVの情報を設定
+//		GBJGM002Form sijGm002Form = setGbjgm002form(gbjGm002Dto);
+
+//		model.addAttribute("GBJGM002Form",gbjGm002Form);
+		return "GBJGM002";
+	}
+
 
 	/**
 	 * 新規登録処理
