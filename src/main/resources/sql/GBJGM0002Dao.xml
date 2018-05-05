@@ -6,7 +6,7 @@
 
    <select id="getGenbaId" resultType="String">
     SELECT max(genba_id)
-    FROM genba_seq
+    FROM genba_id_seq
     </select>
 
 	<insert id= "insert" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">

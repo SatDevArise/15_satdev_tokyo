@@ -22,7 +22,9 @@
         <result column="moyori_eki_3" property="moyori3Station"/>
         <result column="address" property="address"/>
 
+ 		<result column="genba_id" property="genbaId"/>
         <result column="genba_na" property="genbaNa"/>
+        <result column="sagyonaiyo" property="work"/>
         <result column="genba_moyori_eki_1" property="moyori1Station"/>
         <result column="genba_moyori_eki_2" property="moyori2Station"/>
         <result column="genba_moyori_eki_3" property="moyori3Station"/>
