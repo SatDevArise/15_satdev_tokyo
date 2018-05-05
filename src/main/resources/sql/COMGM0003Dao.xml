@@ -29,63 +29,67 @@
         <result column="genba_moyori_eki_2" property="moyori2Station"/>
         <result column="genba_moyori_eki_3" property="moyori3Station"/>
         <result column="genba_address" property="address"/>
+        <result column="genba_sankaku_dt" property="genbasankakuFrom"/>
+        <result column="genba_sankaku_dt" property="genbasankakuTo"/>
+        <result column="siyo_rosen_na" property="siyorosen"/>
     </resultMap>
 
     <select id="getSyainDt" resultMap="resultCOMGM003Dto">
-        SELECT *
-        FROM syain_dt
+​        SELECT *
+        FROM syain_dt sd left join genba_dt gd
+		ON sd.genba_id =  gd.genba_id​
         <where>
-            yuko_fg = '1' and sakujo_fg = '0'
-			<if test="syainId != null">
-				AND syain_id like #{syainId} || '%'
+            sd.yuko_fg = '1' and sd.sakujo_fg = '0'
+			<if test="syainId != '' and syainId != null">
+				AND sd.syain_id like '%' || #{syainId} || '%'
 			</if>
 
 			<if test="seinengappiFrom != ''">
-				AND birth_dt <![CDATA[ >= ]]> to_date(#{seinengappiFrom},'YYYYMMDD')
+				AND sd.birth_dt <![CDATA[ >= ]]> to_date(#{seinengappiFrom},'YYYYMMDD')
 			</if>
 
 			<if test="seinengappiTo != ''">
-				AND birth_dt <![CDATA[ <= ]]> to_date(#{seinengappiTo},'YYYYMMDD')
+				AND sd.birth_dt <![CDATA[ <= ]]> to_date(#{seinengappiTo},'YYYYMMDD')
 			</if>
 
-			<if test="previous != null">
-				AND zensyoku_na like #{previous} || '%'
+			<if test="previous != '' and previous != null">
+				AND sd.zensyoku_na like '%' || #{previous} || '%'
 			</if>
 
-			<if test="psition != null">
-				AND yakusyoku_cd like #{psition} || '%'
+			<if test="psition != '' and psition != null">
+				AND sd.yakusyoku_cd like '%' || #{psition} || '%'
 			</if>
 
-			<if test="teamNa != null">
-				AND syozoku_team like #{teamNa} || '%'
+			<if test="teamNa != '' and teamNa != null">
+				AND sd.syozoku_team like '%' || #{teamNa} || '%'
 			</if>
 
-			<if test="phase != null">
-				AND phase_cd like #{phase} || '%'
+			<if test="phase != '' and phase != null">
+				AND sd.phase_cd like '%' || #{phase} || '%'
 			</if>
 
 			<if test="nyusyabiFrom != ''">
-				AND nyusya_dt <![CDATA[ >= ]]> to_date(#{nyusyabiFrom},'YYYYMMDD')
+				AND sd.nyusya_dt <![CDATA[ >= ]]> to_date(#{nyusyabiFrom},'YYYYMMDD')
 			</if>
 
 			<if test="nyusyabiTo != ''">
-				AND nyusya_dt <![CDATA[ <= ]]> to_date(#{nyusyabiTo},'YYYYMMDD')
+				AND sd.nyusya_dt <![CDATA[ <= ]]> to_date(#{nyusyabiTo},'YYYYMMDD')
 			</if>
 
-			<if test="moyori1Station != null">
-				AND moyori_eki_1 like #{moyori1Station} || '%'
+			<if test="moyori1Station != '' and moyori1Station != null">
+				AND sd.moyori_eki_1 like '%' || #{moyori1Station} || '%'
 			</if>
 
-			<if test="moyori2Station != null">
-				AND moyori_eki_2 like #{moyori2Station} || '%'
+			<if test="moyori2Station != '' and moyori2Station != null">
+				AND sd.moyori_eki_2 like '%' || #{moyori2Station} || '%'
 			</if>
 
-			<if test="moyori3Station != null">
-				AND moyori_eki_3 like #{moyori3Station} || '%'
+			<if test="moyori3Station != '' and moyori3Station != null">
+				AND sd.moyori_eki_3 like '%' || #{moyori3Station} || '%'
 			</if>
 
-			<if test="address != null">
-				AND syain_address like #{address} || '%'
+			<if test="address != '' and address != null">
+				AND sd.syain_address like '%' || #{address} || '%'
 			</if>
         </where>
 
@@ -96,28 +100,28 @@
         FROM genba_dt
         <where>
 			yuko_fg = '1' and sakujo_fg = '0'
-			<if test="genbaNa != null">
-				AND genba_na like #{genbaNa} || '%'
+			<if test="genbaNa != '' and genbaNa != null">
+				AND genba_na like '%' || #{genbaNa} || '%'
 			</if>
 
-			<if test="phase != null">
-				AND phase_cd like #{phase} || '%'
+			<if test="phase != '' and phase != null">
+				AND phase_cd like '%' || #{phase} || '%'
 			</if>
 
-			<if test="moyori1Station != null">
-				AND genba_moyori_eki_1 like #{moyori1Station} || '%'
+			<if test="moyori1Station != '' and moyori1Station != null">
+				AND genba_moyori_eki_1 like '%' || #{moyori1Station} || '%'
 			</if>
 
-			<if test="moyori2Station != null">
-				AND genba_moyori_eki_2 like #{moyori2Station} || '%'
+			<if test="moyori2Station != '' and moyori2Station != null">
+				AND genba_moyori_eki_2 like '%' || #{moyori2Station} || '%'
 			</if>
 
-			<if test="moyori3Station != null">
-				AND genba_moyori_eki_3 like #{moyori3Station} || '%'
+			<if test="moyori3Station != '' and moyori3Station != null">
+				AND genba_moyori_eki_3 like '%' || #{moyori3Station} || '%'
 			</if>
 
-			<if test="address != null">
-				AND genba_address like #{address} || '%'
+			<if test="address != '' and address != null">
+				AND genba_address like '%' || #{address} || '%'
 			</if>
 
         </where>

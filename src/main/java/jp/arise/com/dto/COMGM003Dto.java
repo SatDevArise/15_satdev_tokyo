@@ -56,6 +56,12 @@ public class COMGM003Dto implements Serializable{
 
 	private String address;
 
+    private String genbasankakuFrom;
+
+    private String genbasankakuTo;
+
+    private String siyorosen;
+
 	public String getSyainId() {
 		return syainId;
 	}
@@ -230,6 +236,30 @@ public class COMGM003Dto implements Serializable{
 
 	public void setWork(String work) {
 		this.work = work;
+	}
+
+	public String getGenbasankakuFrom() {
+		return genbasankakuFrom;
+	}
+
+	public void setGenbasankakuFrom(String genbasankakuFrom) {
+		this.genbasankakuFrom = genbasankakuFrom;
+	}
+
+	public String getGenbasankakuTo() {
+		return genbasankakuTo;
+	}
+
+	public void setGenbasankakuTo(String genbasankakuTo) {
+		this.genbasankakuTo = genbasankakuTo;
+	}
+
+	public String getSiyorosen() {
+		return siyorosen;
+	}
+
+	public void setSiyorosen(String siyorosen) {
+		this.siyorosen = siyorosen;
 	}
 
 }
