@@ -51,56 +51,84 @@ public class SIJGM001Servise {
 				sijGm001Form.setBirthday(list.get(i).getSeinengappiFrom());
 				sijGm001Form.setTeam(list.get(i).getTeamNa());
 				sijGm001Form.setSite(list.get(i).getGenbaNa());
-/**
-				//入社日を取得し、Date型変換
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-				Date enteringDay = null;
-				try {
-					enteringDay = sdf.parse(list.get(i).getNyusyabiFrom());
-				} catch (ParseException e) {
-					// TODO 自動生成された catch ブロック
-					e.printStackTrace();
+
+				//経過年数を入れる
+				if (list.get(i).getNyusyabiFrom() != null && !list.get(i).getNyusyabiFrom().isEmpty()) {
+					String yearDiff = calcDuration(list.get(i).getNyusyabiFrom());
+					sijGm001Form.setDuration(yearDiff);
 				}
 
-				//日付をlong値に変換
-			    long dateTimeTo1 = enteringDay.getTime();
-
-				//現在日付を取得し、long値に変換
-				Date date = new Date();
-			    long dateTimeTo2 = date.getTime();
-
-				//経過年数を算出し、int値に変換
-			    int yearDiff = (int)( dateTimeTo1 - dateTimeTo2  ) / (1000 * 60 * 60 * 24 * 365);
-
-
+				//社歴を入れる
+				if (list.get(i).getGenbasankakuFrom() != null && !list.get(i).getGenbasankakuFrom().isEmpty()) {
+					String yearDiff = calcDuration(list.get(i).getGenbasankakuFrom());
+					sijGm001Form.setHistory(yearDiff);
+				}
 
 				//現段階で、COMGM003Dtoに使用路線を入力する項目がないため、エラー
 				//COMGM003Dtoにて作成してもらう必要がある。
-**/
 
 				sijGm001Form.setPhase(list.get(i).getPhase());
 
 				//検索共通画面に使用路線の項目がないため、値が持ってこれない
-				//sijGm001Form.setRoute(list.get(i).getRoute());
+				sijGm001Form.setRoute(list.get(i).getSiyorosen());
+
 				sijGm001Form.setPrice(list.get(i).getTanka());
 				SIJGM001FormList.add(sijGm001Form);
-/**
-				System.out.println("---------------------------------------------");
-				System.out.println("社員ID：" + list.get(i).getSyainId());
-				System.out.println("社員名：" + list.get(i).getUser());
-				System.out.println("役職：" + list.get(i).getPsition());
-				System.out.println("生年月日：" + list.get(i).getSeinengappiFrom());
-				System.out.println("所属チーム：" + list.get(i).getTeamNa());
-				System.out.println("現場名：" + list.get(i).getGenbaNa());
-				System.out.println("経過年数：" + yearDiff);
-				System.out.println("フェーズ区分：" + list.get(i).getPhase());
-				//System.out.println("使用路線：" + list.get(i).getRoute());
-				System.out.println("単価：" + list.get(i).getTanka());
-				System.out.println("---------------------------------------------");
-**/
 			}
 		}
 		return SIJGM001FormList;
 	}
 
-}
+	/*
+	 * 年数を算出するメソッド
+	 */
+	    private String calcDuration(String str) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date dateFrom = null;
+			try {
+				dateFrom = sdf.parse(str);
+		    } catch (ParseException e) {
+		        e.printStackTrace();
+		    }
+
+		    Date currentDate = new Date();
+
+		    // 日付をlong値に変換します。
+		    long dateTimeTo = currentDate.getTime();
+		    long dateTimeFrom = dateFrom.getTime();
+
+		    // 差分の日数を算出します。
+		    long dayDiff = ( dateTimeTo - dateTimeFrom  ) / (1000 * 60 * 60 * 24 );
+		    System.out.println("日数:"+dayDiff);
+		    long yearDiff = dayDiff / 365;
+		    System.out.println("年数："+yearDiff);
+
+		    return String.valueOf(yearDiff);
+
+		}
+
+//		以下、年数計算で記述していたが、計算がうまくいかないため、コントアウト
+//		文字列をDate型に変換
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+//		Date date = null;
+//		try {
+//			date = sdf.parse(str);
+//		} catch (ParseException e) {
+//      TODO 自動生成された catch ブロック
+//			e.printStackTrace();
+//		}
+
+//		日付をlong値に変換
+//	    long dateTimeFrom = date.getTime();
+
+//		現在日付を取得し、long値に変換
+//		Date currentdate = new Date();
+//	    long dateTimeTo = currentdate.getTime();
+
+//		年数を算出し、int値に変換
+//	    long yearDiff = (long)( dateTimeTo - dateTimeFrom ) / (1000 * 60 * 60 * 24 * 365);
+
+//	    return String.valueOf(yearDiff);
+
+	}
+
