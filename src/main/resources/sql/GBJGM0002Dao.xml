@@ -15,7 +15,7 @@
 	VALUES(#{genba_Id},#{genba_na},#{address},#{moyori_1_station},#{moyori_2_station},#{moyori_3_station},#{work},#{phase},#{pi_id},#{yuko_fg},#{sakujo_fg},#{insert_date},#{insert_user})
 	</insert>
 	<insert id="numbering" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
-	INSERT INTO seq (genba_id, syain_id) VALUES (#{genba_Id},#{genba_Id})
+	INSERT INTO genba_id_seq (genba_id) VALUES (#{genba_id})
 	</insert>
 
 	<update id= "delete" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">

@@ -62,6 +62,11 @@ public class COMGM003Dto implements Serializable{
 
     private String siyorosen;
 
+    private int yuko_fg;
+
+    private int sakujo_fg;
+
+
 	public String getSyainId() {
 		return syainId;
 	}
@@ -260,6 +265,22 @@ public class COMGM003Dto implements Serializable{
 
 	public void setSiyorosen(String siyorosen) {
 		this.siyorosen = siyorosen;
+	}
+
+	public int getYuko_fg() {
+		return yuko_fg;
+	}
+
+	public void setYuko_fg(int yuko_fg) {
+		this.yuko_fg = yuko_fg;
+	}
+
+	public int getSakujo_fg() {
+		return sakujo_fg;
+	}
+
+	public void setSakujo_fg(int sakujo_fg) {
+		this.sakujo_fg = sakujo_fg;
 	}
 
 }

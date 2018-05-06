@@ -102,6 +102,8 @@ function formCheck(){
 function confirmDelete()
 {
 	if(window.confirm('本当に削除しますか。')){
+		//社員IDを活性化する
+		undisabled();
 		return true;
 	}else{
 		window.alert('キャンセルしました');

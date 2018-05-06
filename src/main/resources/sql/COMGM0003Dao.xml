@@ -35,11 +35,16 @@
     </resultMap>
 
     <select id="getSyainDt" resultMap="resultCOMGM003Dto">
-​        SELECT *
-        FROM syain_dt sd left join genba_dt gd
-		ON sd.genba_id =  gd.genba_id​
+		select *
+		from syain_dt sd left join genba_dt gd
+		on sd.genba_id = gd.genba_id
         <where>
-            sd.yuko_fg = '1' and sd.sakujo_fg = '0'
+      		<if test="yuko_fg != '' and yuko_fg != null">
+            		AND sd.yuko_fg = '1'
+            	</if>
+        		<if test="sakujo_fg != '' and sakujo_fg != null">
+            		AND sd.sakujo_fg = '0'
+            	</if>
 			<if test="syainId != '' and syainId != null">
 				AND sd.syain_id like '%' || #{syainId} || '%'
 			</if>
