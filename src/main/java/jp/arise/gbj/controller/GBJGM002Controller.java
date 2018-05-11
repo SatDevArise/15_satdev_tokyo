@@ -189,7 +189,7 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "backComGm002", method = RequestMethod.POST)
 	public ModelAndView backComGm002(GBJGM002Form gbjGm002Form,Model model) {
-		gbjGm002Service.updateSession();
+//		gbjGm002Service.updateSession();
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
 		return new ModelAndView("forward:/initComGm002","GBJGM002MAV",gbjGm002MAV);
 	}
@@ -204,7 +204,7 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "backGbjGm001", method = RequestMethod.POST)
 	public ModelAndView backGbjGm001(GBJGM002Form gbjGm002Form,Model model) {
-		gbjGm002Service.updateSession();
+		//gbjGm002Service.updateSession();
 		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
 		gbjGm002MAV.setUser(gbjGm002Form.getUser());
 		gbjGm002MAV.setGenbaId(gbjGm002Form.getGenbaId());
