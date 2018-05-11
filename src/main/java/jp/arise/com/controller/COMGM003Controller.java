@@ -1,5 +1,7 @@
 package jp.arise.com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jp.arise.com.dto.COMGM003Dto;
 import jp.arise.com.form.COMGM003Form;
-import jp.arise.com.modelandview.COMGM003MAV;
 import jp.arise.com.service.COMGM003Servise;
+import jp.arise.utl.LoginInfo;
+import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 
 /**
@@ -24,6 +28,9 @@ public class COMGM003Controller {
 
 	@Autowired
 	private COMGM003Servise comGm003Service;
+
+	@Autowired
+	public LoginInfo loginInfo;
 
     @ModelAttribute
     public COMGM003Form setComGm003Formm() {
@@ -39,10 +46,9 @@ public class COMGM003Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initComGm003", method = RequestMethod.GET)
+	@RequestMapping(value = "/initComGm003", method = RequestMethod.POST)
 	public String initComGm003(Model model) {
 		COMGM003Form comGm003Form = new COMGM003Form();
-		comGm003Form.setUser("山田 太郎");
 		model.addAttribute("COMGM003Form",comGm003Form);
 		return "COMGM003";
 	}
@@ -57,15 +63,30 @@ public class COMGM003Controller {
 	 */
 	@RequestMapping(value = "/initComGm003",params = "searchComGm003",method = RequestMethod.POST)
 	public ModelAndView  searchComGm003(COMGM003Form comGm003Form,Model model) {
-		COMGM003Dto comGm003Dto = new COMGM003Dto();
-		comGm003Dto.setUser(comGm003Form.getUser());
-		comGm003Service.inputCheck(comGm003Dto);
+    		// 遷移元画面判定処理
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
+		// セッション情報の遷移元画面を取得
+		String strGamenId = (String) loginInfoDto.getGamenId();
 
-		COMGM003MAV comGm003MAV = new COMGM003MAV();
-		comGm003MAV.setUser(comGm003Form.getUser());
+		COMGM003Dto comGm003Dto = comGm003Service.setInfo(comGm003Form);
+		List<COMGM003Dto> resultList = comGm003Service.search(comGm003Dto);
 
+		loginInfo.updateAttributeSearchResult(resultList);
 
-		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm003MAV);
+		// 戻り先画面格納用変数
+		String returnGamen = null;
+
+		if (strGamenId.equals(UTLContent.GMID_SIJGM001)) {
+			// 社員情報の場合、社員情報検索処理を呼び出す
+			returnGamen = "forward:/resultSijGm001";
+		} else if (strGamenId.equals(UTLContent.GMID_GBJGM001)){
+			// 現場情報の場合、現場情報検索処理を呼び出す。
+			returnGamen = "forward:/resultGbjGm001";
+		}
+
+		return new ModelAndView(returnGamen);
+
 	}
 
 }

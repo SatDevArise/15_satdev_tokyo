@@ -42,7 +42,4 @@ public class COMGM001Form {
 		this.loginFlg = loginFlg;
 	}
 
-
-
-
 }

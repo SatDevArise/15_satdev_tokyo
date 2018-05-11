@@ -11,45 +11,16 @@ import java.io.Serializable;
 public class COMGM002Dto implements Serializable{
 
 	/**
-	 * ユーザー
+	 * お知らせ内容
 	 */
-	private String user;
+	private String osiraseInfo;
 
-	/**
-	 * ユーザーID
-	 */
-	private int userId;
-
-	/**
-	 * ユーザーを取得
-	 * @return user
-	 */
-	public String getUser() {
-		return user;
+	public String getOsiraseInfo() {
+		return osiraseInfo;
 	}
 
-	/**
-	 * ユーザーを設定
-	 * @param user
-	 */
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	/**
-	 * ユーザーIDを取得
-	 * @return userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
-
-	/**
-	 * ユーザーIDを設定
-	 * @param userId
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setOsiraseInfo(String osiraseInfo) {
+		this.osiraseInfo = osiraseInfo;
 	}
 
 }

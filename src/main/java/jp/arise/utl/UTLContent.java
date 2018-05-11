@@ -79,4 +79,5 @@ public class UTLContent {
 	 * 社員情報新規登録・編集画面ID
 	 */
 	public static final String GMID_SIJGM002 = "SIJGM002";
+
 }

@@ -6,17 +6,16 @@
 
 
 
-
 /**
  * 必須チェック処理
  */
 function formCheck(){
 var form = document.forms.GBJ002;
-var result_genba_id = form.genbaId.value;
-var result_genba_na = form.genbaNa.value;
-var result_moyori_1_station = form.moyori1Station.value;
-var result_moyori_2_station = form.moyori2Station.value;
-var result_moyori_3_station = form.moyori3Station.value;
+var result_genba_id = form.genba_id.value;
+var result_genba_na = form.genba_na.value;
+var result_moyori_1_station = form.moyori_1_station.value;
+var result_moyori_2_station = form.moyori_2_station.value;
+var result_moyori_3_station = form.moyori_3_station.value;
 
 console.log("result_genba_id");
 console.log("result_genba_na");

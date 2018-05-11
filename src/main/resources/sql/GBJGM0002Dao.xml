@@ -6,7 +6,7 @@
 
    <select id="getGenbaId" resultType="String">
     SELECT max(genba_id)
-    FROM seq
+    FROM genba_id_seq
     </select>
 
 	<insert id= "insert" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
@@ -14,7 +14,7 @@
 	VALUES(#{genbaId},#{genbaNa},#{address},#{moyori1Station},#{moyori2Station},#{moyori3Station},#{work},#{phase},#{pjId},#{yukoFg},#{sakujoFg},#{insertUser},#{insertTs})
 	</insert>
 	<insert id="numbering" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">
-	INSERT INTO seq (genba_id, syain_id) VALUES (#{genbaId},#{genbaId})
+	INSERT INTO genba_id_seq (genba_id) VALUES (#{genbaId})
 	</insert>
 
 	<update id= "delete" parameterType= "jp.arise.gbj.dto.GBJGM002Dto">

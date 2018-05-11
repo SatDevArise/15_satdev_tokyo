@@ -18,4 +18,12 @@ public interface GBJGM001Dao extends Serializable{
 	 * @return user
 	 */
 	public List<GBJGM001Dto> getUser(GBJGM001Dto GBJGM001Dto);
+
+	/**
+	 * 現場情報一覧を取得
+	 * @param GBJGM001Dto
+	 * @return getGenbaListInfo
+	 */
+	public List<GBJGM001Dto> getGenbaListInfo(GBJGM001Dto GBJGM001Dto);
+
 }

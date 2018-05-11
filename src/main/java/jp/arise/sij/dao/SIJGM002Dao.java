@@ -32,6 +32,10 @@ public interface SIJGM002Dao extends Serializable{
 	 * 社員ID取得処理
 	 */
 	public String getSyainId();
+	/**
+	 * 社員情報取得処理
+	 */
+	public List<SIJGM002Dto> getSyainInfo(String syainId);
 
 	/**
 	 * 社員ID更新処理
@@ -42,6 +46,11 @@ public interface SIJGM002Dao extends Serializable{
 	 * 現場ID取得ID
 	 */
 	public String getGenbaId();
+
+	/**
+	 * SEQ追加処理
+	 */
+	public void insertSeq(SIJGM002Dto SIJGM002Dto);
 
 	/**
 	 * 入力駅チェック

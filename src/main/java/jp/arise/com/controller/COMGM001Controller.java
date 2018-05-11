@@ -71,7 +71,7 @@ public class COMGM001Controller {
 		if(comGm001Dto.getUserName()!=null) {
 			//ModelAndView
 			COMGM001MAV comGm001MAV = new COMGM001MAV();
-			comGm001MAV.setUser(comGm001Dto.getUserName());
+			comGm001MAV.setUserName(comGm001Dto.getUserName());
 
 			//ログイン情報設定
 			LoginInfoDto loginInfoDto = new LoginInfoDto();

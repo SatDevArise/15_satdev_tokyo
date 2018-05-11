@@ -1,5 +1,7 @@
 package jp.arise.sij.form;
 
+import java.util.Date;
+
 /**
  * SIJGM002 社員情報新規登録・編集画面用Formクラス
  * JSPとController間の値受け渡し用
@@ -15,6 +17,7 @@ public class SIJGM002Form {
 	private String moyoriStation1;
 	private String moyoriStation2;
 	private String moyoriStation3;
+	private String hireDate;
 	private String areaCd;
 	private String cityCd;
 	private String subscriberNo;
@@ -68,6 +71,12 @@ public class SIJGM002Form {
 	}
 	public void setMoyoriStation3(String moyoriStation3) {
 		this.moyoriStation3 = moyoriStation3;
+	}
+	public String getHireDate() {
+		return hireDate;
+	}
+	public void setHireDate(String hireDate) {
+		this.hireDate = hireDate;
 	}
 	public String getAreaCd() {
 		return areaCd;

@@ -1,6 +1,7 @@
 package jp.arise.sij.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * SIJGM002 社員情報新規登録・編集画面用サービス間Dtoクラス
@@ -13,25 +14,24 @@ public class SIJGM002Dto implements Serializable{
 	private String syainId;
 	private String genbaId;
 	private String name;
-	private String seinengappi;
+	private Date seinengappi;
 	private String address;
 	private String moyoriStation1;
 	private String moyoriStation2;
 	private String moyoriStation3;
-	private String areaCd;
-	private String cityCd;
-	private String subscriberNo;
+	private Date hireDate;
 	private String previous;
 	private String birthPlace;
 	private String position;
 	private String teamName;
 	private String phase;
 	private long tanka;
-	private String genbaName;
 	private String registerUser;
 	private String deleteUser;
 	private String deleteFlg;
 	private String validFlg;
+	private String user;
+	private Date date;
 
 	public String getSyainId() {
 		return syainId;
@@ -51,10 +51,10 @@ public class SIJGM002Dto implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getSeinengappi() {
+	public Date getSeinengappi() {
 		return seinengappi;
 	}
-	public void setSeinengappi(String seinengappi) {
+	public void setSeinengappi(Date seinengappi) {
 		this.seinengappi = seinengappi;
 	}
 	public String getAddress() {
@@ -81,23 +81,11 @@ public class SIJGM002Dto implements Serializable{
 	public void setMoyoriStation3(String moyoriStation3) {
 		this.moyoriStation3 = moyoriStation3;
 	}
-	public String getAreaCd() {
-		return areaCd;
+	public Date getHireDate() {
+		return hireDate;
 	}
-	public void setAreaCd(String areaCd) {
-		this.areaCd = areaCd;
-	}
-	public String getCityCd() {
-		return cityCd;
-	}
-	public void setCityCd(String cityCd) {
-		this.cityCd = cityCd;
-	}
-	public String getSubscriberNo() {
-		return subscriberNo;
-	}
-	public void setSubscriberNo(String subscriberNo) {
-		this.subscriberNo = subscriberNo;
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
 	}
 	public String getPrevious() {
 		return previous;
@@ -135,12 +123,6 @@ public class SIJGM002Dto implements Serializable{
 	public void setTanka(long tanka) {
 		this.tanka = tanka;
 	}
-	public String getGenbaName() {
-		return genbaName;
-	}
-	public void setGenbaName(String genbaName) {
-		this.genbaName = genbaName;
-	}
 	public String getRegisterUser() {
 		return registerUser;
 	}
@@ -164,5 +146,19 @@ public class SIJGM002Dto implements Serializable{
 	}
 	public void setValidFlg(String validFlg) {
 		this.validFlg = validFlg;
+	}
+
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

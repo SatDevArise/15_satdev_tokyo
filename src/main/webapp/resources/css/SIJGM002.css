@@ -1,19 +1,4 @@
 @charset "UTF-8";
-body,p,form,input{margin: 0}
-body{
-	background-color: #f5fffa;
-}
-header{
-	text-align: center;
-	background-color: #00008B;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-header p{
-    color: #ffffff;
-    	font-size: 20px;
-}
 
 #register dl{
 	background: #D9E5FF;

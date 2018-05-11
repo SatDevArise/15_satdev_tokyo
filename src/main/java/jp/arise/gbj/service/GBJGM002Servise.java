@@ -25,14 +25,14 @@ public class GBJGM002Servise {
 	public String getGenbaId(){
 		String genbaId = gbjGm002Dao.getGenbaId();
 
-		//DBで取得した値の不要な空白を除去
-		genbaId = genbaId.replaceAll(" ", "");
-
 		//現場IDが取得できなかったら
 		String result = "0001";
 		if(genbaId == null || genbaId.isEmpty()) {
 			return result;
 		}
+
+		//DBで取得した値の不要な空白を除去
+		genbaId = genbaId.replaceAll(" ", "");
 
 		//最新の現場IDを1インクリメントする
 		genbaId = String.valueOf(Integer.parseInt(genbaId) + 1);
