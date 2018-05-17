@@ -49,6 +49,13 @@ body{
 	width:50px;
 }
 
+.genba{
+ 	width:500px;
+}
+.genba input{
+ 	width:350px !important;
+}
+
 .hiredate{
 	width:500px;
 }
