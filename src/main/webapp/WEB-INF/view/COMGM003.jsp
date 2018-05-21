@@ -5,6 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -23,12 +24,22 @@
 	<spring:url value="/initComGm003" var="actionUrl"/>
     	<form:form modelAttribute="COMGM003Form" name = "COM003">
 
+			<% String gamenId = (String)  session.getAttribute("GAMENID");
+			%>
 			<div id="row">
-				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId"/></label>
-				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom"/><span class="line">～</span><form:input path="seinengappiTo"/></label>
+			<%if(gamenId == "GBJGM001"){ %>
+				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId" name="syainId" disabled="true"/></label>
+			<%} %>
+			<%if(gamenId == "SIJGM001"){ %>
+				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId" name="syainId"/></label>
+			<%} %>
+
+
+				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom"/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo"/></label>
+
 			</div>
 			<div id="row">
-				<label class="left"><span class="item">前職</span><form:input path="previous"/></label>
+				<label class="left"><span class="item">前職</span><form:input path="previous" name="previous"/></label>
 				<label class="right"><span class="item">役職</span>
 					<select name="psition">
 					<option value=""></option>
@@ -39,12 +50,12 @@
 					</select>
 				</label>
 			</div>
-			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom"/><span class="line">～</span><form:input path="nyusyabiTo"/></label>
-			<label class="left team"><span class="item">チーム</span><form:input path="teamNa"/></label>
-			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa"/></label>
+			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom"/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo"/></label>
+			<label class="left team"><span class="item">チーム</span><form:input path="teamNa"  name="teamNa"/></label>
+			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa" naem="genbaNa"/></label>
 			<div id="row">
 				<label class="left"><span class="item">フェーズ</span>
-				<select path="phase"/>
+				<select path="phase" name="phase"/>
 					<option value=""></option>
 					<option value="RD">RD</option>
 					<option value="BD">BD</option>
@@ -55,15 +66,15 @@
 					<option value="ST">ST</option>
 					</select>
 				</label>
-				<label class="right"><span class="item">単価</span><form:input path="tanka"/></label>
+				<label class="right"><span class="item">単価</span><form:input path="tanka" name="tanka"/></label>
 			</div>
 
 			<label class="left station"><span class="item">最寄駅</span>
-				<form:input path="moyori1Station"/>
-				<form:input path="moyori2Station"/>
-				<form:input path="moyori3Station"/>
+				<form:input path="moyori1Station" name="moyori1Station"/>
+				<form:input path="moyori2Station" name="moyori2Station"/>
+				<form:input path="moyori3Station" name="moyori3Station"/>
 			</label>
-			<label class="left address"><span class="item">住所</span><form:input path="address"/></label>
+			<label class="left address"><span class="item">住所</span><form:input path="address" name="address"/></label>
 
 			<input type="submit" class="btn btn-default" value="検索" name="searchComGm003" formaction="${actionUrl}" onclick= "return requiredCheck()">
 			<input type="submit" class="btn btn-default" value="戻る" name="back_btn">

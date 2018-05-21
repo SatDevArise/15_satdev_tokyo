@@ -12,6 +12,10 @@ function closeCOMGM003()
 	window.close();
 }
 
+
+/**
+ * 日付判定
+ */
 function dateCheck(nyuryokuti,syurui){
 
 	if(nyuryokuti.length != 8 || isNaN(nyuryokuti)){
@@ -25,12 +29,12 @@ function dateCheck(nyuryokuti,syurui){
 	var nyuryokuti_d = parseInt(nyuryokuti.substr(6,2));
 	var nyuryokuti_dt = new Date(nyuryokuti_y, nyuryokuti_m, nyuryokuti_d);
 
-	if(nyuryokuti_y == !nyuryokuti_dt.getFullYear() && nyuryokuti_m == !nyuryokuti_dt.getMonth() && nyuryokuti_d == !nyuryokuti_dt.getDate()){
-		document.getElementById("error_hyoji").innerHTML= syurui+"正しい日付を入力してください。";
-		document.getElementById("error_hyoji").style.color= "red";
-		return false;
+	if(nyuryokuti_y == nyuryokuti_dt.getFullYear() && nyuryokuti_m == nyuryokuti_dt.getMonth() && nyuryokuti_d == nyuryokuti_dt.getDate()){
+		return true;
 	}
-	return true;
+	document.getElementById("error_hyoji").innerHTML= syurui+"正しい日付を入力してください。";
+	document.getElementById("error_hyoji").style.color= "red";
+	return false;
 
 }
 
@@ -49,16 +53,16 @@ function requiredCheck()
 	var flg;
 
 	//生年月日(From)を取得する
-	if(seinengappi_from != null || seinengappi_from != ""){
+	if(seinengappi_from != null && seinengappi_from != ""){
 		flg = dateCheck(seinengappi_from,"生年月日(From)に");
-		if(flg){
+		if(!flg){
 			return false;
 		}
 	}
 
 
 	//生年月日(To)を取得する
-	if(seinengappi_to != null){
+	if(seinengappi_to != null && seinengappi_to != ""){
 		flg = dateCheck(seinengappi_to,"生年月日(To)に");
 		if(!flg){
 			return false;
@@ -67,7 +71,7 @@ function requiredCheck()
 
 
 	//入社日(From)を取得する
-	if(nyusyabi_from != null){
+	if(nyusyabi_from != null && nyusyabi_from != ""){
 		flg = dateCheck(nyusyabi_from,"入社日(From)に");
 		if(!flg){
 			return false;
@@ -76,62 +80,12 @@ function requiredCheck()
 
 
 	//入社日(To)を取得する
-	if(nyusyabi_to != null){
+	if(nyusyabi_to != null && nyusyabi_to != ""){
 		flg = dateCheck(nyusyabi_to,"入社日(To)に");
 		if(!flg){
 			return false;
 		}
 	}
 
-
-//	if(syain_id.length > 8){
-//		alert(syain_id.length +"桁入力されています。入力できる文字数は4桁です。");
-//		return false;
-//	} else if(syain_id.length < 8){
-//		alert(syain_id.length +"桁入力されています。検索には16桁入力して下さい。");
-//		return false;
-//	} else {
-//		return true;
-//	}
-//
-//	if(seinengappi_from.length > 8){
-//		alert(seinengappi_from.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else if(seinengappi_from.length < 8){
-//		alert(seinengappi_from.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else {
-//		return true;
-//	}
-//
-//	if(seinengappi_to.length > 8){
-//		alert(seinengappi_to.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else if(seinengappi_to.length < 8){
-//		alert(seinengappi_to.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else {
-//		return true;
-//	}
-//
-//	if(nyusyabi_from.length > 8){
-//		alert(nyusyabi_from.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else if(nyusyabi_from.length < 8){
-//		alert(nyusyabi_from.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else {
-//		return true;
-//	}
-//
-//	if(nyusyabi_to.length > 8){
-//		alert(nyusyabi_to.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else if(nyusyabi_to.length < 8){
-//		alert(nyusyabi_to.length +"桁入力されています。入力できる文字数は8桁です。");
-//		return false;
-//	} else {
-//		return true;
-//	}
 
 }
