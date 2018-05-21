@@ -34,12 +34,29 @@
 				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId" name="syainId"/></label>
 			<%} %>
 
-
+			<%if(gamenId == "GBJGM001"){ %>
+				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" disabled="true"/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo" disabled="true"/></label>
+			<%} %>
+			<%if(gamenId == "SIJGM001"){ %>
 				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom"/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo"/></label>
+			<%} %>
 
 			</div>
 			<div id="row">
+				<%if(gamenId == "GBJGM001"){ %>
+				<label class="left"><span class="item">前職</span><form:input path="previous" name="previous" disabled="true"/></label>
+				<%} %>
+				<%if(gamenId == "SIJGM001"){ %>
 				<label class="left"><span class="item">前職</span><form:input path="previous" name="previous"/></label>
+				<%} %>
+
+				<%if(gamenId == "GBJGM001"){ %>
+				<label class="right"><span class="item">役職</span>
+					<select name="psition" disabled>
+					</select>
+				</label>
+				<%} %>
+				<%if(gamenId == "SIJGM001"){ %>
 				<label class="right"><span class="item">役職</span>
 					<select name="psition">
 					<option value=""></option>
@@ -49,13 +66,33 @@
 					<option value="S2">S2</option>
 					</select>
 				</label>
+				<%} %>
+
 			</div>
+			<%if(gamenId == "GBJGM001"){ %>
+			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" disabled="true"/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo" disabled="true"/></label>
+			<%} %>
+			<%if(gamenId == "SIJGM001"){ %>
 			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom"/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo"/></label>
-			<label class="left team"><span class="item">チーム</span><form:input path="teamNa"  name="teamNa"/></label>
+			<%} %>
+
+			<%if(gamenId == "GBJGM001"){ %>
+			<label class="left team"><span class="item">チーム</span><form:input path="teamNa" name="teamNa" disabled="true"/></label>
+			<%} %>
+			<%if(gamenId == "SIJGM001"){ %>
+			<label class="left team"><span class="item">チーム</span><form:input path="teamNa" name="teamNa"/></label>
+			<%} %>
+
+			<%if(gamenId == "GBJGM001"){ %>
 			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa" naem="genbaNa"/></label>
+			<%} %>
+			<%if(gamenId == "SIJGM001"){ %>
+			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa" naem="genbaNa" disabled="true"/></label>
+			<%} %>
+
 			<div id="row">
 				<label class="left"><span class="item">フェーズ</span>
-				<select path="phase" name="phase"/>
+				<select name="phase">
 					<option value=""></option>
 					<option value="RD">RD</option>
 					<option value="BD">BD</option>
@@ -64,9 +101,14 @@
 					<option value="UT">UT</option>
 					<option value="IT">IT</option>
 					<option value="ST">ST</option>
-					</select>
+				</select>
 				</label>
+				<%if(gamenId == "GBJGM001"){ %>
+				<label class="right"><span class="item">単価</span><form:input path="tanka" name="tanka" disabled="true"/></label>
+				<%} %>
+				<%if(gamenId == "SIJGM001"){ %>
 				<label class="right"><span class="item">単価</span><form:input path="tanka" name="tanka"/></label>
+				<%} %>
 			</div>
 
 			<label class="left station"><span class="item">最寄駅</span>
