@@ -19,7 +19,7 @@ function closeCOMGM003()
 function dateCheck(nyuryokuti,syurui){
 
 	if(nyuryokuti.length != 8 || isNaN(nyuryokuti)){
-		document.getElementById("error_hyoji").innerHTML= syurui+"正しい日付を入力してください。";
+		document.getElementById("error_hyoji").innerHTML= syurui+"8桁の数値を入力してください。";
 		document.getElementById("error_hyoji").style.color= "red";
 		return false;
 	}
@@ -51,6 +51,12 @@ function requiredCheck()
 	var nyusyabi_from = form.nyusyabiFrom.value;
 	var nyusyabi_to = form.nyusyabiTo.value;
 	var flg;
+
+	 if(syain_id != null && syain_id != "" && syain_id.length != 4){
+			document.getElementById("error_hyoji").innerHTML= "社員IDは" + syain_id.length + "桁入力されています。4桁で入力してください。";
+			document.getElementById("error_hyoji").style.color= "red";
+			return false;
+		}
 
 	//生年月日(From)を取得する
 	if(seinengappi_from != null && seinengappi_from != ""){

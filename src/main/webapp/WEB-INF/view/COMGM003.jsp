@@ -28,26 +28,26 @@
 			%>
 			<div id="row">
 			<%if(gamenId == "GBJGM001"){ %>
-				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId" name="syainId" disabled="true"/></label>
+				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId" name="syainId" disabled="true" maxlength='4'/></label>
 			<%} %>
 			<%if(gamenId == "SIJGM001"){ %>
-				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId" name="syainId"/></label>
+				<label class="left syainid"><span class="item">社員ID</span><form:input path="syainId" name="syainId" maxlength='4'/></label>
 			<%} %>
 
 			<%if(gamenId == "GBJGM001"){ %>
-				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" disabled="true"/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo" disabled="true"/></label>
+				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" disabled="true" maxlength='8'/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo" disabled="true"/></label>
 			<%} %>
 			<%if(gamenId == "SIJGM001"){ %>
-				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom"/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo"/></label>
+				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" maxlength='8'/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo"/></label>
 			<%} %>
 
 			</div>
 			<div id="row">
 				<%if(gamenId == "GBJGM001"){ %>
-				<label class="left"><span class="item">前職</span><form:input path="previous" name="previous" disabled="true"/></label>
+				<label class="left"><span class="item">前職</span><form:input path="previous" name="previous" disabled="true" maxlength='20'/></label>
 				<%} %>
 				<%if(gamenId == "SIJGM001"){ %>
-				<label class="left"><span class="item">前職</span><form:input path="previous" name="previous"/></label>
+				<label class="left"><span class="item">前職</span><form:input path="previous" name="previous" maxlength='20'/></label>
 				<%} %>
 
 				<%if(gamenId == "GBJGM001"){ %>
@@ -70,24 +70,24 @@
 
 			</div>
 			<%if(gamenId == "GBJGM001"){ %>
-			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" disabled="true"/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo" disabled="true"/></label>
+			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" disabled="true" maxlength='8'/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo" disabled="true"/></label>
 			<%} %>
 			<%if(gamenId == "SIJGM001"){ %>
-			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom"/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo"/></label>
+			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" maxlength='8'/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo"/></label>
 			<%} %>
 
 			<%if(gamenId == "GBJGM001"){ %>
-			<label class="left team"><span class="item">チーム</span><form:input path="teamNa" name="teamNa" disabled="true"/></label>
+			<label class="left team"><span class="item">チーム</span><form:input path="teamNa" name="teamNa" disabled="true" maxlength='30'/></label>
 			<%} %>
 			<%if(gamenId == "SIJGM001"){ %>
-			<label class="left team"><span class="item">チーム</span><form:input path="teamNa" name="teamNa"/></label>
+			<label class="left team"><span class="item">チーム</span><form:input path="teamNa" name="teamNa" maxlength='30'/></label>
 			<%} %>
 
 			<%if(gamenId == "GBJGM001"){ %>
-			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa" naem="genbaNa"/></label>
+			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa" naem="genbaNa" maxlength='30'/></label>
 			<%} %>
 			<%if(gamenId == "SIJGM001"){ %>
-			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa" naem="genbaNa" disabled="true"/></label>
+			<label class="left genba"><span class="item">現場名</span><form:input path="genbaNa" naem="genbaNa" disabled="true" maxlength='30'/></label>
 			<%} %>
 
 			<div id="row">
@@ -104,19 +104,19 @@
 				</select>
 				</label>
 				<%if(gamenId == "GBJGM001"){ %>
-				<label class="right"><span class="item">単価</span><form:input path="tanka" name="tanka" disabled="true"/></label>
+				<label class="right"><span class="item">単価</span><form:input path="tanka" name="tanka" disabled="true" maxlength='6'/></label>
 				<%} %>
 				<%if(gamenId == "SIJGM001"){ %>
-				<label class="right"><span class="item">単価</span><form:input path="tanka" name="tanka"/></label>
+				<label class="right"><span class="item">単価</span><form:input path="tanka" name="tanka" maxlength='6'/></label>
 				<%} %>
 			</div>
 
 			<label class="left station"><span class="item">最寄駅</span>
-				<form:input path="moyori1Station" name="moyori1Station"/>
-				<form:input path="moyori2Station" name="moyori2Station"/>
-				<form:input path="moyori3Station" name="moyori3Station"/>
+				<form:input path="moyori1Station" name="moyori1Station" maxlength='10'/>
+				<form:input path="moyori2Station" name="moyori2Station" maxlength='10'/>
+				<form:input path="moyori3Station" name="moyori3Station" maxlength='10'/>
 			</label>
-			<label class="left address"><span class="item">住所</span><form:input path="address" name="address"/></label>
+			<label class="left address"><span class="item">住所</span><form:input path="address" name="address" maxlength='80'/></label>
 
 			<input type="submit" class="btn btn-default" value="検索" name="searchComGm003" formaction="${actionUrl}" onclick= "return requiredCheck()">
 			<input type="submit" class="btn btn-default" value="戻る" name="back_btn">

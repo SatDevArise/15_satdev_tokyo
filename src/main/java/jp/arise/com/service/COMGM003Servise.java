@@ -1,5 +1,6 @@
 package jp.arise.com.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,8 @@ public class COMGM003Servise {
 		comGm003Dto.setGenbaNa(comGm003Form.getGenbaNa());
 		comGm003Dto.setPhase(comGm003Form.getPhase());
 		if(comGm003Form.getTanka() != null && !comGm003Form.getTanka().isEmpty()){
-			comGm003Dto.setTanka(Integer.parseInt(comGm003Form.getTanka()));
+			BigDecimal bd = new BigDecimal(comGm003Form.getTanka());
+			comGm003Dto.setTanka(bd);
 		}
 		comGm003Dto.setMoyori1Station(comGm003Form.getMoyori1Station());
 		comGm003Dto.setMoyori2Station(comGm003Form.getMoyori2Station());
