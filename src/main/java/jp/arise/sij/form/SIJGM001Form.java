@@ -1,5 +1,7 @@
 package jp.arise.sij.form;
 
+import java.math.BigDecimal;
+
 /**
  * SIJGM001 社員情報一覧表示画面用Formクラス
  * JSPとController間の値受け渡し用
@@ -61,7 +63,7 @@ public class SIJGM001Form {
 	/**
 	 * 単価
 	 */
-	private int price;
+	private BigDecimal price;
 
 	/**
 	 * ユーザーを取得
@@ -147,7 +149,7 @@ public class SIJGM001Form {
 	 * 単価を取得
 	 * @return price
 	 */
-	public int getprice() {
+	public BigDecimal getprice() {
 		return price;
 	}
 
@@ -234,7 +236,7 @@ public class SIJGM001Form {
 	 * 単価を設定
 	 * @param price
 	 */
-	public void setPrice(int price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

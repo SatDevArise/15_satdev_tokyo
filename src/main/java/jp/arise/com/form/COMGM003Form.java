@@ -23,7 +23,8 @@ public class COMGM003Form {
 	private String teamNa;
 	private String genbaNa;
 	private String phase;
-	private int tanka;
+	private String tanka;
+//	private int tanka;
 	private String moyori1Station;
 	private String moyori2Station;
 	private String moyori3Station;
@@ -110,11 +111,11 @@ public class COMGM003Form {
 		this.phase = phase;
 	}
 
-	public int getTanka() {
+	public String getTanka() {
 		return tanka;
 	}
 
-	public void setTanka(int tanka) {
+	public void setTanka(String tanka) {
 		this.tanka = tanka;
 	}
 

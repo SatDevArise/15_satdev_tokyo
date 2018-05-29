@@ -1,5 +1,6 @@
 package jp.arise.com.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Service;
 import jp.arise.com.dao.COMGM003Dao;
 import jp.arise.com.dto.COMGM003Dto;
 import jp.arise.com.form.COMGM003Form;
-import jp.arise.com.message.COMMessage;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
 import jp.arise.utl.UTLContent;
@@ -65,7 +65,10 @@ public class COMGM003Servise {
 		comGm003Dto.setTeamNa(comGm003Form.getTeamNa());
 		comGm003Dto.setGenbaNa(comGm003Form.getGenbaNa());
 		comGm003Dto.setPhase(comGm003Form.getPhase());
-		comGm003Dto.setTanka(comGm003Form.getTanka());
+		if(comGm003Form.getTanka() != null && !comGm003Form.getTanka().isEmpty()){
+			BigDecimal bd = new BigDecimal(comGm003Form.getTanka());
+			comGm003Dto.setTanka(bd);
+		}
 		comGm003Dto.setMoyori1Station(comGm003Form.getMoyori1Station());
 		comGm003Dto.setMoyori2Station(comGm003Form.getMoyori2Station());
 		comGm003Dto.setMoyori3Station(comGm003Form.getMoyori3Station());

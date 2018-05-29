@@ -69,8 +69,16 @@
 				AND sd.syozoku_team like '%' || #{teamNa} || '%'
 			</if>
 
+			<if test="genbaNa != '' and genbaNa != null">
+				AND gd.genba_na like '%' || #{genbaNa} || '%'
+			</if>
+
 			<if test="phase != '' and phase != null">
 				AND sd.phase_cd like '%' || #{phase} || '%'
+			</if>
+
+			<if test="tanka != null and tanka != ''">
+				AND sd.tanka_vl = #{tanka}
 			</if>
 
 			<if test="nyusyabiFrom != ''">
