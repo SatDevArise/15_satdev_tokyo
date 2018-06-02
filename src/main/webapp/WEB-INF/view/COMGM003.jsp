@@ -18,7 +18,7 @@
 	</head>
 	<body>
 	<header>
-		<h1>検索画面</h1>
+		<h1>検索共通画面</h1>
 	</header>
 	<div id="error_hyoji"></div>
 	<spring:url value="/initComGm003" var="actionUrl"/>
@@ -35,10 +35,10 @@
 			<%} %>
 
 			<%if(gamenId == "GBJGM001"){ %>
-				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" disabled="true" maxlength='8'/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo" disabled="true"/></label>
+				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" disabled="true" maxlength='8'/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo" disabled="true" maxlength='8'/></label>
 			<%} %>
 			<%if(gamenId == "SIJGM001"){ %>
-				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" maxlength='8'/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo"/></label>
+				<label class="right birthdate"><span class="item">生年月日</span><form:input path="seinengappiFrom" name="seinengappiFrom" maxlength='8'/><span class="line">～</span><form:input path="seinengappiTo" name="seinengappiTo" maxlength='8'/></label>
 			<%} %>
 
 			</div>
@@ -70,10 +70,10 @@
 
 			</div>
 			<%if(gamenId == "GBJGM001"){ %>
-			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" disabled="true" maxlength='8'/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo" disabled="true"/></label>
+			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" disabled="true" maxlength='8'/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo" disabled="true" maxlength='8'/></label>
 			<%} %>
 			<%if(gamenId == "SIJGM001"){ %>
-			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" maxlength='8'/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo"/></label>
+			<label class="left hiredate"><span class="item">入社日</span><form:input path="nyusyabiFrom" name="nyusyabiFrom" maxlength='8'/><span class="line">～</span><form:input path="nyusyabiTo" name="nyusyabiTo" maxlength='8'/></label>
 			<%} %>
 
 			<%if(gamenId == "GBJGM001"){ %>

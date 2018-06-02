@@ -1,6 +1,7 @@
 package jp.arise.com.dto;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * COMGM003 検索共通画面用サービス間Dtoクラス
@@ -46,7 +47,7 @@ public class COMGM003Dto implements Serializable{
 
 	private String phase;
 
-	private int tanka;
+	private BigDecimal tanka;
 
 	private String moyori1Station;
 
@@ -155,11 +156,11 @@ public class COMGM003Dto implements Serializable{
 		this.phase = phase;
 	}
 
-	public int getTanka() {
+	public BigDecimal getTanka() {
 		return tanka;
 	}
 
-	public void setTanka(int tanka) {
+	public void setTanka(BigDecimal tanka) {
 		this.tanka = tanka;
 	}
 
