@@ -1,6 +1,7 @@
 package jp.arise.gbj.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jp.arise.gbj.dto.GBJGM002Dto;
 
@@ -35,6 +36,11 @@ public interface GBJGM002Dao extends Serializable{
 	 * @return user
 	 */
 	public void numbering(GBJGM002Dto GBJGM002Dto);
+
+	/**
+	 * 現場情報取得処理
+	 */
+	public List<GBJGM002Dto> getGenbaInfo(String GenbaId);
 
 
 //	/**

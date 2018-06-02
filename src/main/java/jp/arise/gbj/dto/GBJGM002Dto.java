@@ -24,7 +24,7 @@ public class GBJGM002Dto implements Serializable{
 	/**
 	 * 現場ID
 	 */
-	private String genba_Id;
+	private String genba_id;
 
 	/**
 	 * 現場名
@@ -137,10 +137,10 @@ public class GBJGM002Dto implements Serializable{
 		this.userId = userId;
 	}
 	public String getGenba_Id() {
-		return genba_Id;
+		return genba_id;
 	}
-	public void setGenba_Id(String genba_Id) {
-		this.genba_Id = genba_Id;
+	public void setGenba_Id(String genba_id) {
+		this.genba_id = genba_id;
 	}
 	public String getGenba_na() {
 		return genba_na;

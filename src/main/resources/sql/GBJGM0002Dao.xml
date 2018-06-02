@@ -3,6 +3,22 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="jp.arise.gbj.dao.GBJGM002Dao">
+  <resultMap id="resultGBJGM002Dto" type="jp.arise.gbj.dto.GBJGM002Dto">
+        <result column="genba_id" property="genba_Id"/>
+        <result column="genba_na" property="genba_na"/>
+        <result column="genba_address" property="address"/>
+        <result column="genba_moyori_eki_1" property="moyori_1_station"/>
+        <result column="genba_moyori_eki_2" property="moyori_2_station"/>
+        <result column="genba_moyori_eki_3" property="moyori_3_station"/>
+        <result column="sagyonaiyo" property="work"/>
+        <result column="phase_cd" property="phase"/>
+    </resultMap>
+
+    <select id="getGenbaInfo" resultMap="resultGBJGM002Dto">
+        SELECT *
+        FROM genba_dt
+        WHERE genba_id = #{genba_Id}
+    </select>
 
    <select id="getGenbaId" resultType="String">
     SELECT max(genba_id)

@@ -106,15 +106,15 @@ public class GBJGM002Controller {
 	@RequestMapping(value = "/GBJGM002", method = RequestMethod.GET)
 	public String initGBJGm002(@RequestParam("genbaId") String genbaId,Model model){
 		//画面ID更新処理
-//		gbjGm002Service.upSession(UTLContent.GMID_GBJGM001);
+		gbjGm002Service.upSession(UTLContent.GMID_GBJGM001);
 
 		//GETパラメータから現場情報を取得
-//		GBJGM002Dto gbjGm002Dto = gbjGm002Service.getGenbaInfo(genbaId);
+		GBJGM002Dto gbjGm002Dto = gbjGm002Service.getGenbaInfo(genbaId);
 
 		//FormにGBJGM001MAVの情報を設定
-//		GBJGM002Form sijGm002Form = setGbjgm002form(gbjGm002Dto);
+		GBJGM002Form gbjGm002Form = setGbjgm002form(gbjGm002Dto);
 
-//		model.addAttribute("GBJGM002Form",gbjGm002Form);
+		model.addAttribute("GBJGM002Form",gbjGm002Form);
 		return "GBJGM002";
 	}
 
@@ -264,4 +264,46 @@ public class GBJGM002Controller {
 		return new ModelAndView("forward:/initGbjGm001","GBJGM002MAV",gbjGm002MAV);
 	}
 
+	private GBJGM002Dto setGbjgm002dto(GBJGM002Form gbjGm002Form) {
+		//Dtoを生成
+		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
+
+		//ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		String userId = (String)loginInfo.getAttribute().getUserId();
+
+		//DtoにFormの値を設定する。
+		gbjGm002Dto.setGenba_Id(gbjGm002Form.getGenba_id());
+		gbjGm002Dto.setGenba_na(gbjGm002Form.getGenba_na());
+		gbjGm002Dto.setAddress(gbjGm002Form.getAddress());
+		gbjGm002Dto.setMoyori_1_station(gbjGm002Form.getMoyori_1_station());
+		gbjGm002Dto.setMoyori_2_station(gbjGm002Form.getMoyori_2_station());
+		gbjGm002Dto.setMoyori_3_station(gbjGm002Form.getMoyori_3_station());
+		gbjGm002Dto.setWork(gbjGm002Form.getWork());
+		gbjGm002Dto.setPhase(gbjGm002Form.getPhase());
+		gbjGm002Dto.setUser(userId);
+
+		return gbjGm002Dto;
+	}
+
+	private GBJGM002Form setGbjgm002form(GBJGM002Dto gbjGm002Dto) {
+		//Formを生成
+		GBJGM002Form gbjGm002Form = new GBJGM002Form();
+		//ログイン情報取得
+//				LoginInfoDto loginInfoDto = new LoginInfoDto();
+				String userId = (String)loginInfo.getAttribute().getUserId();
+
+		//FormにDtoの情報を設定する。
+		gbjGm002Form.setGenba_id(gbjGm002Dto.getGenba_Id());
+		gbjGm002Form.setGenba_na(gbjGm002Dto.getGenba_na());
+		gbjGm002Form.setAddress(gbjGm002Dto.getAddress());
+		gbjGm002Form.setMoyori_1_station(gbjGm002Dto.getMoyori_1_station());
+		gbjGm002Form.setMoyori_2_station(gbjGm002Dto.getMoyori_2_station());
+		gbjGm002Form.setMoyori_3_station(gbjGm002Dto.getMoyori_3_station());
+		gbjGm002Form.setWork(gbjGm002Dto.getWork());
+		gbjGm002Form.setPhase(gbjGm002Dto.getPhase());
+		gbjGm002Form.setUser(userId);
+
+		return gbjGm002Form;
+	}
 }
