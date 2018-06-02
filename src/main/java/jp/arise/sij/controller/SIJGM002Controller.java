@@ -195,6 +195,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setMoyoriStation3(sijGm002Form.getMoyoriStation3());
 		if(sijGm002Form.getHireDate() != null && !sijGm002Form.getHireDate().isEmpty()) {
 			sijGm002Dto.setHireDate(sijGm002Service.convertDate(sijGm002Form.getHireDate()));
+			System.out.println("値"+sijGm002Dto.getHireDate());
 		}
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setPhase(sijGm002Form.getPhase());
